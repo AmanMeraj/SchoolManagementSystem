@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="5dp"
+    android:layout_height="280dp">
+    <RelativeLayout
+        android:background="@drawable/bg_id_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:src="@drawable/logo_sm_dark"
+            android:layout_marginVertical="10dp"
+            android:layout_width="40dp"
+            android:id="@+id/logo_img"
+            android:layout_centerHorizontal="true"
+            android:layout_height="40dp"/>
+        <ImageView
+            android:id="@+id/profile_img"
+            android:layout_below="@+id/logo_img"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/id_profile_img_bg"
+            android:src="@drawable/avatar2"
+            android:paddingVertical="5dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+        <TextView
+            android:textSize="11sp"
+            android:paddingHorizontal="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_img"
+            android:id="@+id/name"
+            android:text="Aman Meraj"
+            android:textColor="@color/white"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:textSize="11sp"
+            android:paddingHorizontal="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/name"
+            android:id="@+id/id"
+            android:text="CSE204045"
+            android:textColor="@color/white"
+            android:fontFamily="@font/plus_jakarta_sans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <TextView
+            android:textSize="10sp"
+            android:paddingHorizontal="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/id"
+            android:id="@+id/classs"
+            android:text="4th Year"
+            android:textColor="@color/white"
+            android:fontFamily="@font/plus_jakarta_sans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </TextView>
+        <ImageView
+            android:id="@+id/qr_code"
+            android:src="@drawable/qr"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="10dp"
+            android:layout_below="@+id/classs"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:tint="@color/white" />
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

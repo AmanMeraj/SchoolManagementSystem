@@ -1,0 +1,66 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.school.schoolmanagement'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.school.schoolmanagement"
+        minSdk 25
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.viewmodel.ktx
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    // Retrofit
+    implementation libs.retrofit
+    implementation libs.converter.gson
+
+    // Gson
+    implementation libs.gson
+
+    // CircleIndicator (For ViewPager2)
+    implementation libs.circleindicator
+
+    // CircleImageView
+    implementation libs.circleimageview
+
+    // Glide (For Image Loading)
+    implementation libs.glide
+    annotationProcessor libs.compiler
+    implementation libs.mpandroidchart
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+}

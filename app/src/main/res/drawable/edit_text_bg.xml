@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom layer: gradient background for the border -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="7dp"/>
+            <gradient
+                android:angle="90"
+                android:startColor="#00BCD4"
+                android:endColor="#FF5722"/>
+        </shape>
+    </item>
+
+    <!-- Top layer: white color inside with slightly smaller size -->
+    <item android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
+        <shape android:shape="rectangle">
+            <corners android:radius="6dp"/>
+            <solid android:color="#FFFFFF"/> <!-- White background -->
+        </shape>
+    </item>
+</layer-list>

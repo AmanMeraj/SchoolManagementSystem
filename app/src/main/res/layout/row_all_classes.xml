@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            android:layout_margin="8dp"
+            app:cardElevation="5dp"
+            android:id="@+id/card_all_classes"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/total_students_rel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:text="60"
+                        android:id="@+id/total_students_number"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/total_students_number"
+                        android:text="Students"
+                        android:id="@+id/total_students_tv"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:textColor="@color/grey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/edit_del_rel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_toEndOf="@+id/edit_btn"
+                        android:id="@+id/delete_btn"
+                        android:padding="5dp"
+                        android:layout_width="40dp"
+                        android:src="@drawable/delete_sm"
+                        android:layout_height="40dp"
+                        app:tint="@color/dark_red" />
+                    <ImageView
+                        android:id="@+id/edit_btn"
+                        android:padding="5dp"
+                        android:layout_width="40dp"
+                        android:src="@drawable/edit_sm"
+                        android:layout_height="40dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/class_name_rel"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="-30dp"
+                    android:layout_below="@+id/edit_del_rel"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/graduation_cap"
+                        android:id="@+id/graduation_cap"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp" />
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/graduation_cap"
+                        android:id="@+id/class_name"
+                        android:text="Class Name"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_below="@+id/class_name_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:padding="8dp">
+
+                    <!-- Boys Chart -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/chartBoys"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"/>
+
+                        <TextView
+                            android:id="@+id/textCountBoys"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20"
+                            android:textSize="14sp"
+                            android:textColor="@color/orange"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/textLabelBoys"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Boys"
+                            android:textSize="14sp"
+                            android:textColor="#999999"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <!-- Girls Chart -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/chartGirls"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"/>
+
+                        <TextView
+                            android:id="@+id/textCountGirls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20"
+                            android:textSize="14sp"
+                            android:textColor="@color/light_blue"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/textLabelGirls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Girls"
+                            android:textSize="14sp"
+                            android:textColor="#999999"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <!-- N/A Chart -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/chartNA"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"/>
+
+                        <TextView
+                            android:id="@+id/textCountNA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20"
+                            android:textSize="14sp"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/textLabelNA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="N/A"
+                            android:textSize="14sp"
+                            android:textColor="#999999"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

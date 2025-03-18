@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice">
+    <RelativeLayout
+        android:elevation="5dp"
+        android:background="@drawable/tool_bar_bg"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:rotation="180"
+            android:src="@drawable/right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="General Settings"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Fees Challan Details"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/tv_update_profile"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:text="Add New Bank"
+                android:textColor="@color/black"
+                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/card_intro"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_update_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:elevation="5dp"
+                    android:id="@+id/tv_institute_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bank Logo *"
+                    android:textSize="10sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="4dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="2dp"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_gradient_border">
+
+                    <!-- Circular Logo -->
+                    <ImageView
+                        android:layout_marginVertical="10dp"
+                        android:id="@+id/img_logo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/placeholder"
+                        android:scaleType="centerCrop" />
+
+                    <!-- Change Logo Button -->
+                    <RelativeLayout
+                        android:id="@+id/btn_change_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_toEndOf="@id/img_logo"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="20dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:background="@drawable/button_bg_sm">
+                        <ImageView
+                            android:id="@+id/img_gallery"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/gallery"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                        <TextView
+                            android:paddingHorizontal="5dp"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/img_gallery"
+                            android:text="Change Logo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_below="@+id/frame_layout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_bank_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Bank Name"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+                        android:elevation="5dp"
+                        android:id="@+id/tv_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank Name*"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    > <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_bank_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Bank/Branch Address"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bank | Branch Address*"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:maxLength="11"
+                            android:hint="Account Number"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Account Number*"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    > <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_instructions"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Add Instructions"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instructions ( Optional )"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edit_text_optional"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:id="@+id/update_btn"
+                    android:background="@drawable/blue_square_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="5dp"
+                            android:id="@+id/refresh_img"
+                            android:layout_width="30dp"
+                            android:src="@drawable/add_sm"
+                            android:layout_height="30dp"/>
+                        <TextView
+                            android:layout_alignTop="@+id/refresh_img"
+                            android:layout_alignBottom="@+id/refresh_img"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center"
+                            android:layout_toEndOf="@+id/refresh_img"
+                            android:layout_width="wrap_content"
+                            android:text="Add Bank"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:backgroundTint="@color/white"
+                    android:id="@+id/profile_card"
+                    app:cardElevation="5dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_height="300dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:id="@+id/rel_search"
+                            android:layout_marginVertical="20dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/search_bar_bg"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/search_img"
+                                android:padding="5dp"
+                                android:layout_marginHorizontal="5dp"
+                                android:layout_marginVertical="3dp"
+                                android:src="@drawable/search"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+                            <EditText
+                                android:layout_marginVertical="5dp"
+                                android:layout_alignTop="@+id/search_img"
+                                android:layout_alignBottom="@+id/search_img"
+                                android:gravity="center_vertical"
+                                android:textSize="13sp"
+                                android:hint="Search"
+                                android:textColorHint="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:background="@null"
+                                android:layout_toEndOf="@+id/search_img"
+                                android:layout_marginEnd="15dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+                        </RelativeLayout>
+                        <LinearLayout
+                            android:id="@+id/linear_table_bank"
+                            android:weightSum="4"
+                            android:layout_marginHorizontal="10dp"
+                            android:orientation="horizontal"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_below="@+id/rel_search"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingVertical="8dp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:text="Bank"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:layout_width="0dp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:paddingVertical="8dp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:text="Logo"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:layout_width="0dp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:paddingVertical="8dp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:text="Account No."
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:layout_width="0dp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:paddingVertical="8dp"
+                                android:gravity="center"
+                                android:layout_weight="1"
+                                android:text="Actions"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:layout_width="0dp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_marginHorizontal="10dp"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/linear_table_bank"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:id="@+id/rc_bank_acc"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:textColor="@color/black"
+                           android:layout_below="@+id/linear_table_bank"
+                            android:layout_marginVertical="40dp"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="wrap_content"
+                            android:text="No Data Available in table "
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

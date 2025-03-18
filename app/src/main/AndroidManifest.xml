@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SchoolManagement"
+        tools:targetApi="31">
+        <activity
+            android:name=".Admin.Accounts.Expense.ActivityAddExpense"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Accounts.Income.ActivityAddIncome"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Employee.ManageLogin.ActivityStaffLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Employee.StaffIdCard.ActivityStaffIdCard"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Employee.JobLetter.ActivityJobLetter"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Employee.AdmissionForm.ActivityAddEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Employee.AllEmployee.ActivityAllEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.BasicList.ActivityBasicList"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.Managelogin.ActivityManageStudentsLogin"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.PromoteStudents.ActivityPromoteStudents"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.StudentsIdCard.ActivityStudentsIdCards"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.AdmissionForm.ActivityAddStudents"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.AdmissionLetter.ActivityAdmissionLetter"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Students.AllStudents.ActivityAllStudents"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Subjects.CreateSubject.ActivityCreateSubjects"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Subjects.ClassesWithSubjects.ActivityClassesWithSubjects"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Classes.NewClass.ActivityNewClass"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Classes.AllClasses.ActivityAllClass"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.GeneralSettings.AccountSettings.ActivityAccountSettings"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.GeneralSettings.RulesAndregulations.ActivityRulesAndRegulations"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.GeneralSettings.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword.ActivityForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".Signup.ActivitySignup"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.ActivityAdminDashboard"
+            android:exported="false"
+            android:label="@string/title_activity_admin_dashboard"
+            android:theme="@style/Theme.SchoolManagement.NoActionBar" />
+        <activity
+            android:name=".Login.ActivityLogin"
+            android:exported="false" />
+        <activity
+            android:name=".IntroScreen.ActivityIntroduction"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen.ActivitySplash"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Employee.AdmissionForm.ActivityAddEmployee">
+        <include layout="@layout/back_toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_below="@+id/toolbar"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_intro"
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/general_settings"
+                            android:layout_width="wrap_content"
+                            android:text="Employee"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:textSize="15sp"
+                            android:paddingHorizontal="10dp"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:id="@+id/view"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_marginVertical="10dp"
+                            android:layout_toEndOf="@+id/general_settings"
+                            android:layout_width="1dp"
+                            android:layout_height="30dp">
+
+                        </View>
+                        <ImageView
+                            android:id="@+id/institute_profile_img"
+                            android:padding="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toEndOf="@+id/view"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/institute_profile"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/institute_profile_img"
+                            android:layout_width="wrap_content"
+                            android:text="- New Staff"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_height="wrap_content"/>
+                        <RelativeLayout
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_gravity="center_vertical"
+                                android:padding="5dp"
+                                android:src="@drawable/refresh_sm"
+                                android:id="@+id/refresh_btn"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"/>
+                            <ImageView
+                                android:layout_marginEnd="5dp"
+                                android:layout_toEndOf="@id/refresh_btn"
+                                android:layout_gravity="center_vertical"
+                                android:padding="5dp"
+                                android:src="@drawable/search_sm"
+                                android:id="@+id/search_btn"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"/>
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <RelativeLayout
+                    android:id="@+id/rel_search"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_below="@+id/card_intro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/admission_form"
+                        android:text="Employee Form"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/admission_form"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_centerVertical="true"
+                            android:id="@+id/required"
+                            android:background="@drawable/edittext_bg"
+                            android:layout_width="15dp"
+                            android:layout_height="4dp"/>
+                        <com.school.schoolmanagement.GradientTextView
+                            android:layout_width="wrap_content"
+                            android:text="Required"
+                            android:paddingHorizontal="10dp"
+                            android:textSize="11sp"
+                            android:id="@+id/tv_required"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_toEndOf="@+id/required"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:layout_toEndOf="@+id/tv_required"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/optional"
+                            android:background="@drawable/edit_text_optional"
+                            android:layout_width="15dp"
+                            android:layout_height="4dp"/>
+                        <com.school.schoolmanagement.GradientTextView
+                            android:layout_width="wrap_content"
+                            android:text="Optional"
+                            android:paddingHorizontal="10dp"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_toEndOf="@+id/optional"
+                            android:layout_height="wrap_content"/>
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_below="@+id/rel_search"
+                    android:id="@+id/basic_relative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:id="@+id/tv_students_info"
+                        android:text="1 ). Basic Information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <RelativeLayout
+                        android:layout_toEndOf="@id/tv_students_info"
+                        android:layout_alignTop="@+id/tv_students_info"
+                        android:layout_alignBottom="@+id/tv_students_info"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <View
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:background="@color/black"
+                            android:layout_height="1dp"/>
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_marginVertical="10dp"
+                        android:layout_below="@+id/tv_students_info"
+                        android:orientation="vertical"
+                        android:id="@+id/linear_student_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!-- EditText Field -->
+                                <EditText
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_employee_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Name of Employee"
+                                    android:inputType="text"/>
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_hint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Employee Name*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            > <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:background="@drawable/edit_text_bg"
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!-- EditText Field -->
+                                <RelativeLayout
+                                    android:layout_marginVertical="20dp"
+                                    android:id="@+id/btn_change_logo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="40dp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="20dp"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:background="@drawable/button_bg_sm">
+                                    <ImageView
+                                        android:id="@+id/img_gallery"
+                                        android:layout_centerVertical="true"
+                                        android:src="@drawable/gallery"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"/>
+                                    <TextView
+                                        android:paddingHorizontal="5dp"
+                                        android:textSize="11sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_centerVertical="true"
+                                        android:layout_toEndOf="@+id/img_gallery"
+                                        android:text="Change Logo"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+
+
+                                </RelativeLayout>
+                                <TextView
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:paddingHorizontal="10dp"
+                                    android:layout_marginHorizontal="20dp"
+                                    android:gravity="center"
+                                    android:layout_alignBottom="@+id/btn_change_logo"
+                                    android:layout_alignTop="@+id/btn_change_logo"
+                                    android:text="Max 1 MB"
+                                    android:textColor="@color/orange"
+                                    android:layout_toEndOf="@+id/btn_change_logo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_picture"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Picture (Optional)*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edit_text_optional"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_mobile_number"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Mobile Number for SMS/Whatsapp"
+                                    android:inputType="number"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_registration_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mobile Number for SMS/Whatsapp*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edit_text_optional"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+                        <!-- Date of Admission -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_date_of_joining"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Date of Joining"
+                                    android:inputType="date"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_date_of_admission"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Date of Joining*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+                        <!-- Select Class -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:maxLines="1"
+                                    android:editable="false"
+                                    android:id="@+id/edt_employee_role"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:maxLength="11"
+                                    android:hint=" Select" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Employee Role*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Discount in Fees -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_monthly_salary"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Monthly Salary"
+                                    android:inputType="number"/>
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_discount_fees"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Monthly Salary*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_below="@+id/linear_student_info"
+                        android:id="@+id/other_ifo_relative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textSize="13sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:id="@+id/tv_other_info"
+                            android:text="2 ). Other Information"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <RelativeLayout
+                            android:layout_toEndOf="@id/tv_other_info"
+                            android:layout_alignTop="@+id/tv_other_info"
+                            android:layout_alignBottom="@+id/tv_other_info"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <View
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:background="@color/black"
+                                android:layout_height="1dp"/>
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_marginVertical="10dp"
+                            android:layout_below="@+id/tv_other_info"
+                            android:orientation="vertical"
+                            android:id="@+id/linear_other_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <RelativeLayout
+                                    android:layout_marginTop="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <EditText
+                                        android:maxLines="1"
+                                        android:id="@+id/edt_father_husband_name"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="50dp"
+                                        android:background="@drawable/edit_text_bg"
+                                        android:paddingStart="10dp"
+                                        android:paddingTop="12dp"
+                                        android:paddingBottom="10dp"
+                                        android:paddingEnd="10dp"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:textSize="14sp"
+                                        android:hint="Father/Husband Name"
+                                        android:inputType="date"/>
+                                </RelativeLayout>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_date_of_birth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Father/Husband Name (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+
+
+                            <!-- National ID -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_nid"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="National ID"
+                                    android:inputType="number"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_father_nid"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="National ID (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_education"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Education"
+                                    android:inputType="text"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_education"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Education (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+
+                            <!-- Gender -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <Spinner
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/spinner_gender"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_gender"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Gender (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <Spinner
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/spinner_religion"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_religion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Religion (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <Spinner
+                                    android:layout_marginTop="10dp"
+                                    android:id="@+id/spinner_blood_group"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_blood_group"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Blood Group (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_experience"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Experience"
+                                    android:inputType="number"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_experience"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Experience (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_email"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Email Address"
+                                    android:inputType="number"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_email"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Email Address (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_dob"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Date of Birth"
+                                    android:inputType="number"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_dob"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Date of Birth (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp">
+
+                                <EditText
+                                    android:layout_marginTop="10dp"
+                                    android:maxLines="1"
+                                    android:id="@+id/edt_home_address"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:hint="Home Address"
+                                    android:inputType="number"/>
+
+                                <TextView
+                                    android:elevation="5dp"
+                                    android:id="@+id/tv_home_address"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Home Address (Optional)*"
+                                    android:textSize="10sp"
+                                    android:textColor="@color/white"
+                                    android:background="@drawable/edit_text_optional"
+                                    android:paddingHorizontal="10dp"
+                                    android:paddingVertical="2dp"
+                                    android:layout_marginStart="15dp"/>
+                            </RelativeLayout>
+
+
+
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_marginVertical="10dp"
+                        android:layout_below="@+id/other_ifo_relative"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/orange_bg"
+                            android:id="@+id/reset_btn"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp">
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/refresh_btn_img"
+                                android:src="@drawable/refresh_circle"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp">
+
+                            </ImageView>
+                            <TextView
+                                android:paddingHorizontal="5dp"
+                                android:text="RESET"
+                                android:layout_toEndOf="@+id/refresh_btn_img"
+                                android:id="@+id/reset_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/blue_bg"
+                            android:id="@+id/submit_btn"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="45dp">
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/submit_btn_img"
+                                android:src="@drawable/tick_circle"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp">
+
+                            </ImageView>
+                            <TextView
+                                android:paddingHorizontal="5dp"
+                                android:text="SUBMIT"
+                                android:layout_toEndOf="@+id/submit_btn_img"
+                                android:id="@+id/submit_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

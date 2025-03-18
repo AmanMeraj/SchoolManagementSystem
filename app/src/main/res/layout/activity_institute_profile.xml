@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile">
+    <RelativeLayout
+        android:elevation="5dp"
+        android:background="@drawable/tool_bar_bg"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:rotation="180"
+            android:src="@drawable/right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="General Settings"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                      android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Institute Profile"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/tv_update_profile"
+                android:textSize="20sp"
+                android:layout_width="wrap_content"
+                android:text="Update Profile"
+                android:textColor="@color/black"
+                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/card_intro"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:id="@+id/frame_layout"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/tv_update_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:elevation="5dp"
+                    android:id="@+id/tv_institute_logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Institute Logo *"
+                    android:textSize="10sp"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/edittext_bg"
+                    android:padding="4dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="2dp"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_gradient_border">
+
+                        <!-- Circular Logo -->
+                        <ImageView
+                            android:layout_marginVertical="10dp"
+                            android:id="@+id/img_logo"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="20dp"
+                            android:src="@drawable/placeholder"
+                            android:scaleType="centerCrop" />
+
+                        <!-- Change Logo Button -->
+                        <RelativeLayout
+                            android:id="@+id/btn_change_logo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_toEndOf="@id/img_logo"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="20dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:background="@drawable/button_bg_sm">
+                            <ImageView
+                                android:id="@+id/img_gallery"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/gallery"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"/>
+                            <TextView
+                                android:paddingHorizontal="5dp"
+                                android:textSize="11sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_centerVertical="true"
+                                android:layout_toEndOf="@+id/img_gallery"
+                                android:text="Change Logo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </FrameLayout>
+            <LinearLayout
+                android:layout_below="@+id/frame_layout"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                       android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/et_institute_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Name of Institute"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+                        android:elevation="5dp"
+                        android:id="@+id/tv_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Institute Name"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                    android:layout_marginStart="25dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   > <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                       android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_tag_line"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Tag Line"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tag Line ( Optional )"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edit_text_optional"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                    android:layout_marginStart="25dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:maxLength="11"
+                            android:hint="Phone Number"
+                            android:inputType="number"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    > <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:maxLines="1"
+                            android:id="@+id/edt_website_url"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:hint="Website URL"
+                            android:inputType="text"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Website URL ( Optional )"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edit_text_optional"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <EditText
+                            android:id="@+id/edt_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:minHeight="100dp"
+                            android:hint="Address"
+                            android:inputType="textMultiLine"/>
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Address"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- EditText Field -->
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                            android:drawableEnd="@drawable/down_arrow"
+                            android:maxLines="1"
+                            android:editable="false"
+                            android:id="@+id/edt_country"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="14sp"
+                            android:maxLength="11"
+                            android:hint="Country" />
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:elevation="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Country*"
+                        android:textSize="10sp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/edittext_bg"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:layout_marginStart="25dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="8dp"
+                    android:id="@+id/update_btn"
+                    android:background="@drawable/blue_square_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+                    <RelativeLayout
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/refresh_img"
+                            android:layout_width="30dp"
+                            android:src="@drawable/refresh_circle"
+                            android:layout_height="30dp"/>
+                        <TextView
+                            android:layout_alignTop="@+id/refresh_img"
+                            android:layout_alignBottom="@+id/refresh_img"
+                            android:paddingHorizontal="10dp"
+                            android:gravity="center"
+                            android:layout_toEndOf="@+id/refresh_img"
+                            android:layout_width="wrap_content"
+                            android:text="Update Profile"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="10dp"
+                    android:backgroundTint="@color/white"
+                    android:id="@+id/profile_card"
+                    app:cardElevation="5dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_profile_view"
+                            android:layout_marginVertical="20dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:background="@drawable/orange_curve"
+                            android:text="Profile View"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:textSize="15sp"
+                            android:paddingHorizontal="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:id="@+id/profile_img"
+                            android:layout_marginBottom="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="80dp"
+                            android:src="@drawable/placeholder"
+                            android:layout_below="@+id/tv_profile_view"
+                            android:layout_height="80dp"/>
+                        <TextView
+                            android:id="@+id/institute_name"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/profile_img"
+                            android:text="Your Institute Name"
+                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:paddingVertical="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:id="@+id/institute_tag_line"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/institute_name"
+                            android:text="Your Institute Tag Line"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:paddingVertical="0dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <View
+                            android:id="@+id/view1"
+                            android:layout_marginVertical="10dp"
+                            android:layout_below="@+id/institute_tag_line"
+                            android:background="@color/grey"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <LinearLayout
+                            android:layout_below="@+id/view1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:id="@+id/image_phone_number"
+                                    android:src="@drawable/phone_number"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:textSize="15sp"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_phone_number"
+                                    android:layout_alignTop="@+id/image_phone_number"
+                                    android:layout_alignBottom="@+id/image_phone_number"
+                                    android:gravity="center"
+                                    android:text="Phone Number"
+                                    android:textColor="@color/grey"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+/>
+                                <TextView
+                                    android:id="@+id/tv_phone"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_phone_number"
+                                    android:text="923456879"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/light_blue"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_below="@id/image_phone_number"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <View
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_below="@+id/tv_phone"
+                                    android:background="@color/grey"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:id="@+id/image_email"
+                                    android:src="@drawable/email"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:textSize="15sp"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_email"
+                                    android:layout_alignTop="@+id/image_email"
+                                    android:layout_alignBottom="@+id/image_email"
+                                    android:gravity="center"
+                                    android:text="Email"
+                                    android:textColor="@color/grey"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+/>
+                                <TextView
+                                    android:id="@+id/tv_email"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_email"
+                                    android:text="amanmeraj.1234@gmail.com"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/light_blue"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_below="@id/image_email"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <View
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_below="@+id/tv_email"
+                                    android:background="@color/grey"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:id="@+id/image_website"
+                                    android:src="@drawable/website"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:textSize="15sp"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_website"
+                                    android:layout_alignTop="@+id/image_website"
+                                    android:layout_alignBottom="@+id/image_website"
+                                    android:gravity="center"
+                                    android:text="Website"
+                                    android:textColor="@color/grey"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+/>
+                                <TextView
+                                    android:id="@+id/tv_website"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_website"
+                                    android:text="amanmeraj.1234@gmail.com"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/light_blue"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_below="@id/image_website"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <View
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_below="@+id/tv_website"
+                                    android:background="@color/grey"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:id="@+id/image_address"
+                                    android:src="@drawable/address"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:textSize="15sp"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_address"
+                                    android:layout_alignTop="@+id/image_address"
+                                    android:layout_alignBottom="@+id/image_address"
+                                    android:gravity="center"
+                                    android:text="Website"
+                                    android:textColor="@color/grey"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+/>
+                                <TextView
+                                    android:id="@+id/tv_address"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_address"
+                                    android:text="WestBengal,Kolkata"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/light_blue"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_below="@id/image_address"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <View
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_below="@+id/tv_address"
+                                    android:background="@color/grey"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"/>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:id="@+id/image_country"
+                                    android:src="@drawable/country"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:textSize="15sp"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_country"
+                                    android:layout_alignTop="@+id/image_country"
+                                    android:layout_alignBottom="@+id/image_country"
+                                    android:gravity="center"
+                                    android:text="Country"
+                                    android:textColor="@color/grey"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+/>
+                                <TextView
+                                    android:id="@+id/tv_country"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/image_country"
+                                    android:text="India"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/light_blue"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_below="@id/image_country"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <View
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_below="@+id/tv_country"
+                                    android:background="@color/grey"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"/>
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

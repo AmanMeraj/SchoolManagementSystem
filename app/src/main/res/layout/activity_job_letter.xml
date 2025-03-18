@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Students.AdmissionLetter.ActivityAdmissionLetter">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Employee"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Job Letter"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_gravity="center_vertical"
+                            android:padding="5dp"
+                            android:src="@drawable/refresh_sm"
+                            android:id="@+id/refresh_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                        <ImageView
+                            android:layout_marginEnd="5dp"
+                            android:layout_toEndOf="@id/refresh_btn"
+                            android:layout_gravity="center_vertical"
+                            android:padding="5dp"
+                            android:src="@drawable/search_sm"
+                            android:id="@+id/search_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout
+                android:id="@+id/rel_search"
+                android:layout_marginHorizontal="10dp"
+                android:layout_below="@+id/card_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+
+                    android:id="@+id/search_img"
+                    android:layout_width="40dp"
+                    android:src="@drawable/search_sm"
+                    android:padding="5dp"
+                    android:layout_height="40dp"
+                    app:tint="@color/orange" />
+                <TextView
+                    android:id="@+id/tv_search"
+                    android:textSize="15sp"
+                    android:paddingHorizontal="10dp"
+                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:text="Search Employee"
+                    android:textColor="@color/grey"
+                    android:layout_toEndOf="@+id/search_img"
+                    android:layout_alignTop="@+id/search_img"
+                    android:layout_alignBottom="@+id/search_img"
+                    android:layout_height="wrap_content"/>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_below="@+id/tv_search"
+                    android:hint="Enter Text here"
+                    android:background="@color/white"
+                    android:textSize="13sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/plus_jakarta_sans"
+                    android:paddingHorizontal="10dp"
+                    android:id="@+id/edt_search_student"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </RelativeLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:id="@+id/card_admission_confirmation"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                app:cardCornerRadius="10dp"
+                android:layout_below="@+id/rel_search"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.school.schoolmanagement.GradientTextView
+                        android:textSize="15sp"
+                        android:id="@+id/tv_admission_info"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="wrap_content"
+                        android:text="JOB INFORMATION"
+                        android:layout_centerHorizontal="true"
+                        android:layout_height="wrap_content"/>
+                    <RelativeLayout
+                        android:layout_below="@+id/tv_admission_info"
+                        android:layout_marginTop="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/avatar_rel"
+                        android:background="@drawable/orange_avatar_bg_2"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp">
+                        <RelativeLayout
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/orange_avatar_bg"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp">
+                            <ImageView
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/avatar2"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/name_tv"
+                        android:paddingHorizontal="10dp"
+                        android:layout_below="@+id/avatar_rel"
+                        android:layout_width="wrap_content"
+                        android:text="Aman Meraj"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginVertical="20dp"
+                        android:layout_below="@+id/name_tv"
+                        android:background="@drawable/edit_text_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Registration Number/Id"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_registration_number"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="458658884"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Class -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Employee Role"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_employee_role"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Teacher"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Date of Birth -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Date of Joining"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_date_of_joining"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="15 Aug 2008"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Account Status -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Account Status"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_account_status"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Active"
+                                android:textColor="#008000"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Prtal Url -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Portal Url"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_portal_url"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="foxtyl.com"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Username -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Username"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_username"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="john_doe"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                            <!-- Password -->
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="Password"
+                                android:textColor="@color/grey"
+                                android:textSize="14sp"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:id="@+id/tv_password"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="5dp"
+                                android:layout_width="wrap_content"
+                                android:text="********"
+                                android:textColor="@color/light_blue"
+                                android:textSize="15sp"
+                                android:layout_height="wrap_content"/>
+
+                            <View
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/grey"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout
+                android:layout_below="@+id/card_admission_confirmation"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="8dp"
+                android:id="@+id/create_btn"
+                android:background="@drawable/blue_square_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <RelativeLayout
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/refresh_img"
+                        android:layout_width="30dp"
+                        android:src="@drawable/printer"
+                        android:layout_height="30dp"/>
+                    <TextView
+                        android:layout_alignTop="@+id/refresh_img"
+                        android:layout_alignBottom="@+id/refresh_img"
+                        android:paddingHorizontal="10dp"
+                        android:gravity="center"
+                        android:layout_toEndOf="@+id/refresh_img"
+                        android:layout_width="wrap_content"
+                        android:text="PRINT JOB LETTER"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

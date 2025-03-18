@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Students.BasicList.ActivityBasicList">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Students"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_centerVertical="true"/>
+
+                    <View
+                        android:layout_centerVertical="true"
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"/>
+
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Basic List"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <RelativeLayout
+                android:id="@+id/search_rel"
+                android:layout_marginVertical="20dp"
+                android:layout_below="@+id/card_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                > <!-- Increase padding to make room for floating label -->
+
+                <RelativeLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- EditText Field -->
+                    <EditText
+                        android:maxLines="1"
+                        android:id="@+id/edt_select_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edit_text_bg"
+                        android:paddingStart="10dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:textSize="14sp"
+                        android:hint="Select Class"
+                        android:inputType="text"/>
+                </RelativeLayout>
+
+
+                <!-- Floating Hint Label -->
+                <TextView
+
+                    android:elevation="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Class*"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/edittext_bg"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="2dp"
+                    android:layout_marginStart="25dp" />
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/search_rel"
+                android:layout_marginHorizontal="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginVertical="10dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flexbox_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="10dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="center">
+
+                        <TextView
+                            android:id="@+id/tv_copy"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_csv"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="CSV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_excel"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Excel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_pdf"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="PDF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_print"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Print"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_column_visibility"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Column Visibility"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+                    <RelativeLayout
+                        android:id="@+id/search_relative"
+                        android:background="@drawable/bg_gradient_border"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_below="@+id/flexbox_buttons"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_alignTop="@+id/edt_search"
+                            android:layout_alignBottom="@+id/edt_search"
+                            android:id="@+id/image_search"
+                            android:padding="5dp"
+                            android:layout_width="30dp"
+                            android:src="@drawable/search"
+                            android:layout_height="30dp"/>
+                        <EditText
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:hint="Search"
+                            android:textColorHint="@color/black"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginVertical="3dp"
+                            android:background="@color/white"
+                            android:id="@+id/edt_search"
+                            android:layout_toEndOf="@+id/image_search"
+                            android:layout_width="220dp"
+                            android:layout_height="35dp"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_below="@+id/search_relative"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/button_bg_sm"
+                        android:weightSum="6"
+                        android:id="@+id/linear_heading"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:paddingVertical="5dp"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="Sr"
+                            android:layout_weight=".5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:paddingVertical="5dp"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="ID"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:paddingVertical="5dp"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="S Name"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:paddingVertical="5dp"
+                            android:gravity="end"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="Class"
+                            android:layout_weight=".8"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:layout_marginStart="5dp"
+                            android:paddingVertical="5dp"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="Remaining Fees"
+                            android:layout_weight="1.5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:paddingVertical="5dp"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="Phone"
+                            android:layout_weight="1.1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="match_parent"
+                        android:id="@+id/rc_promote_student"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_below="@+id/linear_heading"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_height="150dp"/>
+
+                    <TextView
+                        android:layout_alignTop="@+id/linear_btn"
+                        android:layout_alignBottom="@+id/linear_btn"
+                        android:gravity="center"
+                        android:id="@+id/page_tv"
+                        android:textColor="@color/grey"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="11sp"
+                        android:layout_below="@id/rc_promote_student"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="wrap_content"
+                        android:text="Showing page 1 of 4"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:id="@+id/linear_btn"
+                        android:layout_marginBottom="20dp"
+                        android:layout_below="@+id/rc_promote_student"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="5dp"
+                            android:id="@+id/prev_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:rotation="180"
+                            android:padding="5dp"
+                            android:id="@+id/next_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

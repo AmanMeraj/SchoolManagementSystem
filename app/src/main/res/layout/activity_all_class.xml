@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Classes.AllClasses.ActivityAllClass">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_intro"
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/general_settings"
+                            android:layout_width="wrap_content"
+                            android:text="Classes"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:textSize="15sp"
+                            android:paddingHorizontal="10dp"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:id="@+id/view"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_marginVertical="10dp"
+                            android:layout_toEndOf="@+id/general_settings"
+                            android:layout_width="1dp"
+                            android:layout_height="30dp">
+
+                        </View>
+                        <ImageView
+                            android:id="@+id/institute_profile_img"
+                            android:padding="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toEndOf="@+id/view"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/institute_profile"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/institute_profile_img"
+                            android:layout_width="wrap_content"
+                            android:text="- All Classes"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:id="@+id/rc_classes"
+                    android:orientation="vertical"
+                    android:layout_marginVertical="20dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_below="@+id/card_intro"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_add_class"
+                    android:layout_width="match_parent"
+                    android:layout_marginVertical="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_below="@+id/rc_classes"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:background="@drawable/pie_gradient"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginTop="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/add_img"
+                                android:src="@drawable/add_sm"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                app:tint="@color/light_blue" />
+                            <TextView
+                                android:layout_below="@+id/add_img"
+                                android:id="@+id/add_txt"
+                                android:layout_marginVertical="10dp"
+                                android:textSize="15sp"
+                                android:textColor="@color/light_blue"
+                                android:layout_centerHorizontal="true"
+                                android:text="Add Class"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

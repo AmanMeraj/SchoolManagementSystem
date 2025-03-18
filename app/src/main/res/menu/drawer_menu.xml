@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/layout"
+        android:title="Dashboard"/>
+
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/settings"
+        android:title="General Settings"/>
+
+    <item
+        android:id="@+id/nav_classes"
+        android:icon="@drawable/classmates"
+        android:title="Classes"/>
+
+    <item
+        android:id="@+id/nav_subjects"
+        android:icon="@drawable/book"
+        android:title="Subjects"/>
+
+    <item
+        android:id="@+id/nav_students"
+        android:icon="@drawable/student_sm"
+        android:title="Students"/>
+
+    <item
+        android:id="@+id/nav_employees"
+        android:icon="@drawable/employees"
+        android:title="Employees"/>
+
+    <item
+        android:id="@+id/nav_accounts"
+        android:icon="@drawable/accounting"
+        android:title="Accounts"/>
+
+    <item
+        android:id="@+id/nav_fees"
+        android:icon="@drawable/receipt"
+        android:title="Fees"/>
+
+    <item
+        android:id="@+id/nav_salary"
+        android:icon="@drawable/money"
+        android:title="Salary"/>
+
+    <item
+        android:id="@+id/nav_attendance"
+        android:icon="@drawable/attendance"
+        android:title="Attendance"/>
+
+    <item
+        android:id="@+id/nav_timetable"
+        android:icon="@drawable/time_table"
+        android:title="Timetable"/>
+
+    <item
+        android:id="@+id/nav_homework"
+        android:icon="@drawable/homework"
+        android:title="Homework"/>
+
+
+    <item
+        android:id="@+id/nav_whatsapp"
+        android:icon="@drawable/whatsapp"
+        android:title="WhatsApp"/>
+
+</menu>
