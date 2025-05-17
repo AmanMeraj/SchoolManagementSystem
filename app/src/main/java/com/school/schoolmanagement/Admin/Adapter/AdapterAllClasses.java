@@ -21,7 +21,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.ViewHolder> {
-    private List<ClassModel> classList;
+
+    private List<ClassModel.Data> classList;
     private Context context;
     private OnItemClickListener listener;
 
@@ -30,7 +31,7 @@ public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.Vi
         void onDeleteClick(int position);
     }
 
-    public AdapterAllClasses(Context context, List<ClassModel> classList, OnItemClickListener listener) {
+    public AdapterAllClasses(Context context, List<ClassModel.Data> classList, OnItemClickListener listener) {
         this.context = context;
         this.classList = classList;
         this.listener = listener;
@@ -39,34 +40,45 @@ public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RowAllClassesBinding binding = RowAllClassesBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        RowAllClassesBinding binding = RowAllClassesBinding.inflate(
+                LayoutInflater.from(parent.getContext()), parent, false
+        );
         return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ClassModel item = classList.get(position);
+        ClassModel.Data item = classList.get(position);
+
+        // Get the counts
+        int boysCount = item.getBoysCount();
+        int girlsCount = item.getGirlsCount();
+        int naCount = item.getNaCount();
+        int totalStudents = item.getTotalStudents();
+
+        // Calculate percentages for boys, girls, and NA
+        float boysPercentage = (totalStudents > 0) ? (boysCount / (float) totalStudents) * 100 : 0;
+        float girlsPercentage = (totalStudents > 0) ? (girlsCount / (float) totalStudents) * 100 : 0;
+        float naPercentage = (totalStudents > 0) ? (naCount / (float) totalStudents) * 100 : 0;
 
         // Set class name and total students
         holder.binding.className.setText(item.getClassName());
-        holder.binding.totalStudentsNumber.setText(String.valueOf(item.getTotalStudents()));
+        holder.binding.totalStudentsNumber.setText(String.valueOf(totalStudents));
 
-        // Setup PieCharts with percentage inside the circle
-        setupPieChart(holder.binding.chartBoys, item.getBoysPercentage(), context.getResources().getColor(R.color.orange));
-        setupPieChart(holder.binding.chartGirls, item.getGirlsPercentage(), context.getResources().getColor(R.color.light_blue));
-        setupPieChart(holder.binding.chartNA, item.getNaPercentage(), context.getResources().getColor(R.color.grey));
+        // Setup PieCharts with calculated percentages
+        setupPieChart(holder.binding.chartBoys, boysPercentage, context.getResources().getColor(R.color.orange));
+        setupPieChart(holder.binding.chartGirls, girlsPercentage, context.getResources().getColor(R.color.light_blue));
+        setupPieChart(holder.binding.chartNA, naPercentage, context.getResources().getColor(R.color.grey));
 
-        // Set count text
-        holder.binding.textCountBoys.setText(String.valueOf(item.getBoysCount()));
-        holder.binding.textCountGirls.setText(String.valueOf(item.getGirlsCount()));
-        holder.binding.textCountNA.setText(String.valueOf(item.getNaCount()));
+        // Set count text for boys, girls, and NA
+        holder.binding.textCountBoys.setText(String.valueOf(boysCount));
+        holder.binding.textCountGirls.setText(String.valueOf(girlsCount));
+        holder.binding.textCountNA.setText(String.valueOf(naCount));
 
         // Click Listeners
         holder.binding.editBtn.setOnClickListener(v -> listener.onEditClick(position));
         holder.binding.deleteBtn.setOnClickListener(v -> listener.onDeleteClick(position));
     }
-
-    // Function to configure PieChart
 
 
     @Override
@@ -83,12 +95,11 @@ public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.Vi
         }
     }
 
-    // Helper function to configure PieChart
     private void setupPieChart(PieChart pieChart, float percentage, int color) {
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
         pieChart.setDrawHoleEnabled(true);
-        pieChart.setHoleRadius(90f); // White hole inside
+        pieChart.setHoleRadius(90f);
         pieChart.setTransparentCircleRadius(90f);
         pieChart.setDrawEntryLabels(false);
         pieChart.setRotationEnabled(false);
@@ -102,9 +113,7 @@ public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.Vi
         entries.add(new PieEntry(100 - percentage, ""));
 
         PieDataSet dataSet = new PieDataSet(entries, "");
-        dataSet.setDrawValues(false); // Hide labels on slices
-
-        // Fix: Use integer color directly
+        dataSet.setDrawValues(false);
         dataSet.setColors(color, Color.parseColor("#E0E0E0"));
         pieChart.setCenterTextColor(color);
 
@@ -112,8 +121,4 @@ public class AdapterAllClasses extends RecyclerView.Adapter<AdapterAllClasses.Vi
         pieChart.setData(data);
         pieChart.invalidate(); // Refresh chart
     }
-
-
-
 }
-

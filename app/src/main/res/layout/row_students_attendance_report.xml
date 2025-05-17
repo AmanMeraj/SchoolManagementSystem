@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- Date Column -->
+    <LinearLayout
+        android:id="@+id/linear_row"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp">
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_date_value"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:gravity="center"
+            android:text="01/03/2025"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_day_value"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:gravity="center"
+            android:text="Mon"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_id_value"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:gravity="center"
+            android:text="123444"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_student_value"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:gravity="center"
+            android:text="John Doe"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_class_value"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:gravity="center"
+            android:text="Year 1"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginHorizontal="5dp"
+            android:textSize="11sp"
+            android:id="@+id/tv_status_value"
+            android:textColor="@color/light_green3"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:gravity="center"
+            android:text="P"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</LinearLayout>

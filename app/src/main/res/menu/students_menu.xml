@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_student_dashboard"
+        android:icon="@drawable/layout"
+        android:title="Dashboard"/>
+    <item
+        android:id="@+id/nav_student_admission"
+        android:icon="@drawable/layout"
+        android:title="Admission Letter"/>
+    <item
+        android:id="@+id/nav_student_paid_fee"
+        android:icon="@drawable/layout"
+        android:title="Paid Fees Recipt"/>
+    <item
+        android:id="@+id/nav_student_timetable"
+        android:icon="@drawable/layout"
+        android:title="My Timetable"/>
+    <item
+        android:id="@+id/nav_student_report_card"
+        android:icon="@drawable/layout"
+        android:title="My Report Card"/>
+    <item
+        android:id="@+id/nav_student_test_results"
+        android:icon="@drawable/layout"
+        android:title="My Test Results"/>
+    <item
+        android:id="@+id/nav_student_exam_results"
+        android:icon="@drawable/layout"
+        android:title="My Exam Results"/>
+    <item
+        android:id="@+id/nav_student_home_assignments"
+        android:icon="@drawable/layout"
+        android:title="Home Assignments"/>
+    <item
+        android:id="@+id/nav_student_account_settings"
+        android:icon="@drawable/layout"
+        android:title="Account Settings"/>
+    <item
+        android:id="@+id/nav_student_logout"
+        android:icon="@drawable/layout"
+        android:title="Logout"/>
+</menu>

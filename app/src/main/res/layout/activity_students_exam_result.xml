@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Students.ExamResult.ActivityStudentsExamResult">
+
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/toolbar"
+        layout="@layout/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/card_date"
+                android:layout_marginVertical="20dp"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+                            <!-- EditText Field -->
+                            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                android:id="@+id/edt_homework_date"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:drawableEnd="@drawable/down_arrow"
+                                android:editable="false"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:hint=" Select Exam"
+                                android:maxLength="11"
+                                android:maxLines="1"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:background="@drawable/edittext_bg"
+                            android:elevation="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:text="Select*"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/update_btn"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="@drawable/blue_square_button"
+                        android:layout_below="@+id/textField_password"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/search_img"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/search_sm"
+                                app:tint="@color/white" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/search_img"
+                                android:layout_alignTop="@id/search_img"
+                                android:layout_alignBottom="@id/search_img"
+                                android:paddingHorizontal="10dp"
+                                android:gravity="center"
+                                android:text="SEARCH"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_date"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/add_chat_card"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.school.schoolmanagement.GradientTextView
+                            android:layout_marginTop="20dp"
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:text="Admission Confirmation"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:layout_marginTop="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/avatar_rel"
+                                android:background="@drawable/orange_avatar_bg_2"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp">
+                                <RelativeLayout
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/orange_avatar_bg"
+                                    android:layout_width="110dp"
+                                    android:layout_height="110dp">
+                                    <ImageView
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/avatar2"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"/>
+                                </RelativeLayout>
+                            </RelativeLayout>
+                            <TextView
+                                android:id="@+id/tv_students_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Student Name"
+                                android:textSize="20sp"
+                                android:layout_marginVertical="10dp"
+                                android:layout_below="@+id/avatar_rel"
+                                android:layout_centerHorizontal="true"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_marginHorizontal="10dp">
+
+                            </TextView>
+                            <RelativeLayout
+                                android:layout_below="@+id/tv_students_name"
+                                android:layout_marginBottom="20dp"
+                                android:id="@+id/rel_parents_info"
+                                android:layout_marginVertical="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:padding="10dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <!-- Registration/ID -->
+                                    <include
+                                        android:id="@+id/rowId"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowClass"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowName"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowExamCount"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowTotalMarks"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowObtainedMarks"
+                                        layout="@layout/row_fees_info" />
+
+                                    <include
+                                        android:id="@+id/rowPercentage"
+                                        layout="@layout/row_fees_info" />
+
+                                </LinearLayout>
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_marginVertical="20dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:id="@+id/create_btn"
+                            android:background="@drawable/blue_square_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp">
+                            <RelativeLayout
+                                android:gravity="center"
+                                android:layout_centerInParent="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/refresh_img"
+                                    android:layout_width="30dp"
+                                    android:src="@drawable/printer"
+                                    android:layout_height="30dp"/>
+                                <TextView
+                                    android:layout_alignTop="@+id/refresh_img"
+                                    android:layout_alignBottom="@+id/refresh_img"
+                                    android:paddingHorizontal="10dp"
+                                    android:gravity="center"
+                                    android:layout_toEndOf="@+id/refresh_img"
+                                    android:layout_width="wrap_content"
+                                    android:text="PRINT ADMISSION LETTER"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_height="wrap_content"/>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

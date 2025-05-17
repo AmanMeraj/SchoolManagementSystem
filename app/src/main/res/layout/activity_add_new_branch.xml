@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".SuperAdmin.Branches.ActivityAddNewBranch">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/info_rel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_intro"
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/general_settings"
+                            android:layout_width="wrap_content"
+                            android:text="Branches"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:textSize="15sp"
+                            android:paddingHorizontal="10dp"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:id="@+id/view"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_marginVertical="10dp"
+                            android:layout_toEndOf="@+id/general_settings"
+                            android:layout_width="1dp"
+                            android:layout_height="30dp">
+
+                        </View>
+                        <ImageView
+                            android:id="@+id/institute_profile_img"
+                            android:padding="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toEndOf="@+id/view"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/institute_profile"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/institute_profile_img"
+                            android:layout_width="wrap_content"
+                            android:text="- All Branches"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <RelativeLayout
+                    android:id="@+id/rel_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/card_intro"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:id="@+id/admission_form"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:text="School Branch Form"
+                        android:textColor="@color/black"
+                        android:textSize="15sp">
+
+                    </TextView>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/admission_form"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center">
+
+                        <View
+                            android:id="@+id/required"
+                            android:layout_width="15dp"
+                            android:layout_height="4dp"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/edittext_bg" />
+
+                        <com.school.schoolmanagement.GradientTextView
+                            android:id="@+id/tv_required"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/required"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingHorizontal="10dp"
+                            android:text="Required"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/optional"
+                            android:layout_width="15dp"
+                            android:layout_height="4dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/tv_required"
+                            android:background="@drawable/edit_text_optional" />
+
+                        <com.school.schoolmanagement.GradientTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/optional"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingHorizontal="10dp"
+                            android:text="Optional"
+                            android:textSize="11sp" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_below="@+id/rel_search"
+                    android:orientation="vertical"
+                    android:id="@+id/linear_student_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- EditText Field -->
+                            <EditText
+                                android:maxLines="1"
+                                android:id="@+id/edt_student_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:textSize="14sp"
+                                android:hint="Name of School/Branch"
+                                android:inputType="text"/>
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="School / Branch Name*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edittext_bg"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        > <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:background="@drawable/edit_text_bg"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- EditText Field -->
+                            <RelativeLayout
+                                android:layout_marginVertical="20dp"
+                                android:id="@+id/btn_change_logo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="20dp"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:background="@drawable/button_bg_sm">
+                                <ImageView
+                                    android:id="@+id/img_gallery"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/gallery"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"/>
+                                <TextView
+                                    android:paddingHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@+id/img_gallery"
+                                    android:text="Change Logo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
+
+
+                            </RelativeLayout>
+                            <TextView
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:paddingHorizontal="10dp"
+                                android:layout_marginHorizontal="20dp"
+                                android:gravity="center"
+                                android:layout_alignBottom="@+id/btn_change_logo"
+                                android:layout_alignTop="@+id/btn_change_logo"
+                                android:text="Max 1 MB"
+                                android:textColor="@color/orange"
+                                android:layout_toEndOf="@+id/btn_change_logo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_picture"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Picture (Optional)*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edit_text_optional"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp">
+                            <!-- EditText Field -->
+                            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                android:id="@+id/edt_employee_role"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:drawableEnd="@drawable/down_arrow"
+                                android:editable="false"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:hint=" Select Sub Admin"
+                                android:maxLength="11"
+                                android:maxLines="1"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:background="@drawable/edittext_bg"
+                            android:elevation="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:text="Select Sub Admin*"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp">
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:maxLines="1"
+                                android:id="@+id/edt_mobile_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:textSize="14sp"
+                                android:hint="Enter School/Branch Address"
+                                android:inputType="textMultiLine"/>
+                        </RelativeLayout>
+
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_mobile_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Branch Address (Optional)*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edit_text_optional"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp"/>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- EditText Field -->
+                            <EditText
+                                android:maxLines="1"
+                                android:id="@+id/edt_user_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:textSize="14sp"
+                                android:hint="Create Admin User Id"
+                                android:inputType="text"/>
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_user_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Admin Id*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edittext_bg"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- EditText Field -->
+                            <EditText
+                                android:maxLines="1"
+                                android:id="@+id/edt_user_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:textSize="14sp"
+                                android:hint="Create Admin Password"
+                                android:inputType="textPassword"/>
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_user_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Admin Password*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edittext_bg"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <!-- EditText Field -->
+                            <EditText
+                                android:maxLines="1"
+                                android:id="@+id/edt_user_confirm_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:paddingStart="10dp"
+                                android:paddingTop="12dp"
+                                android:paddingBottom="10dp"
+                                android:paddingEnd="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans"
+                                android:textSize="14sp"
+                                android:hint="ConfirmAdmin Password"
+                                android:inputType="textPassword"/>
+                        </RelativeLayout>
+
+
+                        <!-- Floating Hint Label -->
+                        <TextView
+                            android:elevation="5dp"
+                            android:id="@+id/tv_user_confirm_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Confirm Admin Password*"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
+                            android:background="@drawable/edittext_bg"
+                            android:paddingHorizontal="10dp"
+                            android:paddingVertical="2dp"
+                            android:layout_marginStart="15dp" />
+                    </RelativeLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_marginVertical="10dp"
+                android:layout_below="@+id/info_rel"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/orange_bg"
+                    android:id="@+id/reset_btn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp">
+                    <ImageView
+                        android:padding="3dp"
+                        android:id="@+id/refresh_btn_img"
+                        android:src="@drawable/refresh_circle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:paddingHorizontal="5dp"
+                        android:text="RESET"
+                        android:layout_toEndOf="@+id/refresh_btn_img"
+                        android:id="@+id/reset_txt"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/blue_bg"
+                    android:id="@+id/submit_btn"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="45dp">
+                    <ImageView
+                        android:padding="3dp"
+                        android:id="@+id/submit_btn_img"
+                        android:src="@drawable/tick_circle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp">
+
+                    </ImageView>
+                    <TextView
+                        android:paddingHorizontal="5dp"
+                        android:text="SUBMIT"
+                        android:layout_toEndOf="@+id/submit_btn_img"
+                        android:id="@+id/submit_txt"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

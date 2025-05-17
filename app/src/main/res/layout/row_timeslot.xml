@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingVertical="12dp"
+    android:paddingHorizontal="8dp">
+
+    <!-- Time Row -->
+    <TextView
+        android:id="@+id/tvTimeSlot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="08:00AM"
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Dotted Line Divider -->
+    <View
+        android:id="@+id/lineDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/dotted_line"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Card container -->
+    <FrameLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Left-aligned card -->
+        <LinearLayout
+            android:id="@+id/leftCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="start"
+            android:background="@drawable/bg_green_card"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/tvLeftTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Basic Science"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/plus_jakarta_sans" />
+
+            <TextView
+                android:id="@+id/tvLeftTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00AM - 8:45AM"
+                android:textColor="#4CAF50"
+                android:textSize="11sp"
+                android:fontFamily="@font/plus_jakarta_sans" />
+        </LinearLayout>
+
+        <!-- Right-aligned card -->
+        <LinearLayout
+            android:id="@+id/rightCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_red_card"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:elevation="2dp">
+
+            <TextView
+                android:id="@+id/tvRightTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English Assignment"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:textColor="#000000"
+                android:fontFamily="@font/plus_jakarta_sans" />
+
+            <TextView
+                android:id="@+id/tvRightTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:00AM - 9:15AM"
+                android:textColor="#D32F2F"
+                android:textSize="11sp"
+                android:fontFamily="@font/plus_jakarta_sans" />
+        </LinearLayout>
+
+    </FrameLayout>
+</LinearLayout>

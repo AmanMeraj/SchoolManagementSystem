@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Exams.UpdateInfo.ActivityInsertMarks">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Test"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="-  Test Results "
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:id="@+id/card_table"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                android:layout_below="@+id/card_intro"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flexbox_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="10dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="center">
+
+                        <TextView
+                            android:id="@+id/tv_copy"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_csv"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="CSV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_excel"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Excel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_pdf"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="PDF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_print"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Print"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/search_relative"
+                        android:background="@drawable/bg_gradient_border"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_below="@+id/flexbox_buttons"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_alignTop="@+id/edt_search"
+                            android:layout_alignBottom="@+id/edt_search"
+                            android:id="@+id/image_search"
+                            android:padding="5dp"
+                            android:layout_width="30dp"
+                            android:src="@drawable/search"
+                            android:layout_height="30dp"/>
+                        <EditText
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:hint="Search"
+                            android:textColorHint="@color/black"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginVertical="3dp"
+                            android:background="@color/white"
+                            android:id="@+id/edt_search"
+                            android:layout_toEndOf="@+id/image_search"
+                            android:layout_width="220dp"
+                            android:layout_height="35dp"/>
+                    </RelativeLayout>
+
+                    <HorizontalScrollView
+                        android:id="@+id/tv_head"
+                        android:scrollbars="none"
+                        android:layout_marginVertical="10dp"
+                        android:layout_below="@id/search_relative"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <LinearLayout
+                                android:id="@+id/linear_head"
+                                android:layout_marginStart="10dp"
+                                android:background="@drawable/button_bg_sm"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_date"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Test Date"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_id"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="ID"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_s_name"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Student Name"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_class"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Class"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_subject"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Subject"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_total_marks"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Total Marks"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_obtained"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Obtained"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginVertical="10dp"
+                                android:layout_below="@+id/linear_head"
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:id="@+id/rc_row_attendance_report"
+                                    android:layout_below="@+id/tv_head"
+                                    android:layout_marginHorizontal="10dp"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    android:orientation="vertical"
+                                    android:layout_marginBottom="20dp"
+                                    android:layout_height="160dp">
+                                </androidx.recyclerview.widget.RecyclerView>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_alignTop="@+id/linear_btn"
+                        android:layout_alignBottom="@+id/linear_btn"
+                        android:gravity="center"
+                        android:id="@+id/page_tv"
+                        android:textColor="@color/grey"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="11sp"
+                        android:layout_below="@id/tv_head"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="wrap_content"
+                        android:text="Showing page 1 of 4"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:id="@+id/linear_btn"
+                        android:layout_marginBottom="20dp"
+                        android:layout_below="@+id/tv_head"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="5dp"
+                            android:id="@+id/prev_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:rotation="180"
+                            android:padding="5dp"
+                            android:id="@+id/next_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

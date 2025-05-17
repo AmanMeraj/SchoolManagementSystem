@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_teachers_dashboard"
+        android:icon="@drawable/layout"
+        android:title="Dashboard"/>
+    <item
+        android:id="@+id/nav_teachers_attendance"
+        android:icon="@drawable/layout"
+        android:title="Attendance"/>
+    <item
+        android:id="@+id/nav_teachers_homework"
+        android:icon="@drawable/layout"
+        android:title="Homework"/>
+    <item
+        android:id="@+id/nav_teachers_timetable"
+        android:icon="@drawable/layout"
+        android:title="Time Table"/>
+    <item
+        android:id="@+id/nav_teachers_question_paper"
+        android:icon="@drawable/layout"
+        android:title="Question Paper"/>
+    <item
+        android:id="@+id/nav_teachers_exams"
+        android:icon="@drawable/layout"
+        android:title="Exams"/>
+    <item
+        android:id="@+id/nav_teachers_class_test"
+        android:icon="@drawable/layout"
+        android:title="Class Test"/>
+    <item
+        android:id="@+id/nav_teachers_reports"
+        android:icon="@drawable/layout"
+        android:title="Report"/>
+    <item
+        android:id="@+id/nav_teachers_account_settings"
+        android:icon="@drawable/layout"
+        android:title="Accounts Settings"/>
+    <item
+        android:id="@+id/nav_teachers_logout"
+        android:icon="@drawable/layout"
+        android:title="Logout"/>
+</menu>

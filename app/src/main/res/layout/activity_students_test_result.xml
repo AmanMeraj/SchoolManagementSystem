@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Students.TestResult.ActivityStudentsTestResult">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Test Result"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Test Result"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/add_chat_card"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.school.schoolmanagement.GradientTextView
+                            android:layout_marginTop="20dp"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_width="wrap_content"
+                            android:text="Your Test Result's"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:layout_marginTop="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/avatar_rel"
+                                android:background="@drawable/orange_avatar_bg_2"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp">
+                                <RelativeLayout
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/orange_avatar_bg"
+                                    android:layout_width="110dp"
+                                    android:layout_height="110dp">
+                                    <ImageView
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/avatar2"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"/>
+                                </RelativeLayout>
+                            </RelativeLayout>
+                            <TextView
+                                android:id="@+id/tv_students_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Student Name"
+                                android:textSize="15sp"
+                                android:layout_marginVertical="10dp"
+                                android:layout_below="@+id/avatar_rel"
+                                android:layout_centerHorizontal="true"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_marginHorizontal="10dp">
+
+                            </TextView>
+                            <RelativeLayout
+                                android:layout_below="@+id/tv_students_name"
+                                android:layout_marginBottom="20dp"
+                                android:id="@+id/rel_parents_info"
+                                android:layout_marginVertical="20dp"
+                                android:background="@drawable/edit_text_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <HorizontalScrollView
+                                    android:scrollbars="none"
+                                    android:id="@+id/horizontal_scroll_view"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <RelativeLayout
+                                        android:layout_margin="10dp"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <LinearLayout
+                                            android:id="@+id/linear_head"
+                                            android:orientation="vertical"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+                                            <LinearLayout
+                                                android:background="@drawable/button_bg_sm"
+                                                android:id="@+id/heading"
+                                                android:orientation="horizontal"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content">
+
+                                                <TextView
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Test Date"
+                                                    android:textColor="#FFFFFF"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14sp"
+                                                    android:gravity="center"
+                                                    android:paddingVertical="5dp"
+                                                    android:fontFamily="@font/plus_jakarta_sans_extrabold" />
+
+                                                <TextView
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Class"
+                                                    android:textColor="#FFFFFF"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14sp"
+                                                    android:gravity="center"
+                                                    android:paddingVertical="5dp"
+                                                    android:fontFamily="@font/plus_jakarta_sans_extrabold" />
+
+                                                <TextView
+                                                    android:paddingVertical="5dp"
+                                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Subject"
+                                                    android:textColor="#FFFFFF"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14sp"
+                                                    android:gravity="center"
+                                                    />
+
+                                                <TextView
+                                                    android:paddingVertical="5dp"
+                                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Total Mark"
+                                                    android:textColor="#FFFFFF"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14sp"
+                                                    android:gravity="center"
+                                                    />
+
+                                                <TextView
+                                                    android:paddingVertical="5dp"
+                                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                                    android:layout_width="90dp"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Obtained"
+                                                    android:textColor="#FFFFFF"
+                                                    android:textStyle="bold"
+                                                    android:textSize="14sp"
+                                                    android:gravity="center"
+                                                    />
+
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+                                        <androidx.recyclerview.widget.RecyclerView
+                                            android:layout_width="match_parent"
+                                            android:orientation="vertical"
+                                            android:layout_marginVertical="10dp"
+                                            android:layout_below="@+id/linear_head"
+                                            android:id="@+id/rc_test_result"
+                                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                            android:layout_height="wrap_content">
+
+                                        </androidx.recyclerview.widget.RecyclerView>
+                                    </RelativeLayout>
+
+
+                                </HorizontalScrollView>
+
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

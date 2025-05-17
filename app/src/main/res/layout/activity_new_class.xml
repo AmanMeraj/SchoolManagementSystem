@@ -163,6 +163,7 @@
                                     android:layout_height="wrap_content">
                                     <!-- EditText Field -->
                                     <EditText
+
                                         android:maxLines="1"
                                         android:id="@+id/edt_monthly_tution_fees"
                                         android:layout_width="match_parent"
@@ -176,7 +177,7 @@
                                         android:fontFamily="@font/plus_jakarta_sans"
                                         android:textSize="14sp"
                                         android:hint="Monthly Tution fees"
-                                        android:inputType="text"/>
+                                        android:inputType="number"/>
                                 </RelativeLayout>
 
 
@@ -221,7 +222,7 @@
                                         android:textColor="@color/black"
                                         android:fontFamily="@font/plus_jakarta_sans"
                                         android:textSize="14sp"
-                                        android:maxLength="11"
+                                        android:maxLength="110"
                                         android:hint="Select Class Teacher" />
                                 </RelativeLayout>
 
@@ -286,5 +287,10 @@
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

@@ -32,13 +32,13 @@ ActivityStudentsIdCardsBinding binding;
             return insets;
         });
 
-        studentList = new ArrayList<>();
-        studentList.add(new IdCard("Aman Meraj", "CSE204045", "4th Year"));
-        studentList.add(new IdCard("Rahul Singh", "CSE204046", "3rd Year"));
-        studentList.add(new IdCard("Priya Sharma", "CSE204047", "2nd Year"));
-        studentList.add(new IdCard("Vikash Yadav", "CSE204048", "1st Year"));
+//        studentList = new ArrayList<>();
+//        studentList.add(new IdCard("Aman Meraj", "CSE204045", "4th Year"));
+//        studentList.add(new IdCard("Rahul Singh", "CSE204046", "3rd Year"));
+//        studentList.add(new IdCard("Priya Sharma", "CSE204047", "2nd Year"));
+//        studentList.add(new IdCard("Vikash Yadav", "CSE204048", "1st Year"));
 
-        adapter = new AdapterIdCard(studentList);
-        binding.rcIdCards.setAdapter(adapter);
+//        adapter = new AdapterIdCard(studentList);
+//        binding.rcIdCards.setAdapter(adapter);
     }
 }

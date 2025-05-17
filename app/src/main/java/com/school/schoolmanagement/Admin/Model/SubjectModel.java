@@ -1,14 +1,21 @@
 package com.school.schoolmanagement.Admin.Model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class SubjectModel implements Serializable {
-    private String name;
-    private int marks;
+    @SerializedName("id")
+    private int id;
 
-    public SubjectModel(String name, int marks) {
-        this.name = name;
-        this.marks = marks;
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("totalMarks")
+    private int totalMarks;
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -16,7 +23,6 @@ public class SubjectModel implements Serializable {
     }
 
     public int getMarks() {
-        return marks;
+        return totalMarks;
     }
 }
-

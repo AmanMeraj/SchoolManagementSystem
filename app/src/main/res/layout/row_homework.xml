@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="8dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/white">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/main_linear"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/bg_homework_teacher"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_teacher"
+                            android:layout_width="wrap_content"
+                            android:text="Teacher"
+                            android:textColor="@color/light_blue"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <ImageView
+                            android:id="@+id/img_teacher"
+                            android:layout_marginVertical="5dp"
+                            android:src="@drawable/teacher"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/tv_teacher"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:text="Aman Meraj"
+                            android:textColor="@color/light_blue"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="12sp"
+                            android:layout_below="@+id/img_teacher"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+>
+
+                        </TextView>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/bg_homework_teacher"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_class"
+                            android:layout_width="wrap_content"
+                            android:text="Class"
+                            android:textColor="@color/orange"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <ImageView
+                            android:id="@+id/img_class"
+                            android:layout_marginVertical="5dp"
+                            android:src="@drawable/class2"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/tv_class"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:text="Class 10"
+                            android:textColor="@color/orange"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="12sp"
+                            android:layout_below="@+id/img_class"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+>
+
+                        </TextView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginVertical="10dp"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/bg_homework_teacher"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_day"
+                            android:layout_width="wrap_content"
+                            android:text="Monday"
+                            android:textColor="@color/black"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:gravity="center"
+                            android:textSize="30sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:text="24"
+                            android:id="@+id/tv_date"
+                            android:layout_marginVertical="5dp"
+                            android:src="@drawable/teacher"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/tv_day"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                        </TextView>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:text="March,2025"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="12sp"
+                            android:layout_below="@+id/tv_date"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+>
+
+                        </TextView>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/bg_homework_teacher"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_subject"
+                            android:layout_width="wrap_content"
+                            android:text="Subject"
+                            android:textColor="#858FB3"
+                            android:layout_centerHorizontal="true"
+                            android:textSize="12sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginVertical="10dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <ImageView
+                            android:id="@+id/img_subject"
+                            android:layout_marginVertical="5dp"
+                            android:src="@drawable/subvject"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/tv_subject"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_width="wrap_content"
+                            android:text="Biology"
+                            android:textColor="#858FB3"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:textSize="12sp"
+                            android:layout_below="@+id/img_subject"
+                            android:layout_centerHorizontal="true"
+                            android:layout_height="wrap_content"
+>
+
+                        </TextView>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_homework_desc"
+                android:layout_below="@+id/main_linear"
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_margin="8dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_book"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="40dp"
+                        android:layout_marginVertical="20dp"
+                        android:src="@drawable/book_sm"
+                        android:padding="7dp"
+                        android:layout_height="40dp"
+                        app:tint="@color/light_blue">
+
+                    </ImageView>
+                    <TextView
+                        android:id="@+id/tv_assignment"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_toEndOf="@+id/img_book"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_alignTop="@+id/img_book"
+                        android:layout_alignBottom="@id/img_book"
+                        android:text="Assignment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <TextView
+                        android:textSize="11sp"
+                        android:textColor="@color/black"
+                        android:layout_marginVertical="10dp"
+                        android:layout_alignStart="@+id/img_book"
+                        android:id="@+id/tv_homework_desc"
+                        android:layout_below="@+id/tv_assignment"
+                        android:text="Lorem ipsum cras vitae pellentesque metus dui odio et feugiat etiam velit donec et tempus pharetra et sed volutpat amet lobortis enim ultrices mauris odio."
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/rel_button"
+                android:layout_below="@+id/card_homework_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/edit_btn"
+                    android:src="@drawable/edit_sm"
+                    android:padding="5dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                </ImageView>
+                <ImageView
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_toEndOf="@+id/edit_btn"
+                    android:id="@+id/delete_btn"
+                    android:src="@drawable/delete_sm"
+                    android:padding="5dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:tint="@color/dark_red">
+
+                </ImageView>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

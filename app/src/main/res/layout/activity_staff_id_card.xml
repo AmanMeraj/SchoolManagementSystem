@@ -31,7 +31,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp">
+                    android:padding="0dp">
 
                     <TextView
                         android:id="@+id/general_settings"
@@ -40,7 +40,7 @@
                         android:text="Employee"
                         android:textColor="@color/black"
                         android:fontFamily="@font/plus_jakarta_sans_bold"
-                        android:textSize="15sp"
+                        android:textSize="13sp"
                         android:paddingHorizontal="10dp"
                         android:layout_centerVertical="true"/>
 
@@ -68,12 +68,12 @@
                         android:layout_toEndOf="@+id/institute_profile_img"
                         android:layout_width="wrap_content"
                         android:text="- ID Cards"
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:textColor="@color/black"
                         android:fontFamily="@font/plus_jakarta_sans"
                         android:layout_height="wrap_content"/>
                     <RelativeLayout
-
+                        android:visibility="gone"
                         android:layout_below="@+id/view"
                         android:id="@+id/import_button"
                         android:layout_alignParentEnd="true"
@@ -103,7 +103,8 @@
 
 
                     <!-- Parent RelativeLayout for search and import buttons -->
-                    <RelativeLayout
+                    <RelativeLayout android:layout_centerVertical="true"
+
                         android:id="@+id/search_import_container"
                         android:layout_alignParentEnd="true"
                         android:layout_width="wrap_content"
@@ -111,29 +112,30 @@
 
                         <!-- Search & Refresh Buttons -->
                         <RelativeLayout
+
                             android:id="@+id/search_rel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
                             <ImageView
                                 android:id="@+id/refresh_btn"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
                                 android:padding="5dp"
                                 android:src="@drawable/refresh_sm"/>
 
                             <ImageView
                                 android:id="@+id/search_btn"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
                                 android:padding="5dp"
                                 android:layout_marginStart="5dp"
                                 android:layout_toEndOf="@id/refresh_btn"
                                 android:src="@drawable/search_sm"/>
                             <ImageView
                                 android:id="@+id/print_btn"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
                                 android:padding="5dp"
                                 android:layout_marginStart="5dp"
                                 android:layout_toEndOf="@id/search_btn"
@@ -150,7 +152,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <LinearLayout
-
+                android:visibility="gone"
                 android:layout_below="@+id/card_intro"
                 android:id="@+id/rel_search"
                 android:layout_width="match_parent"
@@ -182,7 +184,7 @@
                             android:textColor="@color/black"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:textSize="14sp"
-                            android:hint="Search Studnet"
+                            android:hint="Search Employee"
                             android:inputType="text"/>
                     </RelativeLayout>
 
@@ -193,7 +195,7 @@
                         android:id="@+id/tv_hint"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Search Studnet*"
+                        android:text="Search Employee*"
                         android:textSize="10sp"
                         android:textColor="@color/white"
                         android:background="@drawable/edittext_bg"
@@ -205,7 +207,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    > <!-- Increase padding to make room for floating label -->
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
 
                     <RelativeLayout
                         android:layout_marginTop="10dp"
@@ -213,9 +215,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <!-- EditText Field -->
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                            android:drawableEnd="@drawable/down_arrow"
                             android:maxLines="1"
-                            android:id="@+id/edt_select_class"
+                            android:editable="false"
+                            android:id="@+id/edt_select_role"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:background="@drawable/edit_text_bg"
@@ -226,8 +230,8 @@
                             android:textColor="@color/black"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:textSize="14sp"
-                            android:hint="Select Class"
-                            android:inputType="text"/>
+                            android:maxLength="11"
+                            android:hint="Select Role" />
                     </RelativeLayout>
 
 
@@ -237,7 +241,7 @@
                         android:elevation="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Select Class*"
+                        android:text="Select Role*"
                         android:textSize="10sp"
                         android:textColor="@color/white"
                         android:background="@drawable/edittext_bg"
@@ -262,5 +266,11 @@
         </RelativeLayout>
 
     </ScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

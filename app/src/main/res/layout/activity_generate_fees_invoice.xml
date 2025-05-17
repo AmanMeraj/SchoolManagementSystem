@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Fees.FeesInvoice.ActivityFeesInvoice">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Fees"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Generate Fees Invoice"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/linear_btn"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:background="@drawable/edit_text_bg">
+
+                        <TextView
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginVertical="5dp"
+                            android:background="@drawable/ornage_blue_btn"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Student Wise"
+                            android:textColor="@color/white"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:gravity="center"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginVertical="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Class Wise"
+                            android:textColor="@color/grey"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:gravity="center"
+                            android:padding="10dp"/>
+
+                        <TextView
+                            android:layout_marginHorizontal="5dp"
+                            android:layout_marginVertical="5dp"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Family Wise"
+                            android:textColor="@color/grey"
+                            android:textSize="11sp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:gravity="center"
+                            android:padding="10dp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:textSize="15sp"
+                        android:id="@+id/tv_heading"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/linear_btn"
+                        android:text="Fees Invoices for Class"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/tv_heading"
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_fee_month"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/calendar2"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" DD/MM"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Fees Month*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_due_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/calendar2"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" DD/MM/YYYY"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Due Date*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+
+                                <EditText
+                                    android:id="@+id/edt_fine_amount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Fine Amount"
+                                    android:inputType="number"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/tv_registration_number"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edit_text_optional"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Fine Amount after Due Date (Optional)"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <!-- Select Class -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_select_bank"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" Select Bank"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Select Bank*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_select_class"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" Select Class"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Select Class*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:showText="false"
+                                android:layout_alignParentStart="true"
+                                android:thumbTint="@color/switch_thumb_color"
+                                android:trackTint="@color/switch_track_color"/>
+
+                            <TextView
+                                android:id="@+id/switch_student_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bank Copy"
+                                android:textSize="13sp"
+                                android:layout_marginStart="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_toEndOf="@id/switch_btn"
+                                android:layout_centerVertical="true"
+                                android:paddingStart="8dp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_student_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:showText="false"
+                                android:layout_alignParentStart="true"/>
+
+                            <TextView
+                                android:id="@+id/switch_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Student Copy"
+                                android:textSize="13sp"
+                                android:layout_marginStart="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_toEndOf="@id/switch_student_btn"
+                                android:layout_centerVertical="true"
+                                android:paddingStart="8dp"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <com.google.android.material.materialswitch.MaterialSwitch
+                                android:id="@+id/switch_institute_btn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:showText="false"
+                                android:layout_alignParentStart="true"
+                                android:thumbTint="@color/switch_thumb_color"
+                                android:trackTint="@color/switch_track_color"/>
+
+                            <TextView
+                                android:id="@+id/switch_institute_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Institute Copy"
+                                android:textSize="13sp"
+                                android:layout_marginStart="10dp"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_toEndOf="@id/switch_institute_btn"
+                                android:layout_centerVertical="true"
+                                android:paddingStart="8dp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginVertical="30dp"
+                            android:background="@drawable/blue_bg"
+                            android:id="@+id/btn_save_head"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/add_btn_img"
+                                android:src="@drawable/tick_circle"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp">
+
+                            </ImageView>
+                            <TextView
+                                android:gravity="center"
+                                android:layout_alignBottom="@+id/add_btn_img"
+                                android:layout_alignTop="@+id/add_btn_img"
+                                android:paddingHorizontal="5dp"
+                                android:text="Generate"
+                                android:layout_toEndOf="@+id/add_btn_img"
+                                android:id="@+id/submit_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -4,15 +4,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;// Change package name accordingly
 
+import com.school.schoolmanagement.Admin.Model.AllEmployees;
 import com.school.schoolmanagement.Admin.Model.IdCard;
 import com.school.schoolmanagement.databinding.RowIdCardBinding;
 
 import java.util.List;
 
 public class AdapterIdCard extends RecyclerView.Adapter<AdapterIdCard.StudentViewHolder> {
-    private List<IdCard> students;
+    private List<AllEmployees> students;
 
-    public AdapterIdCard(List<IdCard> students) {
+    public AdapterIdCard(List<AllEmployees> students) {
             this.students = students;
     }
 
@@ -25,10 +26,10 @@ public class AdapterIdCard extends RecyclerView.Adapter<AdapterIdCard.StudentVie
 
         @Override
         public void onBindViewHolder(@NonNull StudentViewHolder holder, int position) {
-            IdCard student = students.get(position);
+            AllEmployees student = students.get(position);
             holder.binding.name.setText(student.getName());
-            holder.binding.id.setText(student.getId());
-            holder.binding.classs.setText(student.getClasss());
+            holder.binding.id.setText(String.valueOf(student.getEmployeeId()));
+            holder.binding.classs.setText(student.getEmployeeRole());
             // QR Code remains static
         }
 

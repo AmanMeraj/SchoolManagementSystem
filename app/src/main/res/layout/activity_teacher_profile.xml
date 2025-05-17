@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Students.Profile.ActivityStudentsProfile">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Profile"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Profile"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/add_chat_card"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:layout_marginTop="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:id="@+id/avatar_rel"
+                                android:background="@drawable/orange_avatar_bg_2"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp">
+                                <RelativeLayout
+                                    android:layout_centerInParent="true"
+                                    android:background="@drawable/orange_avatar_bg"
+                                    android:layout_width="110dp"
+                                    android:layout_height="110dp">
+                                    <ImageView
+                                        android:layout_centerInParent="true"
+                                        android:src="@drawable/avatar2"
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"/>
+                                </RelativeLayout>
+                            </RelativeLayout>
+                            <TextView
+                                android:id="@+id/tv_teachers_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="John Doe"
+                                android:textSize="20sp"
+                                android:layout_marginVertical="10dp"
+                                android:layout_below="@+id/avatar_rel"
+                                android:layout_centerHorizontal="true"
+                                android:textColor="@color/black"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_marginHorizontal="10dp">
+
+                            </TextView>
+
+                            <RelativeLayout
+                                android:id="@+id/rel_employee_info"
+                                android:layout_marginVertical="20dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_below="@+id/tv_teachers_name"
+                                android:background="@drawable/edit_text_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <!-- Registration Number -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Registration No"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvRegistrationNo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="23234456"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Employee Role -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Employee Role"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvEmployeeRole"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Teacher"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Monthly Salary -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Monthly Salary"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvMonthlySalary"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="$234,555"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Username -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Username"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvUsername"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="108316ickOR1"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Password -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Password"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvPassword"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="108316ickOR1"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                </LinearLayout>
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_below="@+id/rel_employee_info"
+                                android:id="@+id/rel_profile_info"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginVertical="20dp"
+                               >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:padding="16dp">
+
+                                    <!-- Father/Husband Name -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Father / Husband Name"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvFatherName"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Doe"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Mobile No -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Mobile No."
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvMobileNo"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="+2348127458790"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Email Address -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Email Address"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvEmailAddress"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Johndoe@gmail.com"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Home Address -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Home Address"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvHomeAddress"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Lucknow, Uttar"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- National ID and Education (Boxed Content) -->
+                                    <com.google.android.material.card.MaterialCardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="16dp"
+                                        android:layout_marginBottom="16dp"
+                                        app:cardCornerRadius="8dp"
+                                        app:cardElevation="0dp"
+                                        app:cardBackgroundColor="#ffffff"
+                                        app:strokeColor="#ff9e80"
+                                        app:strokeWidth="1dp">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:padding="16dp">
+
+                                            <!-- National ID -->
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="National ID"
+                                                android:textSize="13sp"
+                                                android:textColor="#7f7f7f"
+                                                android:paddingBottom="4dp" />
+
+                                            <TextView
+                                                android:id="@+id/tvNationalId"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="2523622"
+                                                android:textSize="12sp"
+                                                android:textColor="#00a2b8"
+                                                android:paddingBottom="16dp" />
+
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:layout_height="1dp"
+                                                android:background="#e0e0e0" />
+
+                                            <!-- Education -->
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="Education"
+                                                android:textSize="13sp"
+                                                android:textColor="#7f7f7f"
+                                                android:paddingTop="16dp"
+                                                android:paddingBottom="4dp" />
+
+                                            <TextView
+                                                android:id="@+id/tvEducation"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:text="BSc Computer Science"
+                                                android:textSize="12sp"
+                                                android:textColor="#00a2b8" />
+                                        </LinearLayout>
+                                    </com.google.android.material.card.MaterialCardView>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Gender -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Gender"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvGender"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Female"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Religion -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Religion"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvReligion"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Muslim"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Blood Group -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Blood Group"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvBloodGroup"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="O+"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Date of Birth -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date of Birth"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvDateOfBirth"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="24/12/1993"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Date of Joining -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Date of Joining"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvDateOfJoining"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="24/03/2025"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="#e0e0e0" />
+
+                                    <!-- Experience -->
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Experience"
+                                        android:textSize="13sp"
+                                        android:textColor="#7f7f7f"
+                                        android:paddingTop="16dp"
+                                        android:paddingBottom="4dp" />
+
+                                    <TextView
+                                        android:id="@+id/tvExperience"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="1"
+                                        android:textSize="12sp"
+                                        android:textColor="#00a2b8"
+                                        android:paddingBottom="16dp" />
+
+                                </LinearLayout>
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

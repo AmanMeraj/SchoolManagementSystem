@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@drawable/bg_card_rounded"
+    android:layout_margin="8dp">
+
+    <!-- Header -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EAF6FA"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/tvAttendanceHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Attendance report 22 Mar, 2025 for"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Year 1"
+            android:textColor="#CE3C3C"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_below="@id/tvAttendanceHeader"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp" />
+    </RelativeLayout>
+
+    <!-- Circle Indicators Row -->
+    <LinearLayout
+        android:id="@+id/llIndicators"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <!-- Present -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginHorizontal="4dp">
+
+            <ProgressBar
+                android:id="@+id/progress_present"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progress="45"
+                android:progressDrawable="@drawable/semi_circle_progress_orange"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_percent_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45%"
+                android:textColor="#FF6D6D"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_count_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_below="@id/progress_present"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/tv_label_present"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Present"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                android:layout_below="@id/tv_count_present"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <!-- On-leave -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginHorizontal="4dp">
+
+            <ProgressBar
+                android:id="@+id/progress_leave"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progress="45"
+                android:progressDrawable="@drawable/semi_circle_progress_navy"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_percent_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45%"
+                android:textColor="#00B5C6"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_count_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_below="@id/progress_leave"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/tv_label_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="On-leave"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                android:layout_below="@id/tv_count_leave"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <!-- Absent -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginHorizontal="4dp">
+
+            <ProgressBar
+                android:id="@+id/progress_absent"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progress="45"
+                android:progressDrawable="@drawable/semi_circle_progress_teal"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_percent_absent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45%"
+                android:textColor="#FF6D6D"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/tv_count_absent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_below="@id/progress_absent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp" />
+
+            <TextView
+                android:id="@+id/tv_label_absent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Absent"
+                android:textColor="#999999"
+                android:textSize="12sp"
+                android:layout_below="@id/tv_count_absent"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

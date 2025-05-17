@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="20dp"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/rel_present_students_sb"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_examination_name"
+            android:layout_width="wrap_content"
+            android:text="Examination Name"
+            android:textColor="@color/light_blue"
+            android:textSize="15sp"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatSeekBar
+            android:layout_below="@+id/percent_tv_present_students"
+            android:id="@+id/present_student_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:max="100"
+            android:layout_marginTop="10dp"
+            android:minHeight="10dp"
+            android:maxHeight="10dp"
+            android:progressDrawable="@drawable/sb_progress_drawable"
+            android:progress="80"
+            android:secondaryProgress="0"
+            android:thumbOffset="2dp"
+
+            android:thumb="@drawable/sb_thumb" />
+        <TextView
+            android:layout_below="@+id/tv_examination_name"
+            android:id="@+id/percent_tv_present_students"
+            android:text="100%"
+            android:textSize="12sp"
+            android:textColor="@color/light_blue"
+            android:fontFamily="@font/plus_jakarta_sans_bold"
+            android:layout_alignEnd="@+id/present_student_seek_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</RelativeLayout>

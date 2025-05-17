@@ -11,13 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"/>
-    <androidx.core.widget.NestedScrollView
-        android:layout_below="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <RelativeLayout
+            android:layout_below="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -81,10 +78,11 @@
                     android:layout_width="match_parent"
                     android:id="@+id/rc_classes"
                     android:orientation="vertical"
+                    android:layout_above="@+id/card_add_class"
                     android:layout_marginVertical="20dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     android:layout_below="@+id/card_intro"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                 </androidx.recyclerview.widget.RecyclerView>
                 <androidx.cardview.widget.CardView
@@ -93,8 +91,8 @@
                     android:layout_marginVertical="10dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="5dp"
+                    android:layout_alignParentBottom="true"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_below="@+id/rc_classes"
                     android:layout_height="wrap_content">
                     <RelativeLayout
                         android:background="@drawable/pie_gradient"
@@ -120,7 +118,7 @@
                                 android:textSize="15sp"
                                 android:textColor="@color/light_blue"
                                 android:layout_centerHorizontal="true"
-                                android:text="Add Class"
+                                android:text="Assign Subjects"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
@@ -136,6 +134,11 @@
             </RelativeLayout>
         </RelativeLayout>
 
-    </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

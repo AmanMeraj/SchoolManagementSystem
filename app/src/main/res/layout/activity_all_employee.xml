@@ -169,4 +169,11 @@
             </RelativeLayout>
 
         </RelativeLayout>
+
+
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

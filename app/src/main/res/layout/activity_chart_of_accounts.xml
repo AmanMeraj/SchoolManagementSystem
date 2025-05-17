@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Accounts.Chart.ActivityChartOfAccounts">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Accounts"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Chart of Accounts"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/add_chat_card"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Add Chart Of Accounts"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:textSize="18sp"
+                        android:id="@+id/tv_add_income"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <LinearLayout
+                        android:layout_below="@+id/tv_add_income"
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/edt_head_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Enter Head Name"
+                                    android:inputType="date"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:id="@+id/tv_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Head Name*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:maxLines="1"
+                                    android:editable="false"
+                                    android:id="@+id/edt_head_type"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:textSize="14sp"
+                                    android:maxLength="11"
+                                    android:hint="Select head Type" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Head Type*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginVertical="30dp"
+                            android:background="@drawable/blue_bg"
+                            android:id="@+id/btn_save_head"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/add_btn_img"
+                                android:src="@drawable/add_sm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp">
+
+                            </ImageView>
+                            <TextView
+                                android:gravity="center"
+                                android:layout_alignBottom="@+id/add_btn_img"
+                                android:layout_alignTop="@+id/add_btn_img"
+                                android:paddingHorizontal="5dp"
+                                android:text="Save Head"
+                                android:layout_toEndOf="@+id/add_btn_img"
+                                android:id="@+id/submit_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                android:layout_below="@+id/add_chat_card"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/search_relative"
+                        android:background="@drawable/bg_gradient_border"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_alignTop="@+id/edt_search"
+                            android:layout_alignBottom="@+id/edt_search"
+                            android:id="@+id/image_search"
+                            android:padding="5dp"
+                            android:layout_width="30dp"
+                            android:src="@drawable/search"
+                            android:layout_height="30dp"/>
+                        <EditText
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:hint="Search"
+                            android:textColorHint="@color/black"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginVertical="3dp"
+                            android:background="@color/white"
+                            android:id="@+id/edt_search"
+                            android:layout_toEndOf="@+id/image_search"
+                            android:layout_width="220dp"
+                            android:layout_height="35dp"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/linear_heading"
+                        android:weightSum="3"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_below="@+id/search_relative"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingVertical="7dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="Name Of Head"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingVertical="7dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="Type"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingVertical="7dp"
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:text="Actions"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_no_data"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:textSize="15sp"
+                        android:layout_alignBottom="@+id/rc_chart"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:layout_below="@+id/linear_heading"
+                        android:text="No data available in table"
+                        android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:id="@+id/rc_chart"
+                        android:layout_below="@+id/linear_heading"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_height="150dp">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <TextView
+                        android:layout_alignTop="@+id/linear_btn"
+                        android:layout_alignBottom="@+id/linear_btn"
+                        android:gravity="center"
+                        android:id="@+id/page_tv"
+                        android:textColor="@color/grey"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="11sp"
+                        android:layout_below="@id/rc_chart"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="wrap_content"
+                        android:text="Showing page 1 of 4"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:id="@+id/linear_btn"
+                        android:layout_marginBottom="20dp"
+                        android:layout_below="@+id/rc_chart"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="5dp"
+                            android:id="@+id/prev_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:rotation="180"
+                            android:padding="5dp"
+                            android:id="@+id/next_button"
+                            android:src="@drawable/prev_btn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

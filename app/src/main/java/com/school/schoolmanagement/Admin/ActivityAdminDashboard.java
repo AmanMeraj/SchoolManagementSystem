@@ -1,6 +1,7 @@
 package com.school.schoolmanagement.Admin;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -21,8 +24,15 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
+import com.school.schoolmanagement.Admin.Accounts.Chart.ActivityChartOfAccounts;
+import com.school.schoolmanagement.Admin.Accounts.Expense.ActivityAddExpense;
+import com.school.schoolmanagement.Admin.Accounts.Income.ActivityAddIncome;
+import com.school.schoolmanagement.Admin.Accounts.Statement.ActivityAccountsStatement;
 import com.school.schoolmanagement.Admin.Adapter.AbsentStudentsHomeRowAdapter;
 import com.school.schoolmanagement.Admin.Adapter.AbsentTeachers;
+import com.school.schoolmanagement.Admin.Adapter.AdapterFeesDefaulter;
+import com.school.schoolmanagement.Admin.Adapter.AdapterFeesReport;
+import com.school.schoolmanagement.Admin.Adapter.AdapterSalaryReport;
 import com.school.schoolmanagement.Admin.Adapter.CustomNavigationAdapter;
 import com.school.schoolmanagement.Admin.Adapter.NewAdmission;
 import com.school.schoolmanagement.Admin.Classes.AllClasses.ActivityAllClass;
@@ -32,14 +42,26 @@ import com.school.schoolmanagement.Admin.Employee.AdmissionForm.ActivityAddEmplo
 import com.school.schoolmanagement.Admin.Employee.JobLetter.ActivityJobLetter;
 import com.school.schoolmanagement.Admin.Employee.ManageLogin.ActivityStaffLogin;
 import com.school.schoolmanagement.Admin.Employee.StaffIdCard.ActivityStaffIdCard;
+import com.school.schoolmanagement.Admin.Exams.AddExam.ActivityAddNewExamination;
+import com.school.schoolmanagement.Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks;
+import com.school.schoolmanagement.Admin.Exams.UpdateInfo.ActivityInsertMarks;
+import com.school.schoolmanagement.Admin.Fees.CollectFees.ActivityCollectFees;
+import com.school.schoolmanagement.Admin.Fees.Defaulters.ActivityFeesDefaulters;
+import com.school.schoolmanagement.Admin.Fees.FeesInvoice.ActivityFeesInvoice;
+import com.school.schoolmanagement.Admin.Fees.FeespaidReceipt.ActivityFeesPaidReceipt;
+import com.school.schoolmanagement.Admin.Fees.Report.ActivityFeesReport;
 import com.school.schoolmanagement.Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice;
 import com.school.schoolmanagement.Admin.GeneralSettings.AccountSettings.ActivityAccountSettings;
 import com.school.schoolmanagement.Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile;
 import com.school.schoolmanagement.Admin.GeneralSettings.RulesAndregulations.ActivityRulesAndRegulations;
+import com.school.schoolmanagement.Admin.Homework.homeworks.ActivityHomeworks;
 import com.school.schoolmanagement.Admin.Model.NavItem;
 import com.school.schoolmanagement.Admin.Model.NewAdmissonModel;
 import com.school.schoolmanagement.Admin.Model.Student;
 import com.school.schoolmanagement.Admin.Model.Teachers;
+import com.school.schoolmanagement.Admin.Salary.PaidReceipt.ActivitySalaryReceipt;
+import com.school.schoolmanagement.Admin.Salary.PaySalary.ActivityPaySalary;
+import com.school.schoolmanagement.Admin.Salary.Report.ActivitySalaryReport;
 import com.school.schoolmanagement.Admin.Students.AllStudents.ActivityAllStudents;
 import com.school.schoolmanagement.Admin.Students.AdmissionForm.ActivityAddStudents;
 import com.school.schoolmanagement.Admin.Students.AdmissionLetter.ActivityAdmissionLetter;
@@ -51,6 +73,7 @@ import com.school.schoolmanagement.Admin.Subjects.ClassesWithSubjects.ActivityCl
 import com.school.schoolmanagement.Admin.Subjects.CreateSubject.ActivityCreateSubjects;
 import com.school.schoolmanagement.Login.ActivityLogin;
 import com.school.schoolmanagement.R;
+import com.school.schoolmanagement.databinding.ActivityAddUpdateMarksBinding;
 import com.school.schoolmanagement.databinding.ActivityAdminDashboardBinding;
 
 import java.util.ArrayList;
@@ -137,30 +160,32 @@ public class ActivityAdminDashboard extends AppCompatActivity {
 
         // Add all menu items
         navItems.add(new NavItem("Dashboard", R.drawable.layout));
+
+        // General Settings
         NavItem generalSettings = new NavItem("General Settings", R.drawable.settings);
         navItems.add(generalSettings);
-        List<String> generalSubItem=Arrays.asList(
+        List<String> generalSubItem = Arrays.asList(
                 "Institute Profile","Fees Particulars","Accounts for Fees","Rules & Regulations","Marks Grading","Account Settings","Logout"
         );
-        navSubItems.put(generalSettings,generalSubItem);
+        navSubItems.put(generalSettings, generalSubItem);
 
-
-        NavItem classItems = new NavItem("Classes",R.drawable.classmates);
+        // Classes
+        NavItem classItems = new NavItem("Classes", R.drawable.classmates);
         navItems.add(classItems);
-        List<String> classSubItem=Arrays.asList(
+        List<String> classSubItem = Arrays.asList(
                 "All Classes","New Classes"
         );
         navSubItems.put(classItems, classSubItem);
 
-
-        NavItem subjectsItems = new NavItem("Subjects",R.drawable.book);
+        // Subjects
+        NavItem subjectsItems = new NavItem("Subjects", R.drawable.book);
         navItems.add(subjectsItems);
-        List<String> subjects=Arrays.asList(
+        List<String> subjects = Arrays.asList(
                 "Classes With Subjects","Assign Subjects"
         );
         navSubItems.put(subjectsItems, subjects);
 
-        // Add Students with subitems
+        // Students
         NavItem studentsItem = new NavItem("Students", R.drawable.student_sm);
         navItems.add(studentsItem);
         List<String> studentSubItems = Arrays.asList(
@@ -176,10 +201,9 @@ public class ActivityAdminDashboard extends AppCompatActivity {
         );
         navSubItems.put(studentsItem, studentSubItems);
 
-        // Add remaining items
+        // Employees
         NavItem employeesNavItem = new NavItem("Employees", R.drawable.employees);
         navItems.add(employeesNavItem);
-
         List<String> employeeSubItems = Arrays.asList(
                 "All Employees",
                 "Add New",
@@ -187,26 +211,51 @@ public class ActivityAdminDashboard extends AppCompatActivity {
                 "Job Letter",
                 "Manage Login"
         );
-
         navSubItems.put(employeesNavItem, employeeSubItems);
 
+        // Accounts
         NavItem accountsNavItem = new NavItem("Accounts", R.drawable.employees);
         navItems.add(accountsNavItem);
-
         List<String> accountsSubItems = Arrays.asList(
                 "Chart Of Accounts",
                 "Add Income",
                 "Add Expense",
                 "Account Statement"
         );
-
         navSubItems.put(accountsNavItem, accountsSubItems);
 
-        navItems.add(new NavItem("Fees", R.drawable.receipt));
-        navItems.add(new NavItem("Salary", R.drawable.money));
-        navItems.add(new NavItem("Attendance", R.drawable.attendance));
-        navItems.add(new NavItem("Timetable", R.drawable.time_table));
+        // Fees - Make sure this is correct
+        NavItem feesNavItem = new NavItem("Fees", R.drawable.employees);
+        navItems.add(feesNavItem);
+        List<String> feesNavSubItem = Arrays.asList(
+                "Generate Fees Invoice",
+                "Collect Fees",
+                "Fees Paid Slip",
+                "Fees Defaulters",
+                "Fees Report"
+        );
+        navSubItems.put(feesNavItem, feesNavSubItem);
+
+        // Salary - This one might be missing or improperly configured
+        NavItem salaryNavItem = new NavItem("Salary", R.drawable.employees);
+        navItems.add(salaryNavItem);
+        List<String> salaryNavSubItem = Arrays.asList(
+                "Pay salary",
+                "Salary Paid Slip",
+                "Salary Report"
+        );
+        navSubItems.put(salaryNavItem, salaryNavSubItem);
+
         navItems.add(new NavItem("Homework", R.drawable.homework));
+
+        NavItem examNavItem = new NavItem("Exams", R.drawable.employees);
+        navItems.add(examNavItem);
+        List<String> examNavSubItem = Arrays.asList(
+                "Create new Exam",
+                "Add / Update Exam Marks",
+                "Result Card"
+        );
+        navSubItems.put(examNavItem, examNavSubItem);
         navItems.add(new NavItem("WhatsApp", R.drawable.whatsapp));
     }
 
@@ -246,31 +295,9 @@ public class ActivityAdminDashboard extends AppCompatActivity {
             case "Dashboard":
                 // You're already on dashboard, just close drawer
                 break;
-            case "Fees":
-                // Example of navigating to a specific activity
-                // Intent feesIntent = new Intent(this, FeesActivity.class);
-                // startActivity(feesIntent);
-                Toast.makeText(this, "Navigating to " + itemTitle + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
-                break;
-            case "Salary":
-                // Intent salaryIntent = new Intent(this, SalaryActivity.class);
-                // startActivity(salaryIntent);
-                Toast.makeText(this, "Navigating to " + itemTitle + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
-                break;
-            case "Attendance":
-                // Intent attendanceIntent = new Intent(this, AttendanceActivity.class);
-                // startActivity(attendanceIntent);
-                Toast.makeText(this, "Navigating to " + itemTitle + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
-                break;
-            case "Timetable":
-                // Intent timetableIntent = new Intent(this, TimetableActivity.class);
-                // startActivity(timetableIntent);
-                Toast.makeText(this, "Navigating to " + itemTitle + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
-                break;
             case "Homework":
-                // Intent homeworkIntent = new Intent(this, HomeworkActivity.class);
-                // startActivity(homeworkIntent);
-                Toast.makeText(this, "Navigating to " + itemTitle + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
+                 Intent homeworkIntent = new Intent(this, ActivityHomeworks.class);
+                 startActivity(homeworkIntent);
                 break;
             case "WhatsApp":
                 // Intent whatsappIntent = new Intent(this, WhatsAppActivity.class);
@@ -304,11 +331,23 @@ public class ActivityAdminDashboard extends AppCompatActivity {
             case "Accounts":
                 navigateAccounts(itemTitle);
                 break;
+            case "Fees":
+                navigateFees(itemTitle);
+                break;
+            case "Salary":
+                navigateSalary(itemTitle);
+                break;
+            case "Exams":
+                navigateExams(itemTitle);
+                break;
             default:
                 Toast.makeText(this, groupTitle + ": " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
+
+
+
 
     // Handle navigation for General Settings subitems
     private void navigateGeneralSettings(String subItem) {
@@ -455,16 +494,89 @@ public class ActivityAdminDashboard extends AppCompatActivity {
     private void navigateAccounts(String subItem) {
         switch (subItem) {
             case "Chart Of Accounts":
+                Intent chart= new Intent(ActivityAdminDashboard.this, ActivityChartOfAccounts.class);
+                startActivity(chart);
+                break;
             case "Add Income":
+                Intent AddIncome= new Intent(ActivityAdminDashboard.this, ActivityAddIncome.class);
+                startActivity(AddIncome);
+                break;
             case "Add Expense":
+                Intent AddExpense= new Intent(ActivityAdminDashboard.this, ActivityAddExpense.class);
+                startActivity(AddExpense);
+                break;
             case "Account Statement":
-                // Navigate to appropriate activity
-                Toast.makeText(this, "Accounts: " + subItem + " (Activity not created yet)", Toast.LENGTH_SHORT).show();
+                Intent Statement= new Intent(ActivityAdminDashboard.this, ActivityAccountsStatement.class);
+                startActivity(Statement);
                 break;
             default:
                 Toast.makeText(this, "Accounts: " + subItem + " clicked", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+    private void navigateFees(String itemTitle) {
+        switch (itemTitle){
+            case "Generate Fees Invoice":
+                Intent generateFee= new Intent(ActivityAdminDashboard.this, ActivityFeesInvoice.class);
+                startActivity(generateFee);
+                break;
+            case "Collect Fees":
+                Intent collectFees= new Intent(ActivityAdminDashboard.this, ActivityCollectFees.class);
+                startActivity(collectFees);
+                break;
+            case  "Fees Paid Slip":
+                Intent paidSlip= new Intent(ActivityAdminDashboard.this, ActivityFeesPaidReceipt.class);
+                startActivity(paidSlip);
+                break;
+            case "Fees Defaulters":
+                Intent feesDefaulters= new Intent(ActivityAdminDashboard.this, ActivityFeesDefaulters.class);
+                startActivity(feesDefaulters);
+                break;
+            case "Fees Report":
+                Intent feesReport= new Intent(ActivityAdminDashboard.this, ActivityFeesReport.class);
+                startActivity(feesReport);
+                break;
+            default:
+                Toast.makeText(this, "Accounts: " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+    private void navigateSalary(String itemTitle) {
+        switch (itemTitle){
+            case "Pay salary":
+                Intent generateFee= new Intent(ActivityAdminDashboard.this, ActivityPaySalary.class);
+                startActivity(generateFee);
+                break;
+            case "Salary Paid Slip":
+                Intent collectFees= new Intent(ActivityAdminDashboard.this, ActivitySalaryReceipt.class);
+                startActivity(collectFees);
+                break;
+            case "Salary Report":
+                Intent feesDefaulters= new Intent(ActivityAdminDashboard.this, ActivitySalaryReport.class);
+                startActivity(feesDefaulters);
+                break;
+            default:
+                Toast.makeText(this, "Accounts: " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+    private void navigateExams(String itemTitle) {
+     switch ((itemTitle)){
+
+         case "Create new Exam":
+             Intent createExamsIntent= new Intent(ActivityAdminDashboard.this, ActivityAddNewExamination.class);
+             startActivity(createExamsIntent);
+             break;
+         case "Add / Update Exam Marks" :
+             Intent addupdateIntent= new Intent(ActivityAdminDashboard.this, ActivityAddUpdateMarks.class);
+             startActivity(addupdateIntent);
+             break;
+         case "Result Card":
+             Intent resultIntent= new Intent(ActivityAdminDashboard.this, ActivityInsertMarks.class);
+             startActivity(resultIntent);
+             break;
+     }
     }
 
     private void initializeCharts() {

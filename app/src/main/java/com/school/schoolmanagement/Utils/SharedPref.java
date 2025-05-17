@@ -12,6 +12,8 @@ public class SharedPref {
     final public String user_token = "user_token";
     final public String login_status = "login_status";
     final public String cart_count = "cart_count";
+    final public String remember_me = "remember_me";
+    final public String user_role = "user_role";
     final public String user_status = "user_status";
     final public String user_id = "user_id";
     final public String user_name = "user_name";

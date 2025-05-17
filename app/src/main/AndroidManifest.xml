@@ -2,16 +2,239 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Storage permissions with proper handling for different Android versions -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" /> <!-- For Android 13+ -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- Camera permission if needed -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolManagement"
         tools:targetApi="31">
+        <activity
+            android:name=".Admin.Employee.Details.ActivityEmployeesDetails"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name=".Accountant.IncomeOrExpense.ActivityAccountantAccountStatement"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantCollectFees2"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.CollectFees.ActivityCollectFees2"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantFeesReport"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantFeesDefaulters"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantFeesPaidReceipt"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantFeesRecord"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityAccountantCollectFees"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.FeeInvoice.ActivityGenerateFeesInvoice"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.IncomeOrExpense.ActivityAddIncomeOrExpense"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.Profile.ActivityAccountantProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Accountant.Dashboard.ActivityAccountantDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivitySearchStudentsAttendanceReport"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Test.ActivityTestResults"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Test.ActivityCreateNewTest2"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Test.ActivityCreateNewTest"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Exams.ActivityTeachersInsertMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Exams.ActivitySelectClasssOrStudent"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Exams.ActivityAddUpdateStudentsMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.QuestionBank.ActivityCreateQuestionPaper"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.QuestionBank.ActivityAddQuestionBank"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.AddChapter.ActivityAddNewChapter"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Timetable.ActivityTeachersTimetable"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Homework.ActivitySearchHomework"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityStudentsAttendancereport"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityClassWiseAttendanceReport"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityMarkAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityAddUpdateAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Profile.ActivityTeacherProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Dashboard.ActivityTeachersDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Students.TimeTable.ActivityStudentsTimetable"
+            android:exported="false" />
+        <activity
+            android:name=".Students.TestResult.ActivityStudentsTestResult"
+            android:exported="false" />
+        <activity
+            android:name=".Students.ExamResult.ActivityStudentsExamResult"
+            android:exported="false" />
+        <activity
+            android:name=".Students.Assingments.ActivityStudentsAssingments"
+            android:exported="false" />
+        <activity
+            android:name=".Students.UpdateLoginDetails.ActivityUpdateLoginCredentials"
+            android:exported="false" />
+        <activity
+            android:name=".Students.LastSubmittedFees.ActivityStudentsLastSubmittedFees"
+            android:exported="false" />
+        <activity
+            android:name=".Students.AdmissionConfirmation.ActivityStudentsAdmissionConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".Students.Profile.ActivityStudentsProfile"
+            android:exported="false" />
+        <activity
+            android:name=".Students.Dashboard.ActivityStudentsDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".SuperAdmin.Branches.ActivityAdminLogin"
+            android:exported="false" />
+        <activity
+            android:name=".SuperAdmin.Branches.ActivityAddNewBranch"
+            android:exported="false" />
+        <activity
+            android:name=".SuperAdmin.Branches.ActivityAllBranches"
+            android:exported="false" />
+        <activity
+            android:name=".SuperAdmin.SuperDashboard.ActivitySuperAdminDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.Result.ActivityPrintResult"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.Result.ActivitySearchResult"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.UpdateInfo.ActivityInsertMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.UpdateInfo.ActivityUpdateExaminationInfo"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.EditOrDelete.ActivityEditOrDeleteExam"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.AddUpdateMarks.ActivitySelectClassorStudent"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.AddExam.ActivityAddNewExamination"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Homework.homeworks.ActivityHomeworks"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Salary.Report.ActivitySalaryReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Salary.PaidReceipt.ActivitySalaryReceipt"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Salary.PaySalary.ActivityPaySalary"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.Report.ActivityFeesReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.Defaulters.ActivityFeesDefaulters"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.FeespaidReceipt.ActivityFeesPaidReceipt"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.FeesRecord.ActivityFeesRecord"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.CollectFees.ActivityCollectFees"
+            android:exported="false" />
+        <activity
+            android:name=".ScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Fees.FeesInvoice.ActivityFeesInvoice"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Accounts.Statement.ActivityAccountsStatement"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Accounts.Chart.ActivityChartOfAccounts"
+            android:exported="false" />
         <activity
             android:name=".Admin.Accounts.Expense.ActivityAddExpense"
             android:exported="false" />
@@ -77,9 +300,6 @@
             android:exported="false" />
         <activity
             android:name=".Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile"
-            android:exported="false" />
-        <activity
-            android:name=".Admin.GeneralSettings.MainActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword.ActivityForgotPassword"

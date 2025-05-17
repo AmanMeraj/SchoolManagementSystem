@@ -73,7 +73,7 @@
                 android:fontFamily="@font/plus_jakarta_sans"
                 android:textSize="14sp"
                 android:hint="Total Exam Marks"
-                android:inputType="text"/>
+                android:inputType="number"/>
         </RelativeLayout>
 
 

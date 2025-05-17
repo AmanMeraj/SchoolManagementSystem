@@ -242,6 +242,7 @@
                                     android:layout_toEndOf="@+id/refresh_img"
                                     android:layout_width="wrap_content"
                                     android:text="Create"
+                                    android:id="@+id/btn_text"
                                     android:textColor="@color/white"
                                     android:fontFamily="@font/plus_jakarta_sans_bold"
                                     android:layout_height="wrap_content"/>
@@ -260,5 +261,11 @@
         </RelativeLayout>
 
     </ScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

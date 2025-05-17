@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Teachers.Attendance.ActivityClassWiseAttendanceReport">
+
+        <include layout="@layout/back_toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/toolbar"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_below="@+id/toolbar"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_intro"
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/general_settings"
+                            android:layout_width="wrap_content"
+                            android:text="Attendance"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:textSize="15sp"
+                            android:paddingHorizontal="10dp"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:id="@+id/view"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_marginVertical="10dp"
+                            android:layout_toEndOf="@+id/general_settings"
+                            android:layout_width="1dp"
+                            android:layout_height="30dp">
+
+                        </View>
+                        <ImageView
+                            android:id="@+id/institute_profile_img"
+                            android:padding="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_toEndOf="@+id/view"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/institute_profile"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_toEndOf="@+id/institute_profile_img"
+                            android:layout_width="wrap_content"
+                            android:text="- Class Wise Attendance Report"
+                            android:textSize="11sp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_height="wrap_content"/>
+
+
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <RelativeLayout
+                    android:id="@+id/date_relative"
+                    android:layout_below="@+id/card_intro"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <!-- EditText Field -->
+                        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                            android:id="@+id/edt_select_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/edit_text_bg"
+                            android:drawableEnd="@drawable/calendar2"
+                            android:editable="false"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:hint=" DD/MM/YY"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingStart="10dp"
+                            android:paddingTop="12dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="10dp"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+
+
+                    <!-- Floating Hint Label -->
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/edittext_bg"
+                        android:elevation="5dp"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="2dp"
+                        android:text="Select Date*"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+                </RelativeLayout>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="10dp"
+                    android:layout_below="@+id/date_relative"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <!-- Update the TextViews in the tab layout to include IDs -->
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/linear_student_wise"
+                            android:layout_marginVertical="20dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="match_parent"
+                                android:orientation="vertical"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                android:id="@+id/rc_all_class_attendance_report"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

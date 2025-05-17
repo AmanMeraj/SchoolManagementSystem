@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="7dp"
+        app:cardElevation="3dp"
+        android:id="@+id/card_branch"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_marginVertical="20dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/orange_avatar_bg_2"
+                android:id="@+id/rel_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="60dp"
+                    android:src="@drawable/school_sm"
+                    android:id="@+id/image_school"
+                    android:layout_height="60dp"/>
+            </RelativeLayout>
+
+            <TextView
+                android:textSize="12sp"
+                android:layout_width="wrap_content"
+                android:text="School Name"
+                android:textColor="@color/black"
+                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                android:layout_below="@+id/rel_image"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/tv_name"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/rel_students"
+                android:layout_below="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/book2"
+                    android:padding="5dp"
+                    android:id="@+id/students_image"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:id="@+id/students_text"
+                    android:layout_width="wrap_content"
+                    android:text="No. of Students : 500"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/plus_jakarta_sans"
+                    android:textSize="10sp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/students_image"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginHorizontal="10dp"
+                android:id="@+id/rel_admin"
+                android:layout_below="@+id/rel_students"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:src="@drawable/book2"
+                    android:padding="5dp"
+                    android:id="@+id/admin_image"
+                    android:layout_height="30dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:text="Admin : Aman Meraj"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/plus_jakarta_sans"
+                    android:textSize="10sp"
+                    android:id="@+id/admin_text"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@id/admin_image"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:background="@drawable/pie_gradient"
+                android:id="@+id/btn_view_branch"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="Add Branch"
+                android:textColor="@color/light_blue"
+                android:textSize="15sp"
+                android:fontFamily="@font/plus_jakarta_sans_bold"
+                android:layout_below="@+id/rel_admin"
+                android:layout_marginHorizontal="10dp"
+                android:layout_height="wrap_content">
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

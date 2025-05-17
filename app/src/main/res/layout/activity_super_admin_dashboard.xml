@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Toolbar -->
+        <androidx.appcompat.widget.Toolbar
+            android:fitsSystemWindows="true"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="4dp">
+
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_sm_dark"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:id="@+id/btn_chat"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/message_sm"
+                    />
+
+                <ImageView
+                    android:padding="5dp"
+                    android:id="@+id/btn_notification"
+                    android:layout_width="40dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/notification_sm" />
+                <ImageView
+                    android:padding="5dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:id="@+id/profile"
+                    android:src="@drawable/profile_sm"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- Dashboard Content -->
+        <ScrollView
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="15dp"
+                    android:id="@+id/card_select_school"
+                    app:cardElevation="5dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:background="#C6DBFF"
+                        android:id="@+id/relative_select_school"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_welcome"
+                            android:text="Welcome! Super Admin ."
+                            android:textSize="15sp"
+                            android:textColor="@color/orange"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginVertical="3dp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="match_parent"
+                            android:layout_below="@+id/tv_welcome"
+                            app:cardElevation="3dp"
+                            app:cardCornerRadius="10dp"
+                            android:layout_height="wrap_content">
+                            <RelativeLayout
+                                android:background="@drawable/blue_square_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/image_logo"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/logo_sm"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="15dp"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:id="@+id/tv_school_name"
+                                    android:text="School Name"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:layout_toEndOf="@+id/image_logo"
+                                    android:layout_alignTop="@+id/image_logo"
+                                    android:textSize="15sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginVertical="5dp"
+                                    android:id="@+id/tv_school_slogan"
+                                    android:text="School Slogan"
+                                    android:textColor="@color/black"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_toEndOf="@+id/image_logo"
+                                    android:layout_below="@+id/tv_school_name"
+                                    android:textSize="12sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                                <ImageView
+                                    android:padding="5dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:src="@drawable/down_arrow_2"
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp">
+
+                                </ImageView>
+
+                            </RelativeLayout>
+
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:backgroundTint="@color/light_blue"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Students"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:text="Total Studnets"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tv_Studnets_number"
+                            android:text="14"
+                            android:textSize="22sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginVertical="10dp"
+                    android:backgroundTint="@color/orange"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Teachers"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:text="Total Teachers"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tv_teachers_number"
+                            android:text="10"
+                            android:textSize="22sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:backgroundTint="#3B82F6"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Parents"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:text="Total parents"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tv_parents_number"
+                            android:text="15"
+                            android:textSize="22sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginVertical="10dp"
+                    android:backgroundTint="#D946EF"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Staffs"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:text="Total staffs"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tv_staff_number"
+                            android:text="12"
+                            android:textSize="22sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:backgroundTint="#EEB240"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="Branches"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:text="Total branches"
+                            android:textSize="15sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:id="@+id/tv_branch_number"
+                            android:text="3"
+                            android:textSize="22sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:id="@+id/card_income_pie_chart"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_alignTop="@+id/date_picker_layout"
+                            android:layout_alignBottom="@+id/date_picker_layout"
+                            android:gravity="center"
+                            android:text="Income and Expense for"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:textSize="12sp"
+                            android:layout_marginHorizontal="10dp"
+                            android:id="@+id/tv_expense_heading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/date_picker_layout"
+                            android:layout_toEndOf="@+id/tv_expense_heading"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Select Month and Year">
+
+                            <AutoCompleteTextView
+                                android:textColor="@color/orange"
+                                android:textSize="11sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:id="@+id/date_picker_auto_complete"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:focusable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <GridLayout
+                            android:id="@+id/flexbox_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/date_picker_layout"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="20dp"
+                            android:columnCount="2"
+                            android:rowCount="2">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_income_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_income"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_income_amount"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Income"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_expense_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_expense"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_expense_amount"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Expense"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 800"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_profit_amount"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Profit"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit_revenue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_revenue"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_profit_revenue"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Revenue"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_wallet_balance_amount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_wallet_balance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_wallet_balance_amount"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Wallet Balance"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <!-- Fourth cell can be added here if needed -->
+
+                        </GridLayout>
+
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/income_expense_pie_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:layout_below="@+id/flexbox_info"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="10dp" />
+
+                        <!-- Indicator View Below Chart -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/indicator_card"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/income_expense_pie_chart"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp"
+                            app:contentPadding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_date"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_income"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Income: 0"
+                                    android:textSize="14sp"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_expense"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Expense: 0"
+                                    android:textSize="14sp"
+                                    android:textColor="@android:color/black" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="5dp"
+
+                    android:id="@+id/card_income_line_chart"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_alignTop="@+id/date_picker_layout_line"
+                            android:layout_alignBottom="@+id/date_picker_layout_line"
+                            android:gravity="center"
+                            android:text="Income and Expense for"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:textSize="12sp"
+                            android:layout_marginHorizontal="10dp"
+                            android:id="@+id/tv_expense_heading_line"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/date_picker_layout_line"
+                            android:layout_toEndOf="@+id/tv_expense_heading_line"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:hint="Select Year">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/date_picker_auto_complete_line"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:textSize="11sp"
+                                android:textColor="@color/orange"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:focusable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <GridLayout
+                            android:id="@+id/flexbox_info_line"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/date_picker_layout_line"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="20dp"
+                            android:columnCount="2"
+                            android:rowCount="2">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_income_amount_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_income_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_income_amount_line"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Income"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_expense_amount_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_expense_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_expense_amount_line"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Expense"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit_amount_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 800"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_profit_amount_line"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Profit"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_profit_revenue_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_revenue_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_profit_revenue_line"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Total Revenue"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                android:layout_margin="5dp">
+
+                                <TextView
+                                    android:id="@+id/tv_total_wallet_balance_amount_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="($) 1,200"
+                                    android:textColor="@color/light_blue"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/tv_total_wallet_balance_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tv_total_wallet_balance_amount_line"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:layout_marginVertical="5dp"
+                                    android:text="Wallet Balance"
+                                    android:textColor="@color/grey"
+                                    android:textSize="15sp" />
+                            </RelativeLayout>
+
+                            <!-- Fourth cell can be added here if needed -->
+
+                        </GridLayout>
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/income_expense_line_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="250dp"
+                            android:layout_below="@+id/flexbox_info_line"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginHorizontal="10dp" />
+
+                        <!-- Indicator View Below Chart -->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/indicator_card_line"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/income_expense_line_chart"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="16dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="2dp"
+                            app:contentPadding="8dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_date_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="04"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_income_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Income: 0"
+                                    android:textSize="14sp"
+                                    android:textColor="@android:color/black" />
+
+                                <TextView
+                                    android:id="@+id/tv_indicator_expense_line"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Expense: 0"
+                                    android:textSize="14sp"
+                                    android:textColor="@android:color/black" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/super_admin_drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

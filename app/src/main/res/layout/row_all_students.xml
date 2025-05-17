@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp"
+    android:id="@+id/card_view"
     android:layout_margin="5dp"
     app:cardBackgroundColor="@color/white"
     android:layout_height="wrap_content">
@@ -25,6 +26,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp">
                 <ImageView
+                    android:id="@+id/image_profile_picture"
                     android:layout_centerInParent="true"
                     android:src="@drawable/avatar2"
                     android:layout_width="70dp"

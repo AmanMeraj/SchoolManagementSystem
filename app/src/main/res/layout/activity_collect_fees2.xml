@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Admin.Fees.CollectFees.ActivityCollectFees2">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Fees"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Collect Fees "
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_collect_fees"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="wrap_content"
+                        android:text="Fees Collection"
+                        android:layout_height="wrap_content"/>
+                    <LinearLayout
+                        android:layout_below="@+id/tv_collect_fees"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Registration No"
+                            android:textColor="#888888"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/plus_jakarta_sans"/>
+
+                        <TextView
+                            android:id="@+id/textViewRegistrationNo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="23234456"
+                            android:textColor="#0099cc"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:paddingBottom="8dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E0E0E0" />
+
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Student Name"
+                            android:textColor="#888888"
+                            android:textSize="14sp"
+                            android:paddingTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/textViewStudentName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="John Doe"
+                            android:textColor="#0099cc"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:paddingBottom="8dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E0E0E0" />
+
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Guardian Name"
+                            android:textColor="#888888"
+                            android:textSize="14sp"
+                            android:paddingTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/textViewGuardianName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Anna Doe"
+                            android:textColor="#0099cc"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:paddingBottom="8dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#E0E0E0" />
+
+                        <TextView
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Class"
+                            android:textColor="#888888"
+                            android:textSize="14sp"
+                            android:paddingTop="8dp" />
+
+                        <TextView
+                            android:id="@+id/textViewClass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Year 1"
+                            android:textColor="#0099cc"
+                            android:textSize="14sp"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:paddingBottom="8dp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_fees_month"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/calendar2"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" DD/MM"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Fees Month*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_fees_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/calendar2"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="DD/MM/YYYY"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Fees Date*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_marginVertical="20dp"
+                            android:background="@drawable/button_bg_sm"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:paddingVertical="5dp"
+                                android:text="Sr"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:gravity="center"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+                            <TextView
+                                android:paddingVertical="5dp"
+                                android:text="Particulars"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:gravity="center"
+                                android:layout_width="140dp"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:paddingVertical="5dp"
+                                android:text="Amount"
+                                android:textSize="13sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginBottom="10dp"
+                            android:id="@+id/rc_fees_collection"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            android:layout_height="wrap_content"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                           >
+
+                            <!-- Total Row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="8dp">
+
+                                <TextView
+
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="TOTAL"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"/>
+
+                                <TextView
+                                    android:id="@+id/text_total"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="234663"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold" />
+                            </LinearLayout>
+
+                            <!-- Deposit Row with EditText -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="8dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="DEPOSIT"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold" />
+
+                                <EditText
+                                    android:gravity="center"
+                                    android:paddingHorizontal="10dp"
+                                    android:id="@+id/edit_deposit"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:minWidth="80dp"
+                                    android:inputType="number"
+                                    android:text="2346"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:background="@drawable/edit_text_bg" />
+                            </LinearLayout>
+
+                            <!-- Due-Able Balance Row -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingVertical="8dp">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="DUE-ABLE BALANCE"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold" />
+
+                                <TextView
+                                    android:id="@+id/text_due_balance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="234663"
+                                    android:textColor="#FF0000"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:gravity="center"
+                                android:layout_marginVertical="30dp"
+                                android:background="@drawable/blue_bg"
+                                android:id="@+id/btn_search"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp">
+                                <ImageView
+                                    android:padding="3dp"
+                                    android:id="@+id/add_btn_img"
+                                    android:src="@drawable/tick_circle"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:tint="@color/white">
+
+                                </ImageView>
+                                <TextView
+                                    android:gravity="center"
+                                    android:layout_alignBottom="@+id/add_btn_img"
+                                    android:layout_alignTop="@+id/add_btn_img"
+                                    android:paddingHorizontal="5dp"
+                                    android:text="Submit"
+                                    android:layout_toEndOf="@+id/add_btn_img"
+                                    android:id="@+id/submit_txt"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Students.LastSubmittedFees.ActivityStudentsLastSubmittedFees">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/back_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/add_chat_card"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/fee_icon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/fee_recepit"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <com.school.schoolmanagement.GradientTextView
+                        android:id="@+id/title_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Last Submitted Fees"
+                        android:textSize="20sp"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/fee_icon"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <LinearLayout
+                        android:id="@+id/fees_container"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/edit_text_bg"
+                        android:padding="16dp"
+                        app:layout_constraintTop_toBottomOf="@id/title_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <!-- Repeated Rows -->
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_id"
+                            android:tag="Registration/ID,615384362"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_class"
+                            android:tag="Class,Year 1"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_name"
+                            android:tag="Name,John Doe"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_month"
+                            android:tag="Fee Month,February, 2025"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_total"
+                            android:tag="Total Amount,$ 211196"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_deposit"
+                            android:tag="Deposit,$ 211196"/>
+
+                        <include layout="@layout/row_fees_info"
+                            android:id="@+id/row_remaining"
+                            android:tag="Remainings,$ 0"/>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/create_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/blue_square_button"
+                        app:layout_constraintTop_toBottomOf="@id/fees_container"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:id="@+id/refresh_img"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/printer" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toEndOf="@id/refresh_img"
+                                android:layout_alignTop="@id/refresh_img"
+                                android:layout_alignBottom="@id/refresh_img"
+                                android:paddingHorizontal="10dp"
+                                android:gravity="center"
+                                android:text="PRINT FEES SLIP"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

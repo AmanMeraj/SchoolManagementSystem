@@ -1,34 +1,47 @@
 package com.school.schoolmanagement.Admin.Model;
 
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
+
 public class ClassesWithSubjectParentModel {
+    @SerializedName("classId")
+    private int classId;
 
-        private String className;
-        private int totalSubjects;
-        private int totalMarks;
-        private int maxMarks;
+    @SerializedName("className")
+    private String className;
 
-        public ClassesWithSubjectParentModel(String className, int totalSubjects, int totalMarks, int maxMarks) {
-            this.className = className;
-            this.totalSubjects = totalSubjects;
-            this.totalMarks = totalMarks;
-            this.maxMarks = maxMarks;
-        }
+    @SerializedName("totalSubjects")
+    private int totalSubjects;
 
-        public String getClassName() {
-            return className;
-        }
+    @SerializedName("totalExaminationMarks")
+    private int totalExaminationMarks;
 
-        public int getTotalSubjects() {
-            return totalSubjects;
-        }
+    @SerializedName("subjects")
+    private List<SubjectModel> subjects;
 
-        public int getTotalMarks() {
-            return totalMarks;
-        }
+    public ClassesWithSubjectParentModel(String className, int totalSubjects, int totalExaminationMarks, int maxMarks) {
+        this.className = className;
+        this.totalSubjects = totalSubjects;
+        this.totalExaminationMarks = totalExaminationMarks;
+    }
 
-        public int getMaxMarks() {
-            return maxMarks;
-        }
+    public int getClassId() {
+        return classId;
+    }
 
+    public String getClassName() {
+        return className;
+    }
 
+    public int getTotalSubjects() {
+        return totalSubjects;
+    }
+
+    public int getTotalMarks() {
+        return totalExaminationMarks;
+    }
+
+    public List<SubjectModel> getSubjects() {
+        return subjects;
+    }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Row Container -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="12dp"
+        android:background="@android:color/white">
+
+        <!-- Student ID -->
+        <TextView
+            android:id="@+id/tvStudentId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1344333"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true" />
+
+        <!-- Student Name -->
+        <TextView
+            android:id="@+id/tvStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:textSize="14sp"
+            android:textColor="#000000"
+            android:fontFamily="@font/plus_jakarta_sans_medium"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true" />
+
+        <!-- Attendance Buttons Container -->
+        <LinearLayout
+            android:id="@+id/attendanceOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true">
+
+            <!-- Present -->
+            <TextView
+                android:id="@+id/btnPresent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="P"
+                android:textSize="12sp"
+                android:textColor="#A1E3EC"
+                android:background="@drawable/bg_circle_present"
+                android:layout_marginHorizontal="4dp" />
+
+            <!-- Leave -->
+            <TextView
+                android:id="@+id/btnLeave"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="L"
+                android:textSize="12sp"
+                android:textColor="#00B5C6"
+                android:background="@drawable/bg_circle_leave"
+                android:layout_marginHorizontal="4dp" />
+
+            <!-- Absent -->
+            <TextView
+                android:id="@+id/btnAbsent"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="A"
+                android:textSize="12sp"
+                android:textColor="#FF0000"
+                android:background="@drawable/bg_circle_absent"
+                android:layout_marginHorizontal="4dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Bottom Divider -->
+    <View
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey" />
+</LinearLayout>

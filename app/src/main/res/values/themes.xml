@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/light_blue</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
     </style>
 
     <style name="Theme.SchoolManagement" parent="Base.Theme.SchoolManagement" />
@@ -36,4 +37,5 @@
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingBottom">2dp</item>
     </style>
+
 </resources>

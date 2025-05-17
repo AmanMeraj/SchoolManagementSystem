@@ -98,65 +98,74 @@
 
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
+
             <RelativeLayout
                 android:id="@+id/rel_search"
-                android:layout_marginHorizontal="10dp"
-                android:layout_below="@+id/card_intro"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-              <TextView
-                  android:id="@+id/admission_form"
-                  android:text="Admission Form"
-                  android:textSize="15sp"
-                  android:textColor="@color/black"
-                  android:layout_centerHorizontal="true"
-                  android:fontFamily="@font/plus_jakarta_sans_bold"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_intro"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="5dp">
 
-              </TextView>
+                <TextView
+                    android:id="@+id/admission_form"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                    android:text="Admission Form"
+                    android:textColor="@color/black"
+                    android:textSize="15sp">
+
+                </TextView>
+
                 <RelativeLayout
-                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/admission_form"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_below="@+id/admission_form"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:gravity="center">
+
                     <View
-                        android:layout_centerVertical="true"
                         android:id="@+id/required"
-                        android:background="@drawable/edittext_bg"
                         android:layout_width="15dp"
-                        android:layout_height="4dp"/>
-                    <com.school.schoolmanagement.GradientTextView
-                        android:layout_width="wrap_content"
-                        android:text="Required"
-                        android:paddingHorizontal="10dp"
-                        android:textSize="11sp"
-                        android:id="@+id/tv_required"
-                        android:fontFamily="@font/plus_jakarta_sans_bold"
-                        android:layout_toEndOf="@+id/required"
-                        android:layout_height="wrap_content"/>
-                    <View
-                        android:layout_toEndOf="@+id/tv_required"
+                        android:layout_height="4dp"
                         android:layout_centerVertical="true"
+                        android:background="@drawable/edittext_bg" />
+
+                    <com.school.schoolmanagement.GradientTextView
+                        android:id="@+id/tv_required"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@+id/required"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:paddingHorizontal="10dp"
+                        android:text="Required"
+                        android:textSize="11sp" />
+
+                    <View
                         android:id="@+id/optional"
-                        android:background="@drawable/edit_text_optional"
                         android:layout_width="15dp"
-                        android:layout_height="4dp"/>
+                        android:layout_height="4dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/tv_required"
+                        android:background="@drawable/edit_text_optional" />
+
                     <com.school.schoolmanagement.GradientTextView
                         android:layout_width="wrap_content"
-                        android:text="Optional"
-                        android:paddingHorizontal="10dp"
-                        android:textSize="11sp"
-                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_height="wrap_content"
                         android:layout_toEndOf="@+id/optional"
-                        android:layout_height="wrap_content"/>
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:paddingHorizontal="10dp"
+                        android:text="Optional"
+                        android:textSize="11sp" />
                 </RelativeLayout>
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"

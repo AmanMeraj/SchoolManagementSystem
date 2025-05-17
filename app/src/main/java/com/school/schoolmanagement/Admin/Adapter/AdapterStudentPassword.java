@@ -2,6 +2,7 @@ package com.school.schoolmanagement.Admin.Adapter;
 
 import android.content.Context;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,13 @@ public class AdapterStudentPassword extends RecyclerView.Adapter<AdapterStudentP
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         StudentPassword user = userList.get(position);
+
+        Log.d("AdapterDebug", "Binding user at position: " + position);
+        Log.d("AdapterDebug", "ID: " + user.getId());
+        Log.d("AdapterDebug", "SName: " + user.getSName());
+        Log.d("AdapterDebug", "Class: " + user.getClassName());
+        Log.d("AdapterDebug", "UserID: " + user.getUserId());
+        Log.d("AdapterDebug", "Password: " + user.getPassword());
 
         holder.binding.tvId.setText(user.getId());
         holder.binding.tvSName.setText(user.getSName());

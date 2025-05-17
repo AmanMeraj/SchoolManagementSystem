@@ -190,106 +190,111 @@
 
 
                     <LinearLayout
-                        android:layout_marginVertical="10dp"
-                        android:layout_below="@+id/tv_students_info"
-                        android:orientation="vertical"
                         android:id="@+id/linear_student_info"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_students_info"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginTop="-17dp"
+                        android:orientation="vertical">
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
 
                             <RelativeLayout
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
                                 <!-- EditText Field -->
                                 <EditText
-                                    android:maxLines="1"
                                     android:id="@+id/edt_employee_name"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Name of Employee"
+                                    android:inputType="text"
+                                    android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
-                                    android:paddingBottom="10dp"
                                     android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:textSize="14sp"
-                                    android:hint="Name of Employee"
-                                    android:inputType="text"/>
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
 
                             <!-- Floating Hint Label -->
                             <TextView
-                                android:elevation="5dp"
                                 android:id="@+id/tv_hint"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Employee Name*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp" />
+                                android:text="Employee Name*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            > <!-- Increase padding to make room for floating label -->
+                            android:layout_height="wrap_content"> <!-- Increase padding to make room for floating label -->
 
                             <RelativeLayout
-                                android:background="@drawable/edit_text_bg"
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/edit_text_bg">
                                 <!-- EditText Field -->
                                 <RelativeLayout
-                                    android:layout_marginVertical="20dp"
                                     android:id="@+id/btn_change_logo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="40dp"
                                     android:layout_centerVertical="true"
+                                    android:layout_marginVertical="20dp"
                                     android:layout_marginStart="20dp"
+                                    android:background="@drawable/button_bg_sm"
                                     android:paddingStart="10dp"
-                                    android:paddingEnd="10dp"
-                                    android:background="@drawable/button_bg_sm">
+                                    android:paddingEnd="10dp">
+
                                     <ImageView
                                         android:id="@+id/img_gallery"
-                                        android:layout_centerVertical="true"
-                                        android:src="@drawable/gallery"
                                         android:layout_width="20dp"
-                                        android:layout_height="20dp"/>
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:src="@drawable/gallery" />
+
                                     <TextView
-                                        android:paddingHorizontal="5dp"
-                                        android:textSize="11sp"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
                                         android:layout_centerVertical="true"
                                         android:layout_toEndOf="@+id/img_gallery"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:paddingHorizontal="5dp"
                                         android:text="Change Logo"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"/>
+                                        android:textColor="@color/white"
+                                        android:textSize="11sp" />
 
 
                                 </RelativeLayout>
+
                                 <TextView
-                                    android:fontFamily="@font/plus_jakarta_sans_bold"
-                                    android:paddingHorizontal="10dp"
-                                    android:layout_marginHorizontal="20dp"
-                                    android:gravity="center"
-                                    android:layout_alignBottom="@+id/btn_change_logo"
-                                    android:layout_alignTop="@+id/btn_change_logo"
-                                    android:text="Max 1 MB"
-                                    android:textColor="@color/orange"
-                                    android:layout_toEndOf="@+id/btn_change_logo"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignTop="@+id/btn_change_logo"
+                                    android:layout_alignBottom="@+id/btn_change_logo"
+                                    android:layout_marginHorizontal="20dp"
+                                    android:layout_toEndOf="@+id/btn_change_logo"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:gravity="center"
+                                    android:paddingHorizontal="10dp"
+                                    android:text="Max 1 MB"
+                                    android:textColor="@color/orange">
 
                                 </TextView>
 
@@ -298,57 +303,58 @@
 
                             <!-- Floating Hint Label -->
                             <TextView
-                                android:elevation="5dp"
                                 android:id="@+id/tv_picture"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Picture (Optional)*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edit_text_optional"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp" />
+                                android:text="Picture (Optional)*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="10dp">
 
                             <RelativeLayout
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
 
                                 <EditText
-                                    android:maxLines="1"
                                     android:id="@+id/edt_mobile_number"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Mobile Number for SMS/Whatsapp"
+                                    android:inputType="number"
+                                    android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
-                                    android:paddingBottom="10dp"
                                     android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:textSize="14sp"
-                                    android:hint="Mobile Number for SMS/Whatsapp"
-                                    android:inputType="number"/>
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
                             <TextView
-                                android:elevation="5dp"
                                 android:id="@+id/tv_registration_number"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Mobile Number for SMS/Whatsapp*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edit_text_optional"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp"/>
+                                android:text="Mobile Number for SMS/Whatsapp*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
 
                         <!-- Date of Admission -->
@@ -358,85 +364,86 @@
                             android:layout_marginVertical="10dp">
 
                             <RelativeLayout
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
 
                                 <EditText
-                                    android:maxLines="1"
                                     android:id="@+id/edt_date_of_joining"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Date of Joining"
+                                    android:inputType="date"
+                                    android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
-                                    android:paddingBottom="10dp"
                                     android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:textSize="14sp"
-                                    android:hint="Date of Joining"
-                                    android:inputType="date"/>
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
                             <TextView
-                                android:elevation="5dp"
                                 android:id="@+id/tv_date_of_admission"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Date of Joining*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp"/>
+                                android:text="Date of Joining*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
 
                         <!-- Select Class -->
                         <RelativeLayout
+                            android:id="@+id/employee_role_rel"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
 
                             <RelativeLayout
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
                                 <!-- EditText Field -->
                                 <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                                    android:drawableEnd="@drawable/down_arrow"
-                                    android:maxLines="1"
-                                    android:editable="false"
                                     android:id="@+id/edt_employee_role"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" Select"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
-                                    android:paddingBottom="10dp"
                                     android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:textSize="14sp"
-                                    android:maxLength="11"
-                                    android:hint=" Select" />
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
 
                             <!-- Floating Hint Label -->
                             <TextView
 
-                                android:elevation="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Employee Role*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp" />
+                                android:text="Employee Role*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
 
                         <!-- Discount in Fees -->
@@ -446,41 +453,40 @@
                             android:layout_marginVertical="10dp">
 
                             <RelativeLayout
-                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
 
                                 <EditText
-                                    android:maxLines="1"
                                     android:id="@+id/edt_monthly_salary"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Monthly Salary"
+                                    android:inputType="number"
+                                    android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
-                                    android:paddingBottom="10dp"
                                     android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:textSize="14sp"
-                                    android:hint="Monthly Salary"
-                                    android:inputType="number"/>
+                                    android:textSize="14sp" />
                             </RelativeLayout>
 
                             <TextView
-                                android:elevation="5dp"
                                 android:id="@+id/tv_discount_fees"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Monthly Salary*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
+                                android:layout_marginStart="15dp"
                                 android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp"/>
+                                android:text="Monthly Salary*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
                         </RelativeLayout>
-
 
 
                     </LinearLayout>
@@ -951,5 +957,11 @@
             </RelativeLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/view_loader"/>
 
 </RelativeLayout>

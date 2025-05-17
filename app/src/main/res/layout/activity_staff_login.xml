@@ -207,6 +207,7 @@
                         android:layout_marginBottom="20dp"
                         android:layout_width="wrap_content"
                         android:text="or, Reload All"
+                        android:id="@+id/tv_reload_all"
                         android:textColor="@color/grey"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/rel_search"
@@ -347,87 +348,103 @@
                             android:layout_width="220dp"
                             android:layout_height="35dp"/>
                     </RelativeLayout>
-                    <LinearLayout
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/horizontal_scroll_view"
                         android:layout_below="@+id/search_relative"
-                        android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/button_bg_sm"
-                        android:weightSum="6"
-                        android:id="@+id/linear_heading"
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="ID"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="S Name"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Class"
-                            android:layout_weight=".7"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="User ID"
-                            android:layout_weight="1.1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Password"
-                            android:layout_weight="1.1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Action"
-                            android:layout_weight="1.1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal">
 
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
-                    </LinearLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginVertical="10dp"
-                        android:layout_width="match_parent"
-                        android:id="@+id/rc_promote_student"
-                        android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:layout_below="@+id/linear_heading"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_height="150dp"/>
+                            <!-- Header Row -->
+                            <LinearLayout
+
+                                android:id="@+id/linear_heading"
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/button_bg_sm">
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="ID" />
+
+                                <TextView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="S Name" />
+
+                                <TextView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Role" />
+
+                                <TextView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="User ID" />
+
+                                <TextView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Password" />
+
+                                <TextView
+                                    android:layout_width="130dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Action" />
+                            </LinearLayout>
+
+                            <!-- RecyclerView -->
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rc_promote_student"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginVertical="10dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:orientation="vertical"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
 
                     <TextView
                         android:layout_alignTop="@+id/linear_btn"
@@ -437,7 +454,7 @@
                         android:textColor="@color/grey"
                         android:fontFamily="@font/plus_jakarta_sans_bold"
                         android:textSize="11sp"
-                        android:layout_below="@id/rc_promote_student"
+                        android:layout_below="@id/horizontal_scroll_view"
                         android:layout_marginHorizontal="10dp"
                         android:layout_width="wrap_content"
                         android:text="Showing page 1 of 4"
@@ -445,7 +462,7 @@
                     <LinearLayout
                         android:id="@+id/linear_btn"
                         android:layout_marginBottom="20dp"
-                        android:layout_below="@+id/rc_promote_student"
+                        android:layout_below="@+id/horizontal_scroll_view"
                         android:layout_alignParentEnd="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -470,4 +487,10 @@
 
         </RelativeLayout>
     </ScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

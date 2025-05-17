@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Homework.homeworks.ActivityHomeworks">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Homework"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="12sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_toStartOf="@+id/add_homework_btn"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Homeworks "
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+                    <RelativeLayout
+                        android:layout_marginEnd="5dp"
+                        android:id="@+id/add_homework_btn"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/orange_bg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:padding="3dp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/add_btn_img"
+                            android:src="@drawable/add_sm"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp">
+
+                        </ImageView>
+                        <TextView
+                            android:layout_toEndOf="@+id/add_btn_img"
+                            android:text="Add Homework"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                            android:textSize="10sp"
+                            android:paddingHorizontal="5dp"
+                            android:paddingVertical="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card_search_homework"
+                app:cardBackgroundColor="@color/white"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                           android:layout_marginTop="20dp"
+                            android:layout_marginBottom="5dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_homework_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/calendar2"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" DD/MM/YYYY"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Homework Date*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_select_class"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" Select Class"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="Class*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+                                <!-- EditText Field -->
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_select_teacher"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:editable="false"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint=" Select Teacher"
+                                    android:maxLength="11"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15dp"
+                                android:background="@drawable/edittext_bg"
+                                android:elevation="5dp"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:text="teacher*"
+                                android:textColor="@color/white"
+                                android:textSize="10sp" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginVertical="30dp"
+                            android:background="@drawable/blue_bg"
+                            android:id="@+id/btn_search"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/search_btn_img"
+                                android:src="@drawable/search_sm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:tint="@color/white">
+
+                            </ImageView>
+                            <TextView
+                                android:gravity="center"
+                                android:layout_alignBottom="@+id/search_btn_img"
+                                android:layout_alignTop="@+id/search_btn_img"
+                                android:paddingHorizontal="5dp"
+                                android:text="Search"
+                                android:layout_toEndOf="@+id/search_btn_img"
+                                android:id="@+id/submit_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </TextView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_search_homework"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/card_homework"
+                app:cardBackgroundColor="@color/white"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_marginVertical="20dp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:id="@+id/rc_homework"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_height="wrap_content">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_accountant_dashboard"
+        android:icon="@drawable/layout"
+        android:title="Dashboard"/>
+    <item
+        android:id="@+id/nav_accountant_add_income"
+        android:icon="@drawable/layout"
+        android:title="Add Income"/>
+    <item
+        android:id="@+id/nav_accountant_add_expense"
+        android:icon="@drawable/layout"
+        android:title="Add Expense"/>
+    <item
+        android:id="@+id/nav_accountant_profile"
+        android:icon="@drawable/layout"
+        android:title="My Profile"/>
+    <item
+        android:id="@+id/nav_accountant_collect_fees"
+        android:icon="@drawable/layout"
+        android:title="Collect Fees"/>
+    <item
+        android:id="@+id/nav_accountant_fees_record"
+        android:icon="@drawable/layout"
+        android:title="Fees Record"/>
+    <item
+        android:id="@+id/nav_accountant_account_statement"
+        android:icon="@drawable/layout"
+        android:title="Account Statement"/>
+
+    <item
+        android:id="@+id/nav_accountant_generate_invoice"
+        android:icon="@drawable/layout"
+        android:title="Generate Invoice"/>
+    <item
+        android:id="@+id/nav_accountant_account_settings"
+        android:icon="@drawable/layout"
+        android:title="Account Settings"/>
+</menu>

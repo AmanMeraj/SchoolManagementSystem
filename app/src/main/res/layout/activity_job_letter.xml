@@ -99,6 +99,7 @@
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rel_search"
                 android:layout_marginHorizontal="10dp"
                 android:layout_below="@+id/card_intro"
@@ -144,6 +145,7 @@
             </RelativeLayout>
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:id="@+id/card_admission_confirmation"
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="5dp"
@@ -178,6 +180,7 @@
                             android:layout_width="80dp"
                             android:layout_height="80dp">
                             <ImageView
+                                android:id="@+id/profile_img"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/avatar2"
                                 android:layout_width="70dp"
@@ -405,6 +408,7 @@
 
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_below="@+id/card_admission_confirmation"
                 android:layout_marginVertical="20dp"
                 android:layout_marginHorizontal="8dp"
@@ -440,5 +444,10 @@
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

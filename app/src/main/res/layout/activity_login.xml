@@ -16,43 +16,18 @@
             <ImageView
                 android:id="@+id/logo"
                 android:src="@drawable/logo_sm"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"
-                android:layout_width="120dp"
-                android:layout_height="100dp">
+                android:layout_width="100dp"
+                android:layout_height="80dp">
 
             </ImageView>
-            <TextView
-                android:id="@+id/text"
-                android:text="I do not have an account yet!"
-                android:textSize="12sp"
-                android:textColor="@color/white"
-                android:fontFamily="@font/plus_jakarta_sans_medium"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </TextView>
-            <TextView
-                android:background="@drawable/white_teansparent_bg"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="5dp"
-                android:layout_marginVertical="10dp"
-                android:layout_below="@+id/text"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="Create a new Account "
-                android:id="@+id/new_account_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_login"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginVertical="10dp"
-                android:layout_below="@+id/new_account_btn"
+                android:layout_below="@+id/logo"
                 app:cardBackgroundColor="#013F49"
                 app:cardElevation="10dp"
                 app:cardCornerRadius="10dp"
@@ -75,130 +50,111 @@
                         android:layout_height="wrap_content">
 
                     </TextView>
-                    <LinearLayout
-                        android:id="@+id/liner_category"
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flex_category"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/i_am_tv"
                         android:layout_marginHorizontal="10dp"
-                        android:orientation="horizontal"
-                        android:weightSum="3">
+                        app:flexWrap="wrap"
+                        app:justifyContent="space_around"
+                        app:alignItems="center">
 
                         <!-- Admin -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/rel_admin"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_elipse"
+                            android:layout_margin="8dp">
 
-                            <RelativeLayout
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:background="@drawable/background_elipse"
-                                android:layout_gravity="center">
+                            <ImageView
+                                android:id="@+id/image_admin"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/admin_sm" />
 
-                                <ImageView
-                                    android:id="@+id/image1"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
-                                    android:padding="5dp"
-                                    android:scaleType="centerInside"
-                                    android:src="@drawable/admin_sm" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/image1"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:text="Admin"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold" />
-                            </RelativeLayout>
-                        </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/image_admin"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="Admin"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
 
                         <!-- Teacher -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/rel_teacher"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_elipse"
+                            android:layout_margin="8dp">
 
-                            <RelativeLayout
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:background="@drawable/background_elipse"
-                                android:layout_gravity="center">
+                            <ImageView
+                                android:id="@+id/image_teacher"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/employee_sm"
+                                app:tint="@color/white" />
 
-                                <ImageView
-                                    android:id="@+id/image2"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
-                                    android:padding="5dp"
-                                    android:scaleType="centerInside"
-                                    android:src="@drawable/employee_sm" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/image2"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:text="Teacher"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold" />
-                            </RelativeLayout>
-                        </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/image_teacher"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="Employee"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
 
                         <!-- Student -->
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
+                        <RelativeLayout
+                            android:id="@+id/rel_students"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:background="@drawable/background_elipse"
+                            android:layout_margin="8dp">
 
-                            <RelativeLayout
-                                android:layout_width="80dp"
-                                android:layout_height="80dp"
-                                android:background="@drawable/background_elipse"
-                                android:layout_gravity="center">
+                            <ImageView
+                                android:id="@+id/image_student"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:padding="5dp"
+                                app:tint="@color/white"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/student_sm" />
 
-                                <ImageView
-                                    android:id="@+id/image3"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="10dp"
-                                    android:padding="5dp"
-                                    android:scaleType="centerInside"
-                                    android:src="@drawable/student_sm" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/image_student"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                android:text="Student"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/image3"
-                                    android:layout_centerHorizontal="true"
-                                    android:gravity="center"
-                                    android:text="Student"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/white"
-                                    android:textStyle="bold" />
-                            </RelativeLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
+                    </com.google.android.flexbox.FlexboxLayout>
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_below="@+id/liner_category"
+                        android:layout_below="@+id/flex_category"
                         android:id="@+id/textField_first_name"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -207,7 +163,7 @@
                         app:boxBackgroundColor="@color/white"
                         android:textColorHint="@color/black"
                         app:startIconDrawable="@drawable/usersm"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:layout_marginHorizontal="25dp"
                         android:hint="User Name">
@@ -302,6 +258,7 @@
 
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:layout_marginBottom="30dp"
                 android:id="@+id/rel_forgot_pass"
                 android:layout_marginTop="30dp"
                 android:background="@drawable/white_teansparent_bg"
