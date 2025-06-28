@@ -31,7 +31,7 @@ public class ActivityAccountantAccountStatement extends AppCompatActivity {
             return insets;
         });
         setupRecyclerView();
-        loadAccountStatementData();
+
     }
 
     private void setupRecyclerView() {
@@ -39,16 +39,6 @@ public class ActivityAccountantAccountStatement extends AppCompatActivity {
         binding.rcStatement.setAdapter(adapter);
     }
 
-    private void loadAccountStatementData() {
-        // This is dummy data. In a real app, you would fetch data from API or database
-        List<AccountStatementModel> statements = new ArrayList<>();
-        statements.add(new AccountStatementModel("19/03/2025", "Completed", "$243", "$243", "$243"));
-        statements.add(new AccountStatementModel("18/03/2025", "Pending", "$125", "$125", "$125"));
-        statements.add(new AccountStatementModel("17/03/2025", "Failed", "$300", "$300", "$300"));
-        // Add more dummy data as needed
-
-        adapter.setData(statements);
-    }
 
     @Override
     protected void onDestroy() {

@@ -7,9 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.school.schoolmanagement.Admin.Adapter.AdapterCollectFees2;
 import com.school.schoolmanagement.Admin.Model.FeeItem;
+import com.school.schoolmanagement.GlobalViewModel.ViewModel;
 import com.school.schoolmanagement.R;
 import com.school.schoolmanagement.databinding.ActivityCollectFees2Binding;
 
@@ -20,35 +22,20 @@ public class ActivityCollectFees2 extends AppCompatActivity implements AdapterCo
     ActivityCollectFees2Binding binding;
     private AdapterCollectFees2 adapter;
     private List<FeeItem> feeItemList;
+    ViewModel viewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         binding=ActivityCollectFees2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        viewModel= new ViewModelProvider(this).get(ViewModel.class);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        setupFeeList();
-
-        // Setup RecyclerView
-        setupRecyclerView();
-    }
-    private void setupFeeList() {
-        feeItemList = new ArrayList<>();
-        feeItemList.add(new FeeItem(1, "MONTHLY FEE", "234663"));
-        feeItemList.add(new FeeItem(2, "AMISSION FEE", "234663"));
-        feeItemList.add(new FeeItem(3, "AMISSION FEE", "234663"));
-        feeItemList.add(new FeeItem(4, "AMISSION FEE", "234663"));
-    }
-
-    private void setupRecyclerView() {
-        adapter = new AdapterCollectFees2(feeItemList);
-        adapter.setOnFeeAmountChangedListener(this);
-        binding.rcFeesCollection.setAdapter(adapter);
     }
 
     @Override

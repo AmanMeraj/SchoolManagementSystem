@@ -38,7 +38,7 @@
                         android:text="Students"
                         android:textColor="@color/black"
                         android:fontFamily="@font/plus_jakarta_sans_bold"
-                        android:textSize="15sp"
+                        android:textSize="12sp"
                         android:paddingHorizontal="10dp"
                         android:layout_height="wrap_content"/>
                     <View
@@ -82,8 +82,8 @@
                             android:padding="5dp"
                             android:src="@drawable/refresh_sm"
                             android:id="@+id/refresh_btn"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                         <ImageView
                             android:layout_marginEnd="5dp"
                             android:layout_toEndOf="@id/refresh_btn"
@@ -91,14 +91,15 @@
                             android:padding="5dp"
                             android:src="@drawable/search_sm"
                             android:id="@+id/search_btn"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"/>
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
                     </RelativeLayout>
 
 
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:visibility="gone"
                 android:id="@+id/rel_search"
                 android:layout_marginHorizontal="10dp"
                 android:layout_below="@+id/card_intro"
@@ -144,6 +145,7 @@
             </RelativeLayout>
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:id="@+id/card_admission_confirmation"
                 app:cardBackgroundColor="@color/white"
                 app:cardElevation="5dp"
@@ -178,6 +180,7 @@
                             android:layout_width="80dp"
                             android:layout_height="80dp">
                             <ImageView
+                                android:id="@+id/profile_img"
                                 android:layout_centerInParent="true"
                                 android:src="@drawable/avatar2"
                                 android:layout_width="70dp"
@@ -378,6 +381,7 @@
 
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_below="@+id/card_admission_confirmation"
                 android:layout_marginVertical="20dp"
                 android:layout_marginHorizontal="8dp"
@@ -413,5 +417,11 @@
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

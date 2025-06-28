@@ -9,14 +9,12 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Storage permissions with proper handling for different Android versions -->
     <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
-    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="29" /> <!-- For Android 13+ -->
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- Camera permission if needed -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -30,8 +28,45 @@
         android:theme="@style/Theme.SchoolManagement"
         tools:targetApi="31">
         <activity
-            android:name=".Admin.Employee.Details.ActivityEmployeesDetails"
+            android:name=".Admin.QuestionPaper.ActivityCreateQuestionPaper"
             android:exported="false" />
+        <activity
+            android:name=".Admin.QuestionPaper.ActivityQuestionBank"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.QuestionPaper.ActivityAddSubjectChapter"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Exams.AddUpdateMarks.ActivityStudentsMarks"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Salary.PaidReceipt.ActivityPaidReceiptDetails"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.ClassTest.ActivityClassTestResult"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.ClassTest.ActivityCreateNewClassTest2"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.ClassTest.ActivityCreateNewClassTest"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.GeneralSettings.ActivityFeespaticulars"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.Students.StudentDetails.ActivityStudentsDetail"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Admin.Employee.Details.ActivityEmployeesDetails"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -45,282 +80,374 @@
 
         <activity
             android:name=".Accountant.IncomeOrExpense.ActivityAccountantAccountStatement"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantCollectFees2"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.CollectFees.ActivityCollectFees2"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantFeesReport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantFeesDefaulters"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantFeesPaidReceipt"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantFeesRecord"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityAccountantCollectFees"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.FeeInvoice.ActivityGenerateFeesInvoice"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.IncomeOrExpense.ActivityAddIncomeOrExpense"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.Profile.ActivityAccountantProfile"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Accountant.Dashboard.ActivityAccountantDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Attendance.ActivitySearchStudentsAttendanceReport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Test.ActivityTestResults"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Test.ActivityCreateNewTest2"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Test.ActivityCreateNewTest"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Exams.ActivityTeachersInsertMarks"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Exams.ActivitySelectClasssOrStudent"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Exams.ActivityAddUpdateStudentsMarks"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.QuestionBank.ActivityCreateQuestionPaper"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.QuestionBank.ActivityAddQuestionBank"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.AddChapter.ActivityAddNewChapter"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Timetable.ActivityTeachersTimetable"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Homework.ActivitySearchHomework"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Attendance.ActivityStudentsAttendancereport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Attendance.ActivityClassWiseAttendanceReport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Attendance.ActivityMarkAttendance"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Attendance.ActivityAddUpdateAttendance"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Profile.ActivityTeacherProfile"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Teachers.Dashboard.ActivityTeachersDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.TimeTable.ActivityStudentsTimetable"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.TestResult.ActivityStudentsTestResult"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.ExamResult.ActivityStudentsExamResult"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.Assingments.ActivityStudentsAssingments"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.UpdateLoginDetails.ActivityUpdateLoginCredentials"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.LastSubmittedFees.ActivityStudentsLastSubmittedFees"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.AdmissionConfirmation.ActivityStudentsAdmissionConfirmation"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.Profile.ActivityStudentsProfile"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Students.Dashboard.ActivityStudentsDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SuperAdmin.Branches.ActivityAdminLogin"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SuperAdmin.Branches.ActivityAddNewBranch"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SuperAdmin.Branches.ActivityAllBranches"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SuperAdmin.SuperDashboard.ActivitySuperAdminDashboard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.Result.ActivityPrintResult"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.Result.ActivitySearchResult"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.UpdateInfo.ActivityInsertMarks"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.UpdateInfo.ActivityUpdateExaminationInfo"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.EditOrDelete.ActivityEditOrDeleteExam"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.AddUpdateMarks.ActivitySelectClassorStudent"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.AddExam.ActivityAddNewExamination"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Homework.homeworks.ActivityHomeworks"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Salary.Report.ActivitySalaryReport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Salary.PaidReceipt.ActivitySalaryReceipt"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Salary.PaySalary.ActivityPaySalary"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.Report.ActivityFeesReport"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.Defaulters.ActivityFeesDefaulters"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.FeespaidReceipt.ActivityFeesPaidReceipt"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.FeesRecord.ActivityFeesRecord"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.CollectFees.ActivityCollectFees"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ScannerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Fees.FeesInvoice.ActivityFeesInvoice"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Accounts.Statement.ActivityAccountsStatement"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Accounts.Chart.ActivityChartOfAccounts"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Accounts.Expense.ActivityAddExpense"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Accounts.Income.ActivityAddIncome"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Employee.ManageLogin.ActivityStaffLogin"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Employee.StaffIdCard.ActivityStaffIdCard"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Employee.JobLetter.ActivityJobLetter"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Employee.AdmissionForm.ActivityAddEmployee"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Employee.AllEmployee.ActivityAllEmployee"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.BasicList.ActivityBasicList"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.Managelogin.ActivityManageStudentsLogin"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.PromoteStudents.ActivityPromoteStudents"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.StudentsIdCard.ActivityStudentsIdCards"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.AdmissionForm.ActivityAddStudents"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.AdmissionLetter.ActivityAdmissionLetter"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Students.AllStudents.ActivityAllStudents"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Subjects.CreateSubject.ActivityCreateSubjects"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Subjects.ClassesWithSubjects.ActivityClassesWithSubjects"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Classes.NewClass.ActivityNewClass"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Classes.AllClasses.ActivityAllClass"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.GeneralSettings.AccountSettings.ActivityAccountSettings"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.GeneralSettings.RulesAndregulations.ActivityRulesAndRegulations"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ForgotPassword.ActivityForgotPassword"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Signup.ActivitySignup"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.ActivityAdminDashboard"
             android:exported="false"
             android:label="@string/title_activity_admin_dashboard"
-            android:theme="@style/Theme.SchoolManagement.NoActionBar" />
+            android:theme="@style/Theme.SchoolManagement.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Login.ActivityLogin"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".IntroScreen.ActivityIntroduction"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".SplashScreen.ActivitySplash"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

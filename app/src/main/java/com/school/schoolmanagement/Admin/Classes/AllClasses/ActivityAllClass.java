@@ -75,9 +75,14 @@ if(isInternetConnected(this)){
             showLoading(false);
             if (response != null ) {
                 classList.clear();
-                setAdapter(response.data.getData());
-                classList.addAll(response.data.getData());
-                adapter.notifyDataSetChanged();
+                if(response.data!=null){
+                    setAdapter(response.data.getData());
+                    classList.addAll(response.data.getData());
+                    adapter.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(this, response.message, Toast.LENGTH_SHORT).show();
+                }
+
             } else {
                 showToast("No classes found.");
             }

@@ -6,23 +6,41 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.Gson;
+import com.school.schoolmanagement.Admin.Model.AccountGet;
+import com.school.schoolmanagement.Admin.Model.AddIncome;
+import com.school.schoolmanagement.Admin.Model.AddStudentMark;
 import com.school.schoolmanagement.Admin.Model.AllEmployees;
 import com.school.schoolmanagement.Admin.Model.AllEmployeesResponse;
 import com.school.schoolmanagement.Admin.Model.ClassListResponse;
 import com.school.schoolmanagement.Admin.Model.ClassModel;
 import com.school.schoolmanagement.Admin.Model.ClassesWithSubjectsResponse;
+import com.school.schoolmanagement.Admin.Model.CreateChart;
 import com.school.schoolmanagement.Admin.Model.CreateClass;
+import com.school.schoolmanagement.Admin.Model.CreateExam;
+import com.school.schoolmanagement.Admin.Model.CreateHomework;
 import com.school.schoolmanagement.Admin.Model.Employee2;
 import com.school.schoolmanagement.Admin.Model.EmployeeList;
+import com.school.schoolmanagement.Admin.Model.ExamModel;
+import com.school.schoolmanagement.Admin.Model.FeesStructure;
+import com.school.schoolmanagement.Admin.Model.GetStudentTest;
+import com.school.schoolmanagement.Admin.Model.StudentMarksRequest;
 import com.school.schoolmanagement.Admin.Model.SubjectCreationResponse;
 import com.school.schoolmanagement.Admin.Model.SubjectRequestBody;
 import com.school.schoolmanagement.Admin.Model.SubjectUpdateRequest;
 import com.school.schoolmanagement.GlobalResponse.LoginResponse;
+import com.school.schoolmanagement.Model.AccountStatement;
+import com.school.schoolmanagement.Model.AllStudentResponse;
+import com.school.schoolmanagement.Model.ClassTestResult;
+import com.school.schoolmanagement.Model.CreateTest;
 import com.school.schoolmanagement.Model.Employee;
 import com.school.schoolmanagement.Model.EmployeeRequestDto;
 import com.school.schoolmanagement.Model.EmployeeResponse;
+import com.school.schoolmanagement.Model.HomeworkDetails;
 import com.school.schoolmanagement.Model.Login;
 import com.school.schoolmanagement.Model.ModelResponse;
+import com.school.schoolmanagement.Model.PromotionBody;
+import com.school.schoolmanagement.Model.SalaryPaidResponse;
+import com.school.schoolmanagement.Model.StudentFields;
 import com.school.schoolmanagement.retrofit.ApiRequest;
 import com.school.schoolmanagement.retrofit.RetrofitRequest;
 
@@ -42,6 +60,7 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Body;
 
 public class GlobalRepository {
     private static final String TAG = GlobalRepository.class.getSimpleName();
@@ -154,6 +173,162 @@ public class GlobalRepository {
                         liveData.setValue(new ApiResponse<>(null, false, "Failed to connect. Please check your network.", -1));
                     }
                 });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> createStudent(String auth, StudentFields student) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        // Create multipart form data
+        MultipartBody.Part imagePart = null;
+
+        // Check if profile image data exists
+        if (student.getProfileImageData() != null) {
+            RequestBody requestFile = RequestBody.create(
+                    MediaType.parse("image/jpeg"),
+                    student.getProfileImageData()
+            );
+
+            imagePart = MultipartBody.Part.createFormData(
+                    "profilePicture", "profile_image.jpg", requestFile
+            );
+        }
+
+        // Convert the employee object to JSON
+        Gson gson = new Gson();
+        String studentJson = gson.toJson(student);
+
+        // Wrap the JSON into a RequestBody
+        RequestBody studentBody = RequestBody.create(
+                MediaType.parse("application/json"), studentJson
+        );
+
+        // Make the API call
+        apiRequest.createStudent(auth, studentBody, imagePart)
+                .enqueue(new Callback<EmployeeResponse>() {
+                    @Override
+                    public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            liveData.setValue(new ApiResponse<>(response.body(), true, null, -1));
+                        } else {
+                            handleErrorResponse(response, liveData);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                        Log.e(TAG, "API call failed: " + t.getMessage());
+                        liveData.setValue(new ApiResponse<>(null, false, "Failed to connect. Please check your network.", -1));
+                    }
+                });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> updateStudents(String auth,int StudentsId, StudentFields student) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        // Create multipart form data
+        MultipartBody.Part imagePart = null;
+
+        // Check if profile image data exists
+        if (student.getProfileImageData() != null) {
+            RequestBody requestFile = RequestBody.create(
+                    MediaType.parse("image/jpeg"),
+                    student.getProfileImageData()
+            );
+
+            imagePart = MultipartBody.Part.createFormData(
+                    "profilePicture", "profile_image.jpg", requestFile
+            );
+        }
+
+        // Convert the employee object to JSON
+        Gson gson = new Gson();
+        String studentJson = gson.toJson(student);
+
+        // Wrap the JSON into a RequestBody
+        RequestBody studentBody = RequestBody.create(
+                MediaType.parse("application/json"), studentJson
+        );
+
+        // Make the API call
+        apiRequest.updateStudent(auth,StudentsId, studentBody, imagePart)
+                .enqueue(new Callback<EmployeeResponse>() {
+                    @Override
+                    public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            liveData.setValue(new ApiResponse<>(response.body(), true, null, -1));
+                        } else {
+                            handleErrorResponse(response, liveData);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                        Log.e(TAG, "API call failed: " + t.getMessage());
+                        liveData.setValue(new ApiResponse<>(null, false, "Failed to connect. Please check your network.", -1));
+                    }
+                });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> promoteStudents(String auth,int classId, List<Long> studentIds) {
+        MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.promoteStudents(auth,classId, studentIds).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to promote students";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e("API_ERROR", "promoteStudents: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> updateExam(String auth,int examId,CreateExam createExam) {
+        MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.updateExam(auth,examId, createExam).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to promote students";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e("API_ERROR", "promoteStudents: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
 
         return liveData;
     }
@@ -387,12 +562,186 @@ public class GlobalRepository {
 
         return liveData;
     }
+    public LiveData<ApiResponse<HomeworkDetails>> getAllHomework(String auth) {
+        final MutableLiveData<ApiResponse<HomeworkDetails>> liveData = new MutableLiveData<>();
+
+        if (auth == null || auth.isEmpty()) {
+            liveData.setValue(new ApiResponse<>(null, false, "Authentication token is missing", 401));
+            return liveData;
+        }
+
+        Log.d(TAG, "Making API call to get all homework");
+
+        Call<HomeworkDetails> call = apiRequest.getAllHomework(auth);
+
+        call.enqueue(new Callback<HomeworkDetails>() {
+            @Override
+            public void onResponse(@NonNull Call<HomeworkDetails> call, @NonNull Response<HomeworkDetails> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    HomeworkDetails responseBody = response.body();
+                    Log.d(TAG, "API call successful. Status: " + responseBody.status);
+
+                    if (responseBody.data != null) {
+                        Log.d(TAG, "Received homework data");
+                        liveData.setValue(new ApiResponse<>(responseBody, true, responseBody.message, responseBody.status));
+                    } else {
+                        Log.d(TAG, "Received empty homework data");
+                        liveData.setValue(new ApiResponse<>(null, true, "No homework found", responseBody.status));
+                    }
+                } else {
+                    handleHomeworkErrorResponse(response, liveData);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<HomeworkDetails> call, @NonNull Throwable t) {
+                Log.e(TAG, "API call failed: " + t.getMessage(), t);
+                String errorMessage = (t instanceof IOException) ?
+                        "Connection error. Please check your internet." :
+                        "Network error. Please try again.";
+                liveData.setValue(new ApiResponse<>(null, false, errorMessage, -1));
+            }
+        });
+
+        return liveData;
+    }
+
+    public LiveData<ApiResponse<HomeworkDetails>> getFilteredHomework(String auth, Integer classId, String teacherId, String homeworkDate) {
+        final MutableLiveData<ApiResponse<HomeworkDetails>> liveData = new MutableLiveData<>();
+
+        if (auth == null || auth.isEmpty()) {
+            liveData.setValue(new ApiResponse<>(null, false, "Authentication token is missing", 401));
+            return liveData;
+        }
+
+        Log.d(TAG, "Making API call to get filtered homework");
+        Log.d(TAG, "Filters - Class ID: " + classId + ", Teacher ID: " + teacherId +
+                ", Date: " + homeworkDate + ", Search: ");
+
+        Call<HomeworkDetails> call = apiRequest.getFilteredHomework(auth, classId, teacherId, homeworkDate);
+
+        call.enqueue(new Callback<HomeworkDetails>() {
+            @Override
+            public void onResponse(@NonNull Call<HomeworkDetails> call, @NonNull Response<HomeworkDetails> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    HomeworkDetails responseBody = response.body();
+                    Log.d(TAG, "Filtered API call successful. Status: " + responseBody.status);
+
+                    if (responseBody.data != null) {
+                        Log.d(TAG, "Received filtered homework data: " + responseBody.data.size() + " items");
+                        liveData.setValue(new ApiResponse<>(responseBody, true, responseBody.message, responseBody.status));
+                    } else {
+                        Log.d(TAG, "No homework found with current filters");
+                        liveData.setValue(new ApiResponse<>(responseBody, true, "No homework found with current filters", responseBody.status));
+                    }
+                } else {
+                    handleHomeworkErrorResponse(response, liveData);
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<HomeworkDetails> call, @NonNull Throwable t) {
+                Log.e(TAG, "Filtered API call failed: " + t.getMessage(), t);
+                String errorMessage = (t instanceof IOException) ?
+                        "Connection error. Please check your internet." :
+                        "Network error. Please try again.";
+                liveData.setValue(new ApiResponse<>(null, false, errorMessage, -1));
+            }
+        });
+
+        return liveData;
+    }
+
+    private void handleHomeworkErrorResponse(Response<HomeworkDetails> response, MutableLiveData<ApiResponse<HomeworkDetails>> liveData) {
+        String errorMessage;
+        int statusCode = response.code();
+
+        switch (statusCode) {
+            case 401:
+                errorMessage = "Unauthorized. Please login again.";
+                break;
+            case 403:
+                errorMessage = "Access forbidden.";
+                break;
+            case 404:
+                errorMessage = "Homework not found.";
+                break;
+            case 500:
+                errorMessage = "Server error. Please try again later.";
+                break;
+            default:
+                errorMessage = "Failed to fetch homework. Error code: " + statusCode;
+        }
+
+        Log.e(TAG, "API Error: " + statusCode + " - " + errorMessage);
+        liveData.setValue(new ApiResponse<>(null, false, errorMessage, statusCode));
+    }
 
 
     public LiveData<ApiResponse<ModelResponse>> deleteEmployee(String auth, int employeeId) {
         final MutableLiveData<ApiResponse<ModelResponse>> liveData = new MutableLiveData<>();
 
         apiRequest.deleteEmployee(auth, employeeId).enqueue(new Callback<ModelResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ModelResponse> call, @NonNull Response<ModelResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to delete employee";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "deleteEmployee: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ModelResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ModelResponse>> deleteExam(String auth, int examId) {
+        final MutableLiveData<ApiResponse<ModelResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.deleteExam(auth, examId).enqueue(new Callback<ModelResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ModelResponse> call, @NonNull Response<ModelResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to delete employee";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "deleteEmployee: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ModelResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ModelResponse>> deleteAccountChart(String auth, int id) {
+        final MutableLiveData<ApiResponse<ModelResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.deleteAccountChart(auth, id).enqueue(new Callback<ModelResponse>() {
             @Override
             public void onResponse(@NonNull Call<ModelResponse> call, @NonNull Response<ModelResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
@@ -450,6 +799,306 @@ public class GlobalRepository {
 
         return liveData;
     }
+    public LiveData<ApiResponse<EmployeeResponse>> createHomework(String auth, CreateHomework createHomework) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.createHomework(auth, createHomework).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> addStudentMarks(String auth, StudentMarksRequest studentMarksRequest) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.addStudentMarks(auth, studentMarksRequest).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> createChart(String auth, CreateChart createChart) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.createChart(auth, createChart).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> editAccountChart(String auth,int id, CreateChart createChart) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.editAccountChart(auth,id,createChart).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to Edit Chart";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> addIncome(String auth, AddIncome addIncome) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.addIncome(auth, addIncome).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> addExpense(String auth, AddIncome addIncome) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.addExpense(auth, addIncome).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<GetStudentTest>> getTestMarks(String auth, int classId, int studentId, String date) {
+        final MutableLiveData<ApiResponse<GetStudentTest>> liveData = new MutableLiveData<>();
+
+        apiRequest.getTestMarks(auth, classId,studentId,date).enqueue(new Callback<GetStudentTest>() {
+            @Override
+            public void onResponse(@NonNull Call<GetStudentTest> call, @NonNull Response<GetStudentTest> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<GetStudentTest> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> postTestMarks(String auth, CreateTest createTest) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.addClassTest(auth,createTest).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> updateTestMarks(String auth, CreateTest createTest) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.updateClassTest(auth,createTest).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> createExam(String auth, CreateExam createExam) {
+        final MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.addExam(auth, createExam).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String errorMessage = "Failed to create class";
+                    try {
+                        if (response.errorBody() != null) {
+                            errorMessage = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        errorMessage = "Error reading error response";
+                        Log.e(TAG, "postClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, errorMessage, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
 
     public LiveData<ApiResponse<ClassModel>> getAllClasses(String auth) {
         MutableLiveData<ApiResponse<ClassModel>> liveData = new MutableLiveData<>();
@@ -474,6 +1123,325 @@ public class GlobalRepository {
 
             @Override
             public void onFailure(@NonNull Call<ClassModel> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ExamModel>> getAllExams(String auth) {
+        MutableLiveData<ApiResponse<ExamModel>> liveData = new MutableLiveData<>();
+
+        apiRequest.getExams(auth).enqueue(new Callback<ExamModel>() {
+            @Override
+            public void onResponse(@NonNull Call<ExamModel> call, @NonNull Response<ExamModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch classes";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ExamModel> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AccountGet>> getAccountChart(String auth) {
+        MutableLiveData<ApiResponse<AccountGet>> liveData = new MutableLiveData<>();
+
+        apiRequest.getAccountChart(auth).enqueue(new Callback<AccountGet>() {
+            @Override
+            public void onResponse(@NonNull Call<AccountGet> call, @NonNull Response<AccountGet> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch classes";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AccountGet> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AddStudentMark>> getStudentMarks(String auth, int examId, int studentId, int classId) {
+        MutableLiveData<ApiResponse<AddStudentMark>> liveData = new MutableLiveData<>();
+
+        apiRequest.getStudentMarks(auth,examId,studentId,classId).enqueue(new Callback<AddStudentMark>() {
+            @Override
+            public void onResponse(@NonNull Call<AddStudentMark> call, @NonNull Response<AddStudentMark> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch classes";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AddStudentMark> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AccountStatement>> getAccountStatement(String auth) {
+        MutableLiveData<ApiResponse<AccountStatement>> liveData = new MutableLiveData<>();
+
+        apiRequest.getAccountStatement(auth).enqueue(new Callback<AccountStatement>() {
+            @Override
+            public void onResponse(@NonNull Call<AccountStatement> call, @NonNull Response<AccountStatement> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch Account Statement";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AccountStatement> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AddStudentMark>> getClassMarks(String auth, int examId,int classId) {
+        MutableLiveData<ApiResponse<AddStudentMark>> liveData = new MutableLiveData<>();
+
+        apiRequest.getClassMarks(auth,examId,classId).enqueue(new Callback<AddStudentMark>() {
+            @Override
+            public void onResponse(@NonNull Call<AddStudentMark> call, @NonNull Response<AddStudentMark> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch classes";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AddStudentMark> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AllStudentResponse>> getAllStudents(String auth) {
+        MutableLiveData<ApiResponse<AllStudentResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.getAllStudents(auth).enqueue(new Callback<AllStudentResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<AllStudentResponse> call, @NonNull Response<AllStudentResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch students";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AllStudentResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AllStudentResponse>> getBasicList(String auth,int classId) {
+        MutableLiveData<ApiResponse<AllStudentResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.getBasicList(auth,classId).enqueue(new Callback<AllStudentResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<AllStudentResponse> call, @NonNull Response<AllStudentResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch Students";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AllStudentResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ClassTestResult>> getClassSubjectWise(String auth, int classId, int subjectId) {
+        MutableLiveData<ApiResponse<ClassTestResult>> liveData = new MutableLiveData<>();
+
+        apiRequest.getClassSubjectWise(auth,classId,subjectId).enqueue(new Callback<ClassTestResult>() {
+            @Override
+            public void onResponse(@NonNull Call<ClassTestResult> call, @NonNull Response<ClassTestResult> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch Students";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ClassTestResult> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ClassTestResult>> getStudentSubjectWise(String auth, int studentId, int subjectId) {
+        MutableLiveData<ApiResponse<ClassTestResult>> liveData = new MutableLiveData<>();
+
+        apiRequest.getStudentSubjectWise(auth,studentId,subjectId).enqueue(new Callback<ClassTestResult>() {
+            @Override
+            public void onResponse(@NonNull Call<ClassTestResult> call, @NonNull Response<ClassTestResult> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch Students";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ClassTestResult> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<ClassTestResult>> getDateRangeWise(String auth, String startDate,String endDate) {
+        MutableLiveData<ApiResponse<ClassTestResult>> liveData = new MutableLiveData<>();
+
+        apiRequest.getDateRangeWise(auth,startDate,endDate).enqueue(new Callback<ClassTestResult>() {
+            @Override
+            public void onResponse(@NonNull Call<ClassTestResult> call, @NonNull Response<ClassTestResult> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch Students";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ClassTestResult> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<AllStudentResponse>> getStudentsDetails(String auth,int studentID) {
+        MutableLiveData<ApiResponse<AllStudentResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.getStudentDetails(auth,studentID).enqueue(new Callback<AllStudentResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<AllStudentResponse> call, @NonNull Response<AllStudentResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, null, response.code()));
+                } else {
+                    String error = "Failed to fetch classes";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getAllClasses: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<AllStudentResponse> call, @NonNull Throwable t) {
                 liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
             }
         });
@@ -536,6 +1504,96 @@ public class GlobalRepository {
 
             @Override
             public void onFailure(@NonNull Call<SubjectCreationResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<SalaryPaidResponse>> salaryDetails(String auth, Integer employeeId) {
+        MutableLiveData<ApiResponse<SalaryPaidResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.getEmployeeSalaryDetails(auth, employeeId).enqueue(new Callback<SalaryPaidResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<SalaryPaidResponse> call,
+                                   @NonNull Response<SalaryPaidResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, response.body().getMessage(), response.code()));
+                } else {
+                    String error = "Failed to create subjects";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "createSubjects: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SalaryPaidResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<SalaryPaidResponse>> getSalaryReport(String auth, String salaryMonth, Integer employeeId, String dateRange) {
+        MutableLiveData<ApiResponse<SalaryPaidResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.getEmployeeSalaryList(auth, salaryMonth, employeeId, dateRange).enqueue(new Callback<SalaryPaidResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<SalaryPaidResponse> call,
+                                   @NonNull Response<SalaryPaidResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, response.body().getMessage(), response.code()));
+                } else {
+                    String error = "Failed to load salary report";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "getSalaryReport error: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<SalaryPaidResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> paySalary(String auth, Integer employeeId,  String salaryMonth, String dueDate, String fixedSalary, String bonus, String deduction ) {
+        MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.paySalary(auth, employeeId,salaryMonth,dueDate,fixedSalary,bonus,deduction).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call,
+                                   @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.setValue(new ApiResponse<>(response.body(), true, response.body().getMessage(), response.code()));
+                } else {
+                    String error = "Failed to create subjects";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "createSubjects: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
                 liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
             }
         });
@@ -634,11 +1692,96 @@ public class GlobalRepository {
 
         return liveData;
     }
+    public LiveData<ApiResponse<EmployeeResponse>> deleteStudent(String auth,int studentId) {
+        MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.deleteStudent(auth,studentId).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful()) {
+                    liveData.setValue(new ApiResponse<>(null, true, null, response.code()));
+                } else {
+                    String error = "Failed to delete class";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "deleteClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<ApiResponse<EmployeeResponse>> deleteTest(String auth,int testId) {
+        MutableLiveData<ApiResponse<EmployeeResponse>> liveData = new MutableLiveData<>();
+
+        apiRequest.deleteTest(auth,testId).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<EmployeeResponse> call, @NonNull Response<EmployeeResponse> response) {
+                if (response.isSuccessful()) {
+                    liveData.setValue(new ApiResponse<>(null, true, null, response.code()));
+                } else {
+                    String error = "Failed to delete class";
+                    try {
+                        if (response.errorBody() != null) {
+                            error = response.errorBody().string();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "deleteClass: " + e.getMessage());
+                    }
+                    liveData.setValue(new ApiResponse<>(null, false, error, response.code()));
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<EmployeeResponse> call, @NonNull Throwable t) {
+                liveData.setValue(new ApiResponse<>(null, false, "Network failure. Try again.", -1));
+            }
+        });
+
+        return liveData;
+    }
 
     public LiveData<EmployeeResponse> updateClass(String auth, int classId, CreateClass createClass) {
         MutableLiveData<EmployeeResponse> liveData = new MutableLiveData<>();
 
         apiRequest.updateClass(auth, classId, createClass).enqueue(new Callback<EmployeeResponse>() {
+            @Override
+            public void onResponse(Call<EmployeeResponse> call, Response<EmployeeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    liveData.postValue(response.body());
+                } else {
+                    EmployeeResponse errorResponse = new EmployeeResponse();
+                    errorResponse.setSuccess(false);
+                    errorResponse.setMessage("Update failed: " + response.message());
+                    liveData.postValue(errorResponse);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<EmployeeResponse> call, Throwable t) {
+                EmployeeResponse errorResponse = new EmployeeResponse();
+                errorResponse.setSuccess(false);
+                errorResponse.setMessage(t.getMessage());
+                liveData.postValue(errorResponse);
+            }
+        });
+
+        return liveData;
+    }
+    public LiveData<EmployeeResponse> updateClassFees(String auth, int classId, FeesStructure feesStructure) {
+        MutableLiveData<EmployeeResponse> liveData = new MutableLiveData<>();
+
+        apiRequest.updateClassFees(auth, classId, feesStructure).enqueue(new Callback<EmployeeResponse>() {
             @Override
             public void onResponse(Call<EmployeeResponse> call, Response<EmployeeResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {

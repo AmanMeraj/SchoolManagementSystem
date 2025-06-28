@@ -159,13 +159,28 @@
 
                                 </TextView>
 
-                                <androidx.recyclerview.widget.RecyclerView
-                                    android:layout_width="match_parent"
-                                    android:orientation="horizontal"
-                                    android:layout_gravity="center"
-                                    android:id="@+id/rc_subjects"
-                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                <TextView
+                                    android:visibility="gone"
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_no_subjects"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:text="No Subjects found in this class!"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content">
+
+                                </TextView>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rc_subjects"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:orientation="horizontal"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 
                                 </androidx.recyclerview.widget.RecyclerView>
 
@@ -178,22 +193,87 @@
                                 android:orientation="vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
-                                <androidx.recyclerview.widget.RecyclerView
+
+                                <!-- Empty State Container -->
+                                <LinearLayout
+                                    android:id="@+id/empty_state_container"
                                     android:layout_width="match_parent"
-                                    android:id="@+id/rc_row_insert_marks"
-                                    android:layout_below="@+id/tv_head"
-                                    android:layout_marginHorizontal="10dp"
-                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    android:layout_height="wrap_content"
                                     android:orientation="vertical"
+                                    android:gravity="center"
+                                    android:padding="40dp"
+                                    android:layout_marginVertical="50dp"
+                                    android:visibility="gone">
+
+                                    <!-- Empty State Icon -->
+                                    <ImageView
+                                        android:layout_width="80dp"
+                                        android:layout_height="80dp"
+                                        android:src="@drawable/student_sm"
+                                        android:alpha="0.6"
+                                        android:layout_marginBottom="16dp" />
+
+                                    <!-- Main Message -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="No Students Found"
+                                        android:textSize="18sp"
+                                        android:textColor="@color/black"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:gravity="center"
+                                        android:layout_marginBottom="8dp" />
+
+                                    <!-- Subtitle Message -->
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Try selecting a different class or check if students are enrolled"
+                                        android:textSize="14sp"
+                                        android:textColor="@color/grey"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:gravity="center"
+                                        android:alpha="0.8" />
+
+                                </LinearLayout>
+
+
+                                <!-- RecyclerView for Students -->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rc_row_insert_marks"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginHorizontal="10dp"
                                     android:layout_marginBottom="20dp"
-                                    android:layout_height="wrap_content">
-                                </androidx.recyclerview.widget.RecyclerView>
+                                    android:orientation="vertical"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
                             </LinearLayout>
                         </RelativeLayout>
 
 
 
                     </HorizontalScrollView>
+
+                    <RelativeLayout
+                        android:layout_below="@+id/tv_head"
+                        android:id="@+id/btn_save"
+                        android:background="@drawable/blue_square_button"
+                        android:layout_width="match_parent"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_height="40dp">
+                        <TextView
+                            android:layout_centerInParent="true"
+                            android:id="@+id/tv_btn_text"
+                            android:layout_width="wrap_content"
+                            android:text="Submit"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
 
 
 

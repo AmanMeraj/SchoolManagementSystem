@@ -129,7 +129,7 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint="Select "
-                                    android:maxLength="11"
+                                    android:maxLength="1111"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
@@ -240,118 +240,7 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Add the content area for displaying marks after the search -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/card_main"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="5dp">
 
-                <!-- This will contain our different mode containers -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp">
-
-                    <!-- Whole Class Marks Content -->
-                    <LinearLayout
-                        android:id="@+id/whole_class_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/whole_class_title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/plus_jakarta_sans_bold"
-                            android:text="Whole Class Marks"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                        <!-- Add your whole class marks entry form here -->
-                        <!-- This is a placeholder for your whole class marks UI components -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Class Student List"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/plus_jakarta_sans_bold" />
-
-                        <!-- Add RecyclerView or other components for whole class marks entry -->
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/whole_class_recycler_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp" />
-
-                    </LinearLayout>
-
-                    <!-- Single Student Marks Content -->
-                    <LinearLayout
-                        android:id="@+id/single_student_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:id="@+id/single_student_title"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/plus_jakarta_sans_bold"
-                            android:text="Single Student Marks"
-                            android:textColor="@color/black"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/single_student_class"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/plus_jakarta_sans"
-                            android:text="Class: "
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/single_student_reg"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="@font/plus_jakarta_sans"
-                            android:text="Registration Number: "
-                            android:textColor="@color/black"
-                            android:textSize="16sp" />
-
-                        <!-- Add your single student marks entry form here -->
-                        <!-- This is a placeholder for your single student marks UI components -->
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="Subject Marks"
-                            android:textColor="@color/black"
-                            android:fontFamily="@font/plus_jakarta_sans_bold" />
-
-                        <!-- Add RecyclerView or other components for single student marks entry -->
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/single_student_recycler_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp" />
-
-                    </LinearLayout>
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

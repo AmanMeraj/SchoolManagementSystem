@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/row_test_marks"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="6dp">
+
+    <TextView
+        android:id="@+id/tvStudentId"
+        android:layout_width="100dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="101"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvStudentName"
+        android:layout_width="130dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Student Name"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <EditText
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/etObtainedMarks"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:inputType="number"
+        android:hint="0"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:background="@drawable/edit_text_bg" />
+</LinearLayout>

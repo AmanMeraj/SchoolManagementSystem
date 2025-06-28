@@ -149,6 +149,8 @@
             </RelativeLayout>
 
             <com.google.android.material.card.MaterialCardView
+                android:visibility="gone"
+                android:id="@+id/card_pay_salary"
                 android:layout_width="match_parent"
                 android:layout_below="@+id/rel_search"
                 app:cardBackgroundColor="@color/white"
@@ -171,6 +173,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginVertical="20dp"
                         android:layout_height="wrap_content"/>
+
                     <LinearLayout
                         android:id="@+id/linear_employee_details"
                         android:layout_marginHorizontal="10dp"
@@ -179,6 +182,7 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
                         <TextView
                             android:layout_marginVertical="5dp"
                             android:layout_width="wrap_content"
@@ -191,7 +195,7 @@
                         <TextView
                             android:layout_marginVertical="5dp"
                             android:layout_width="wrap_content"
-                            android:text="1656556431"
+                            android:text=""
                             android:textColor="@color/light_blue"
                             android:textSize="13sp"
                             android:fontFamily="@font/plus_jakarta_sans_extrabold"
@@ -210,7 +214,7 @@
                         <TextView
                             android:layout_marginVertical="5dp"
                             android:layout_width="wrap_content"
-                            android:text="Teacher"
+                            android:text=""
                             android:textColor="@color/light_blue"
                             android:textSize="13sp"
                             android:fontFamily="@font/plus_jakarta_sans_extrabold"
@@ -229,7 +233,7 @@
                         <TextView
                             android:layout_marginVertical="5dp"
                             android:layout_width="wrap_content"
-                            android:text="Aman Meraj"
+                            android:text=""
                             android:textColor="@color/light_blue"
                             android:textSize="13sp"
                             android:fontFamily="@font/plus_jakarta_sans_extrabold"
@@ -237,6 +241,7 @@
                             android:layout_height="wrap_content"/>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_marginVertical="20dp"
                         android:layout_below="@+id/linear_employee_details"
@@ -244,25 +249,28 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
+                        <!-- Fee Month Field -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+                            android:layout_marginVertical="10dp">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp">
-                                <!-- EditText Field -->
+
                                 <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                                     android:id="@+id/edt_fee_month"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
                                     android:drawableEnd="@drawable/calendar2"
-                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:clickable="true"
                                     android:fontFamily="@font/plus_jakarta_sans"
-                                    android:hint=" DD/MM"
+                                    android:hint="DD/MM"
                                     android:maxLength="11"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
@@ -273,10 +281,7 @@
                                     android:textSize="14sp" />
                             </RelativeLayout>
 
-
-                            <!-- Floating Hint Label -->
                             <TextView
-
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -288,25 +293,28 @@
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
+
+                        <!-- Due Date Field -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
+                            android:layout_marginVertical="10dp">
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp">
-                                <!-- EditText Field -->
+
                                 <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                                     android:id="@+id/edt_due_date"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
                                     android:drawableEnd="@drawable/calendar2"
-                                    android:editable="false"
+                                    android:focusable="false"
+                                    android:clickable="true"
                                     android:fontFamily="@font/plus_jakarta_sans"
-                                    android:hint=" DD/MM/YYYY"
+                                    android:hint="DD/MM/YYYY"
                                     android:maxLength="11"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
@@ -317,10 +325,7 @@
                                     android:textSize="14sp" />
                             </RelativeLayout>
 
-
-                            <!-- Floating Hint Label -->
                             <TextView
-
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -332,6 +337,8 @@
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
+
+                        <!-- Fixed Salary Field -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -342,21 +349,24 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp">
 
-                                <EditText
+                                <AutoCompleteTextView
                                     android:id="@+id/edt_fixed_salary"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint="Enter Fixed Salary"
-                                    android:inputType="number"
+                                    android:inputType="none"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
                                     android:paddingEnd="10dp"
                                     android:paddingBottom="10dp"
                                     android:textColor="@color/black"
-                                    android:textSize="14sp" />
+                                    android:textSize="14sp"
+                                    android:focusable="false"
+                                    android:clickable="true" />
+
                             </RelativeLayout>
 
                             <TextView
@@ -372,6 +382,8 @@
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
+
+                        <!-- Bonus Amount Field -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -383,7 +395,7 @@
                                 android:layout_marginTop="10dp">
 
                                 <EditText
-                                    android:id="@+id/edt_fine_amount"
+                                    android:id="@+id/edt_bonus_amount"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:background="@drawable/edit_text_bg"
@@ -412,6 +424,8 @@
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
+
+                        <!-- Deduction Field -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -453,6 +467,7 @@
                                 android:textSize="10sp" />
                         </RelativeLayout>
 
+                        <!-- Submit Button -->
                         <RelativeLayout
                             android:gravity="center"
                             android:layout_marginVertical="30dp"
@@ -461,14 +476,14 @@
                             android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="45dp">
+
                             <ImageView
                                 android:padding="3dp"
                                 android:id="@+id/add_btn_img"
                                 android:src="@drawable/tick_circle"
                                 android:layout_width="30dp"
-                                android:layout_height="30dp">
+                                android:layout_height="30dp" />
 
-                            </ImageView>
                             <TextView
                                 android:gravity="center"
                                 android:layout_alignBottom="@+id/add_btn_img"
@@ -481,9 +496,7 @@
                                 android:textColor="@color/white"
                                 android:fontFamily="@font/plus_jakarta_sans_extrabold"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-                            </TextView>
+                                android:layout_height="wrap_content" />
 
                         </RelativeLayout>
 
@@ -494,5 +507,11 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <include
+        layout="@layout/view_loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"/>
 
 </RelativeLayout>

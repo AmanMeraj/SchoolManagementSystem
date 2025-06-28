@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.school.schoolmanagement.R;
 
 import java.io.ByteArrayOutputStream;
 
@@ -78,7 +81,24 @@ public class ImageUtils {
             return base64Image; // Return original if compression fails
         }
     }
-
+    public static void setImageFromBase64(String base64String, ImageView imageView) {
+        try {
+            if (base64String != null && !base64String.trim().isEmpty()) {
+                byte[] decodedBytes = base64ToByteArray(base64String);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+                if (bitmap != null) {
+                    imageView.setImageBitmap(bitmap);
+                } else {
+                    imageView.setImageResource(R.drawable.avatar2); // fallback image
+                }
+            } else {
+                imageView.setImageResource(R.drawable.avatar2); // fallback image
+            }
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to set image from Base64: " + e.getMessage());
+            imageView.setImageResource(R.drawable.avatar2); // fallback image
+        }
+    }
     /**
      * Resizes a bitmap to reduce its dimensions by half
      *

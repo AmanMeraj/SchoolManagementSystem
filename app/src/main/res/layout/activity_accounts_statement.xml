@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".Admin.Accounts.Statement.ActivityAccountsStatement">
     <include layout="@layout/back_toolbar"
@@ -42,7 +43,7 @@
                             android:text="Accounts"
                             android:textColor="@color/black"
                             android:fontFamily="@font/plus_jakarta_sans_bold"
-                            android:textSize="15sp"
+                            android:textSize="12sp"
                             android:paddingHorizontal="10dp"
                             android:gravity="center"
                             android:layout_centerVertical="true"/>
@@ -70,7 +71,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="- Account Statement"
-                            android:textSize="12sp"
+                            android:textSize="11sp"
                             android:textColor="@color/black"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:layout_toEndOf="@id/institute_profile_img"
@@ -79,6 +80,7 @@
 
 
                     <RelativeLayout
+                        android:layout_centerInParent="true"
                         android:id="@+id/linear_head_button"
                         android:layout_marginHorizontal="10dp"
                         android:layout_alignParentEnd="true"
@@ -92,46 +94,6 @@
                             android:id="@+id/refresh_btn"
                             android:layout_width="40dp"
                             android:layout_height="40dp"/>
-                        <ImageView
-                            android:layout_marginEnd="5dp"
-                            android:layout_toEndOf="@id/refresh_btn"
-                            android:layout_gravity="center_vertical"
-                            android:padding="5dp"
-                            android:src="@drawable/delete_sm"
-                            android:id="@+id/search_btn"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            app:tint="@color/dark_red" />
-                    </RelativeLayout>
-                    <RelativeLayout
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rel_intro"
-                        android:layout_marginVertical="10dp"
-                        android:paddingHorizontal="10dp"
-                        android:background="@drawable/ornage_blue_btn">
-
-                        <com.google.android.material.materialswitch.MaterialSwitch
-                            android:id="@+id/switch_btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:showText="false"
-                            android:layout_alignParentStart="true"/>
-
-                        <TextView
-                            android:id="@+id/switch_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Show References"
-                            android:textSize="13sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_bold"
-                            android:layout_toEndOf="@id/switch_btn"
-                            android:layout_centerVertical="true"
-                            android:paddingStart="8dp"/>
                     </RelativeLayout>
 
 
@@ -188,6 +150,7 @@
                 android:layout_below="@+id/card_date"
                 android:layout_height="wrap_content">
                 <RelativeLayout
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <com.google.android.flexbox.FlexboxLayout
@@ -264,19 +227,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:id="@+id/tv_column_visibility"
-                            android:layout_marginHorizontal="5dp"
-                            android:background="@drawable/text_view_bg"
-                            android:layout_marginVertical="5dp"
-                            android:textSize="14sp"
-                            android:textColor="@color/black"
-                            android:paddingVertical="5dp"
-                            android:paddingHorizontal="10dp"
-                            android:text="Column Visibility"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"/>
-
                     </com.google.android.flexbox.FlexboxLayout>
                     <RelativeLayout
                         android:id="@+id/search_relative"
@@ -309,77 +259,107 @@
                             android:layout_width="220dp"
                             android:layout_height="35dp"/>
                     </RelativeLayout>
-                    <LinearLayout
+                    <RelativeLayout
+                        android:id="@+id/rel_horizontal"
                         android:layout_below="@+id/search_relative"
-                        android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/button_bg_sm"
-                        android:weightSum="5"
-                        android:id="@+id/linear_heading"
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Date"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Description"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="debt"
-                            android:layout_weight=".9"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Credit"
-                            android:layout_weight=".9"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Net Balance"
-                            android:layout_weight="1.2"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
+
+                        <!-- Header inside a horizontal scroll -->
+                        <HorizontalScrollView
+                            android:id="@+id/horizontal_scroll_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none">
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:id="@+id/linear_heading"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:background="@drawable/button_bg_sm">
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Date"/>
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Description"/>
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Debt"/>
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Credit"/>
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Net Balance"/>
+                                    <TextView
+                                        android:layout_width="120dp"
+                                        android:layout_height="wrap_content"
+                                        android:paddingVertical="5dp"
+                                        android:gravity="center"
+                                        android:textSize="12sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                        android:text="Payment Method"/>
+                                </LinearLayout>
+                                <!-- RecyclerView below the header -->
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rc_statement"
+                                    android:layout_width="match_parent"
+                                    android:layout_below="@+id/linear_heading"
+                                    android:layout_height="150dp"
+                                    android:layout_marginVertical="10dp"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:orientation="vertical"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                            </RelativeLayout>
 
 
-                    </LinearLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_marginVertical="10dp"
-                        android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:id="@+id/rc_statement"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_below="@+id/linear_heading"
-                        android:layout_height="150dp"/>
+                        </HorizontalScrollView>
+
+
+                    </RelativeLayout>
+
+
 
                     <TextView
                         android:layout_alignTop="@+id/linear_btn"
@@ -389,7 +369,7 @@
                         android:textColor="@color/grey"
                         android:fontFamily="@font/plus_jakarta_sans_bold"
                         android:textSize="11sp"
-                        android:layout_below="@id/rc_statement"
+                        android:layout_below="@id/rel_horizontal"
                         android:layout_marginHorizontal="10dp"
                         android:layout_width="wrap_content"
                         android:text="Showing page 1 of 4"
@@ -397,7 +377,7 @@
                     <LinearLayout
                         android:id="@+id/linear_btn"
                         android:layout_marginBottom="20dp"
-                        android:layout_below="@+id/rc_statement"
+                        android:layout_below="@+id/rel_horizontal"
                         android:layout_alignParentEnd="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
@@ -421,5 +401,10 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/loader"/>
 
 </RelativeLayout>

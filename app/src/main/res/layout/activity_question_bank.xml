@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".Admin.Accounts.Chart.ActivityChartOfAccounts">
+
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Question Paper"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="12sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"/>
+
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Question Bank"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_below="@+id/card_intro"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:id="@+id/add_question_card"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Add Question Bank"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:textSize="18sp"
+                        android:id="@+id/tv_add_question"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_below="@+id/tv_add_question"
+                        android:layout_marginHorizontal="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <!-- Subject Dropdown -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_subject"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Subject"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Subject*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Class Dropdown -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_class"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Class"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Class*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Chapter Dropdown -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_chapter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Chapter"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chapter*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Difficulty Dropdown -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_difficulty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Difficulty"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Difficulty*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Question Text Area -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/edt_question"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Enter Question"
+                                    android:gravity="top"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:inputType="textMultiLine"
+                                    android:maxLines="5" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Question*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+                        <!-- Title Field -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/edt_title"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Enter Title"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Title*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
+                        </RelativeLayout>
+
+                        <!-- Create Button -->
+                        <RelativeLayout
+                            android:gravity="center"
+                            android:layout_marginVertical="30dp"
+                            android:background="@drawable/blue_bg"
+                            android:id="@+id/btn_create"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+
+                            <ImageView
+                                android:padding="3dp"
+                                android:id="@+id/create_btn_img"
+                                android:src="@drawable/add_sm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+
+                            <TextView
+                                android:gravity="center"
+                                android:layout_alignBottom="@+id/create_btn_img"
+                                android:layout_alignTop="@+id/create_btn_img"
+                                android:paddingHorizontal="5dp"
+                                android:text="Create"
+                                android:layout_toEndOf="@+id/create_btn_img"
+                                android:id="@+id/create_txt"
+                                android:textSize="15sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Export Options and Table Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="20dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp"
+                android:layout_below="@+id/add_question_card"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flexbox_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="10dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="center">
+
+                        <TextView
+                            android:id="@+id/tv_copy"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_csv"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="CSV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_excel"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Excel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_pdf"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="PDF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_print"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Print"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                    <RelativeLayout
+                        android:layout_below="@+id/flexbox_buttons"
+                        android:id="@+id/search_relative"
+                        android:background="@drawable/bg_gradient_border"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_alignTop="@+id/edt_search"
+                            android:layout_alignBottom="@+id/edt_search"
+                            android:id="@+id/image_search"
+                            android:padding="5dp"
+                            android:layout_width="30dp"
+                            android:src="@drawable/search"
+                            android:layout_height="30dp"/>
+
+                        <EditText
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/plus_jakarta_sans"
+                            android:hint="Search"
+                            android:textColorHint="@color/black"
+                            android:textSize="13sp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginVertical="3dp"
+                            android:background="@color/white"
+                            android:id="@+id/edt_search"
+                            android:layout_toEndOf="@+id/image_search"
+                            android:layout_width="220dp"
+                            android:layout_height="35dp"/>
+                    </RelativeLayout>
+
+                    <HorizontalScrollView
+                        android:layout_below="@+id/search_relative"
+                        android:id="@+id/horizontal_scroll_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/linear_heading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/button_bg_sm">
+
+                                <TextView
+                                    android:layout_width="60dp"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Sr"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Title"/>
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Class"/>
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Question"/>
+
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Action"/>
+
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rc_questions"
+                                android:layout_width="match_parent"
+                                android:layout_below="@+id/linear_heading"
+                                android:layout_height="150dp"
+                                android:layout_marginVertical="10dp"
+                                android:layout_marginHorizontal="10dp"
+                                android:orientation="vertical"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                        </RelativeLayout>
+                    </HorizontalScrollView>
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

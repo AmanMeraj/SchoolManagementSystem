@@ -35,6 +35,8 @@ import com.school.schoolmanagement.Admin.Adapter.AdapterFeesReport;
 import com.school.schoolmanagement.Admin.Adapter.AdapterSalaryReport;
 import com.school.schoolmanagement.Admin.Adapter.CustomNavigationAdapter;
 import com.school.schoolmanagement.Admin.Adapter.NewAdmission;
+import com.school.schoolmanagement.Admin.ClassTest.ActivityClassTestResult;
+import com.school.schoolmanagement.Admin.ClassTest.ActivityCreateNewClassTest;
 import com.school.schoolmanagement.Admin.Classes.AllClasses.ActivityAllClass;
 import com.school.schoolmanagement.Admin.Classes.NewClass.ActivityNewClass;
 import com.school.schoolmanagement.Admin.Employee.AllEmployee.ActivityAllEmployee;
@@ -44,6 +46,7 @@ import com.school.schoolmanagement.Admin.Employee.ManageLogin.ActivityStaffLogin
 import com.school.schoolmanagement.Admin.Employee.StaffIdCard.ActivityStaffIdCard;
 import com.school.schoolmanagement.Admin.Exams.AddExam.ActivityAddNewExamination;
 import com.school.schoolmanagement.Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks;
+import com.school.schoolmanagement.Admin.Exams.EditOrDelete.ActivityEditOrDeleteExam;
 import com.school.schoolmanagement.Admin.Exams.UpdateInfo.ActivityInsertMarks;
 import com.school.schoolmanagement.Admin.Fees.CollectFees.ActivityCollectFees;
 import com.school.schoolmanagement.Admin.Fees.Defaulters.ActivityFeesDefaulters;
@@ -52,6 +55,7 @@ import com.school.schoolmanagement.Admin.Fees.FeespaidReceipt.ActivityFeesPaidRe
 import com.school.schoolmanagement.Admin.Fees.Report.ActivityFeesReport;
 import com.school.schoolmanagement.Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice;
 import com.school.schoolmanagement.Admin.GeneralSettings.AccountSettings.ActivityAccountSettings;
+import com.school.schoolmanagement.Admin.GeneralSettings.ActivityFeespaticulars;
 import com.school.schoolmanagement.Admin.GeneralSettings.InstituteProfile.ActivityInstituteProfile;
 import com.school.schoolmanagement.Admin.GeneralSettings.RulesAndregulations.ActivityRulesAndRegulations;
 import com.school.schoolmanagement.Admin.Homework.homeworks.ActivityHomeworks;
@@ -191,8 +195,6 @@ public class ActivityAdminDashboard extends AppCompatActivity {
         List<String> studentSubItems = Arrays.asList(
                 "All Students",
                 "Add New",
-                "Manage Families",
-                "Active / Inactive",
                 "Admission Letter",
                 "Student ID Cards",
                 "Print Basic List",
@@ -248,14 +250,33 @@ public class ActivityAdminDashboard extends AppCompatActivity {
 
         navItems.add(new NavItem("Homework", R.drawable.homework));
 
+        NavItem attendanceNavItem = new NavItem("Attendance", R.drawable.employees);
+        navItems.add(employeesNavItem);
+        List<String> attendanceSubItems = Arrays.asList(
+                "All Employees",
+                "Add New",
+                "Staff ID Cards",
+                "Job Letter",
+                "Manage Login"
+        );
+        navSubItems.put(attendanceNavItem, attendanceSubItems);
+
         NavItem examNavItem = new NavItem("Exams", R.drawable.employees);
         navItems.add(examNavItem);
         List<String> examNavSubItem = Arrays.asList(
                 "Create new Exam",
                 "Add / Update Exam Marks",
+                "Edit / Delete Exam",
                 "Result Card"
         );
         navSubItems.put(examNavItem, examNavSubItem);
+        NavItem classTestNavItem = new NavItem("Class Test", R.drawable.employees);
+        navItems.add(classTestNavItem);
+        List<String> classTestNavSubItem = Arrays.asList(
+                "Manage Test Marks",
+                "Test Result"
+        );
+        navSubItems.put(classTestNavItem, classTestNavSubItem);
         navItems.add(new NavItem("WhatsApp", R.drawable.whatsapp));
     }
 
@@ -334,11 +355,17 @@ public class ActivityAdminDashboard extends AppCompatActivity {
             case "Fees":
                 navigateFees(itemTitle);
                 break;
+            case "Attendance":
+                navigateAttendance(itemTitle);
+                break;
             case "Salary":
                 navigateSalary(itemTitle);
                 break;
             case "Exams":
                 navigateExams(itemTitle);
+                break;
+            case "Class Test":
+                navigateClassTest(itemTitle);
                 break;
             default:
                 Toast.makeText(this, groupTitle + ": " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
@@ -346,7 +373,21 @@ public class ActivityAdminDashboard extends AppCompatActivity {
         }
     }
 
-
+    private void navigateClassTest(String itemTitle) {
+        switch (itemTitle){
+            case "Manage Test Marks":
+                Intent classTestIntent = new Intent(this, ActivityCreateNewClassTest.class);
+                startActivity(classTestIntent);
+                break;
+            case "Test Result":
+                Intent classTestResultIntent = new Intent(this, ActivityClassTestResult.class);
+                startActivity(classTestResultIntent);
+                break;
+            default:
+                Toast.makeText(this, "General Settings: " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
 
     // Handle navigation for General Settings subitems
@@ -357,7 +398,8 @@ public class ActivityAdminDashboard extends AppCompatActivity {
                 startActivity(instituteProfileIntent);
                 break;
             case "Fees Particulars":
-                Toast.makeText(this, "General Settings: " + subItem + " clicked", Toast.LENGTH_SHORT).show();
+                Intent feesParticularIntent = new Intent(this, ActivityFeespaticulars.class);
+                startActivity(feesParticularIntent);
                 break;
             case "Accounts for Fees":
                 Intent AccountFeesIntent = new Intent(this, ActivityAccountFeesIinvoice.class);
@@ -433,8 +475,6 @@ public class ActivityAdminDashboard extends AppCompatActivity {
                 Intent addStudent= new Intent(ActivityAdminDashboard.this, ActivityAddStudents.class);
                 startActivity(addStudent);
                 break;
-            case "Manage Families":
-            case "Active / Inactive":
             case "Admission Letter":
                 Intent admissionLetter= new Intent(ActivityAdminDashboard.this, ActivityAdmissionLetter.class);
                 startActivity(admissionLetter);
@@ -541,6 +581,33 @@ public class ActivityAdminDashboard extends AppCompatActivity {
                 break;
         }
     }
+    private void navigateAttendance(String itemTitle) {
+        switch (itemTitle){
+            case "Student Attendance":
+                Intent generateFee= new Intent(ActivityAdminDashboard.this, ActivityFeesInvoice.class);
+                startActivity(generateFee);
+                break;
+            case "Employee Attendance":
+                Intent collectFees= new Intent(ActivityAdminDashboard.this, ActivityCollectFees.class);
+                startActivity(collectFees);
+                break;
+            case  "Class wise Report":
+                Intent paidSlip= new Intent(ActivityAdminDashboard.this, ActivityFeesPaidReceipt.class);
+                startActivity(paidSlip);
+                break;
+            case "Students Attendance Report":
+                Intent feesDefaulters= new Intent(ActivityAdminDashboard.this, ActivityFeesDefaulters.class);
+                startActivity(feesDefaulters);
+                break;
+            case "Employee Attendance Report":
+                Intent feesReport= new Intent(ActivityAdminDashboard.this, ActivityFeesReport.class);
+                startActivity(feesReport);
+                break;
+            default:
+                Toast.makeText(this, "Accounts: " + itemTitle + " clicked", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
     private void navigateSalary(String itemTitle) {
         switch (itemTitle){
             case "Pay salary":
@@ -571,6 +638,10 @@ public class ActivityAdminDashboard extends AppCompatActivity {
          case "Add / Update Exam Marks" :
              Intent addupdateIntent= new Intent(ActivityAdminDashboard.this, ActivityAddUpdateMarks.class);
              startActivity(addupdateIntent);
+             break;
+         case "Edit / Delete Exam" :
+             Intent editDeleteIntent= new Intent(ActivityAdminDashboard.this, ActivityEditOrDeleteExam.class);
+             startActivity(editDeleteIntent);
              break;
          case "Result Card":
              Intent resultIntent= new Intent(ActivityAdminDashboard.this, ActivityInsertMarks.class);

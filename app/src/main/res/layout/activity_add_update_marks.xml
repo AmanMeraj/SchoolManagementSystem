@@ -125,7 +125,7 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint="Select "
-                                    android:maxLength="11"
+                                    android:maxLength="1111"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"

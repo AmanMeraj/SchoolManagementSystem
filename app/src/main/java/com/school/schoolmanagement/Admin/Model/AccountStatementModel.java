@@ -8,12 +8,23 @@ public class AccountStatementModel {
     private String amount2;
     private String amount3;
 
-    public AccountStatementModel(String date, String status, String amount1, String amount2, String amount3) {
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    private String paymentMethod;
+
+    public AccountStatementModel(String date, String status, String amount1, String amount2, String amount3,String paymentMethod) {
         this.date = date;
         this.status = status;
         this.amount1 = amount1;
         this.amount2 = amount2;
         this.amount3 = amount3;
+        this.paymentMethod = paymentMethod;
     }
 
     // Getters and setters

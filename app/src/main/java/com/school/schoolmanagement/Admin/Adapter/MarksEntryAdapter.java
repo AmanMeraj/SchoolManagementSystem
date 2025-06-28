@@ -41,6 +41,7 @@ public class MarksEntryAdapter extends RecyclerView.Adapter<MarksEntryAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Subject subject = subjects.get(position);
+        holder.editText.setText(student.getSubjectMark(subjects.get(position).getSubjectName()));
         holder.editText.setTag(position);
 
         // Remove existing text watchers to avoid duplication

@@ -40,46 +40,11 @@ public class ActivityLogin extends Utility {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = binding.edtFirstName.getText().toString().trim();
-                String password = binding.edtPassword.getText().toString().trim();
-
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(ActivityLogin.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
-                    return;
+                if(isInternetConnected(ActivityLogin.this)){
+                    getLogin();
+                }else {
+                    Toast.makeText(ActivityLogin.this, "No internet connection!", Toast.LENGTH_SHORT).show();
                 }
-
-                Login login = new Login();
-                login.setUsername(email);
-                login.setPassword(password);
-
-                loginViewModel.postLogin(login).observe(ActivityLogin.this, response -> {
-                    if (response.isSuccess) {
-                        String role = response.data.getData().getRole();
-
-                        // Save token, name, role
-                        saveToken(
-                                response.data.getData().token,
-                                response.data.getData().getUsername(),
-                                role
-                        );
-                        Log.d("TAG", "onClick: "+response.data.getData().token);
-
-                        // Save credentials if "Remember Me" is checked
-                        if (binding.shippingCheckBox.isChecked()) {
-                            pref.setPrefBoolean(ActivityLogin.this, pref.remember_me, true);
-                            pref.setPrefString(ActivityLogin.this, pref.user_name, email);
-                            pref.setPrefString(ActivityLogin.this, pref.user_password, password);
-                        } else {
-                            pref.setPrefBoolean(ActivityLogin.this, pref.remember_me, false);
-                        }
-
-                        navigateToDashboard(role);
-                        finish();
-
-                    } else {
-                        Toast.makeText(ActivityLogin.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         });
 
@@ -121,6 +86,51 @@ public class ActivityLogin extends Utility {
                 binding.relStudents.setBackgroundResource(R.drawable.background_elipse_selected);
                 break;
         }
+    }
+
+    private void getLogin(){
+        String email = binding.edtFirstName.getText().toString().trim();
+        String password = binding.edtPassword.getText().toString().trim();
+binding.loader.rlLoader.setVisibility(View.VISIBLE);
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(ActivityLogin.this, "Please enter email and password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Login login = new Login();
+        login.setUsername(email);
+        login.setPassword(password);
+
+        loginViewModel.postLogin(login).observe(ActivityLogin.this, response -> {
+            if (response.isSuccess) {
+                binding.loader.rlLoader.setVisibility(View.GONE);
+                String role = response.data.getData().getRole();
+
+                // Save token, name, role
+                saveToken(
+                        response.data.getData().token,
+                        response.data.getData().getUsername(),
+                        role
+                );
+                Log.d("TAG", "onClick: "+response.data.getData().token);
+
+                // Save credentials if "Remember Me" is checked
+                if (binding.shippingCheckBox.isChecked()) {
+                    pref.setPrefBoolean(ActivityLogin.this, pref.remember_me, true);
+                    pref.setPrefString(ActivityLogin.this, pref.user_name, email);
+                    pref.setPrefString(ActivityLogin.this, pref.user_password, password);
+                } else {
+                    pref.setPrefBoolean(ActivityLogin.this, pref.remember_me, false);
+                }
+
+                navigateToDashboard(role);
+                finish();
+
+            } else {
+                binding.loader.rlLoader.setVisibility(View.GONE);
+                Toast.makeText(ActivityLogin.this, "Login failed. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void saveToken(String token, String displayName, String role) {

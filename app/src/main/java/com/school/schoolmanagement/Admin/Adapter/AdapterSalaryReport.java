@@ -7,20 +7,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.school.schoolmanagement.Admin.Model.FeesReportModel;
-import com.school.schoolmanagement.Admin.Model.SalaryReportModel;
-import com.school.schoolmanagement.databinding.RowFeesReportBinding;
+import com.school.schoolmanagement.Model.SalaryPaidResponse;
 import com.school.schoolmanagement.databinding.RowSalaryReportBinding;
 
 import java.util.List;
 
 public class AdapterSalaryReport extends RecyclerView.Adapter<AdapterSalaryReport.ViewHolder> {
     private Context context;
-    private List<SalaryReportModel> feesReportList;
+    private List<SalaryPaidResponse.Datum> salaryDataList; // Changed to use actual response data
 
-    public AdapterSalaryReport(Context context, List<SalaryReportModel> feesReportList) {
+    public AdapterSalaryReport(Context context, List<SalaryPaidResponse.Datum> salaryDataList) {
         this.context = context;
-        this.feesReportList = feesReportList;
+        this.salaryDataList = salaryDataList;
     }
 
     @NonNull
@@ -32,18 +30,26 @@ public class AdapterSalaryReport extends RecyclerView.Adapter<AdapterSalaryRepor
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        SalaryReportModel model = feesReportList.get(position);
+        SalaryPaidResponse.Datum salaryData = salaryDataList.get(position);
 
-        holder.binding.tvId.setText(model.getId());
-        holder.binding.tvName.setText(model.getName());
-        holder.binding.tvDate.setText(model.getDueDate());
-        holder.binding.tvAmount.setText(model.getAmount());
-        holder.binding.tvPaid.setText(model.getStatus());
+        // Bind data from SalaryPaidResponse.SalaryData to views
+        // Adjust these method calls based on your actual SalaryPaidResponse.SalaryData structure
+        holder.binding.tvId.setText(String.valueOf(salaryData.getEmployeeId()));
+        holder.binding.tvName.setText(salaryData.getEmployeeName());
+        holder.binding.tvDate.setText(salaryData.getDateOfReceiving());
+        holder.binding.tvAmount.setText(String.valueOf(salaryData.getTotalAmount()));
+        holder.binding.tvPaid.setText(salaryData.getStatus());
     }
 
     @Override
     public int getItemCount() {
-        return feesReportList.size();
+        return salaryDataList != null ? salaryDataList.size() : 0;
+    }
+
+    // Method to update the list
+    public void updateList(List<SalaryPaidResponse.Datum> newList) {
+        this.salaryDataList = newList;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

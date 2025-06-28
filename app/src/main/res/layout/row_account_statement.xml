@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingVertical="8dp"
@@ -9,55 +9,64 @@
     <!-- Date Column -->
     <TextView
         android:id="@+id/text_date"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="19/03/2025"
         android:textSize="12sp"
         android:fontFamily="@font/plus_jakarta_sans"
-        android:textColor="#333333" />
+        android:textColor="#333333"
+        android:gravity="center"/>
 
-    <!-- Status Column -->
+    <!-- Description Column -->
     <TextView
         android:id="@+id/text_status"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Null"
         android:textSize="12sp"
         android:fontFamily="@font/plus_jakarta_sans"
-        android:textColor="#333333" />
+        android:textColor="#333333"
+        android:gravity="center"/>
 
-    <!-- Amount Column 1 -->
+    <!-- Debt Column -->
     <TextView
         android:id="@+id/text_amount_1"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="$243"
         android:textSize="12sp"
         android:fontFamily="@font/plus_jakarta_sans"
-        android:textColor="#333333" />
+        android:textColor="#333333"
+        android:gravity="center"/>
 
-    <!-- Amount Column 2 -->
+    <!-- Credit Column -->
     <TextView
         android:id="@+id/text_amount_2"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="$243"
         android:textSize="12sp"
         android:fontFamily="@font/plus_jakarta_sans"
-        android:textColor="#333333" />
+        android:textColor="#333333"
+        android:gravity="center"/>
 
-    <!-- Amount Column 3 -->
+    <!-- Net Balance Column -->
     <TextView
         android:id="@+id/text_amount_3"
-        android:layout_width="0dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="$243"
         android:textSize="12sp"
         android:fontFamily="@font/plus_jakarta_sans"
-        android:textColor="#333333" />
+        android:textColor="#333333"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/text_payment_method"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Card"
+        android:textSize="12sp"
+        android:fontFamily="@font/plus_jakarta_sans"
+        android:textColor="#333333"
+        android:gravity="center"/>
 </LinearLayout>

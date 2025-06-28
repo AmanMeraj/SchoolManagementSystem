@@ -34,7 +34,26 @@ import java.util.HashMap;
             return subjectNames.get(subjectId);
         }
 
-        public HashMap<String, String> getAllSubjects() {
-            return subjectNames;
+        private HashMap<String, String> subjectMarks = new HashMap<>();
+
+        // Method to set marks for a specific subject
+        public void setSubjectMark(String subject, String marks) {
+            subjectMarks.put(subject, marks);
         }
+
+        // Method to get marks for a specific subject
+        public String getSubjectMark(String subject) {
+            return subjectMarks.get(subject);
+        }
+
+        // Method to get all subject marks
+        public HashMap<String, String> getAllSubjects() {
+            return subjectMarks;
+        }
+
+        // Method to check if student has marks for a subject
+        public boolean hasMarksForSubject(String subject) {
+            return subjectMarks.containsKey(subject) && !subjectMarks.get(subject).isEmpty();
+        }
+
     }

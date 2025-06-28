@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg3"
     android:gravity="center"
     android:padding="16dp">
 
@@ -18,7 +19,8 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="6dp"
+        android:background="#022E35"
         android:layout_gravity="center"
         app:tabIndicatorAnimationMode="elastic" />
     <RelativeLayout

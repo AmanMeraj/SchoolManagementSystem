@@ -14,7 +14,7 @@
     <item android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">
         <shape android:shape="rectangle">
             <corners android:radius="19dp"/>
-            <solid android:color="#EAF7FE"/> <!-- Light background -->
+            <solid android:color="@color/white"/> <!-- Light background -->
         </shape>
     </item>
 </layer-list>

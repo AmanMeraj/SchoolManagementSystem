@@ -32,7 +32,7 @@ public class ClassModel implements Serializable {
     public String message;
     public ArrayList<Data> data;
 
-    public class Data implements Serializable{
+    public static class Data implements Serializable{
         public int getClassId() {
             return classId;
         }

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.Salary.Report.ActivitySalaryReport">
@@ -123,7 +124,7 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint=" Search Employee"
-                                    android:maxLength="11"
+                                    android:maxLength="250"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
@@ -140,11 +141,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
-                                android:background="@drawable/edittext_bg"
+                                android:background="@drawable/edit_text_optional"
                                 android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:text="Search Employee*"
+                                android:text="Search Employee(Optional)"
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
@@ -169,7 +170,7 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint=" Mar 1, 2025 - Mar 17, 2025"
-                                    android:maxLength="11"
+                                    android:maxLength="250"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
@@ -186,11 +187,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
-                                android:background="@drawable/edittext_bg"
+                                android:background="@drawable/edit_text_optional"
                                 android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:text="Date Range*"
+                                android:text="Date Range(Optional)"
                                 android:textColor="@color/white"
                                 android:textSize="10sp" />
                         </RelativeLayout>
@@ -213,7 +214,7 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint="Fees Month"
-                                    android:maxLength="11"
+                                    android:maxLength="250"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
@@ -281,6 +282,7 @@
             </com.google.android.material.card.MaterialCardView>
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="10dp"
                 android:layout_below="@+id/card_select_info"

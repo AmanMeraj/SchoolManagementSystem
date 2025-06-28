@@ -72,21 +72,22 @@ public class ActivityAddEmployee extends Utility {
     Employee employeeData;
 
     private static final String TAG = "ActivityAddEmployee";
-    private static final int CAMERA_PERMISSION_CODE = 101;
-    private static final int GALLERY_PERMISSION_CODE = 102;
-    private static final int MAX_IMAGE_SIZE_KB = 100;
 
     // ViewModel
     private ViewModel employeeViewModel;
 
     // Image handling variables
-    private String currentPhotoPath;
+
     int employeeId;
     String FLAG="New";
     private Uri photoURI;
+    private String currentPhotoPath;
     private byte[] profileImageData;
 
-    // Activity Result Launchers
+    private static final int CAMERA_PERMISSION_CODE = 101;
+    private static final int GALLERY_PERMISSION_CODE = 102;
+    private static final int MAX_IMAGE_SIZE_KB = 100;
+
     private ActivityResultLauncher<Intent> cameraLauncher;
     private ActivityResultLauncher<Intent> galleryLauncher;
 

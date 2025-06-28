@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.Exams.AddExam.ActivityAddNewExamination">
@@ -180,7 +181,6 @@
 
                             <!-- Floating Hint Label -->
                             <TextView
-
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -188,9 +188,9 @@
                                 android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:text="Satrt Date*"
-                                android:textColor="@color/white"
-                                android:textSize="10sp" />
+                                android:text="Start Date*"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
                         </RelativeLayout>
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -224,7 +224,6 @@
 
                             <!-- Floating Hint Label -->
                             <TextView
-
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="15dp"
@@ -232,9 +231,9 @@
                                 android:elevation="5dp"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
-                                android:text=" End Date*"
-                                android:textColor="@color/white"
-                                android:textSize="10sp" />
+                                android:text="End Date*"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -279,5 +278,10 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

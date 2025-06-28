@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.school.schoolmanagement.Admin.Model.StudentModel;
+import com.school.schoolmanagement.Model.StudentDetails;
 import com.school.schoolmanagement.databinding.RowAllStudentsBinding;
 
 import java.util.List;
@@ -15,10 +16,10 @@ import java.util.List;
 // Adapter for RecyclerView
 public class AdapterAllStudents extends RecyclerView.Adapter<AdapterAllStudents.ViewHolder> {
     private Context context;
-    private List<StudentModel> studentList;
+    private List<StudentDetails> studentList;
     private OnStudentClickListener listener;
 
-    public AdapterAllStudents(Context context, List<StudentModel> studentList, OnStudentClickListener listener) {
+    public AdapterAllStudents(Context context, List<StudentDetails> studentList, OnStudentClickListener listener) {
         this.context = context;
         this.studentList = studentList;
         this.listener = listener;
@@ -33,9 +34,9 @@ public class AdapterAllStudents extends RecyclerView.Adapter<AdapterAllStudents.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        StudentModel student = studentList.get(position);
-        holder.binding.nameTv.setText(student.getName());
-        holder.binding.numberTv.setText(student.getNumber());
+        StudentDetails student = studentList.get(position);
+        holder.binding.nameTv.setText(student.getStudentName());
+        holder.binding.numberTv.setText(student.getMobileNumber());
 
         holder.binding.eye.setOnClickListener(v -> listener.onViewClick(student));
         holder.binding.editSm.setOnClickListener(v -> listener.onEditClick(student));
@@ -57,9 +58,9 @@ public class AdapterAllStudents extends RecyclerView.Adapter<AdapterAllStudents.
     }
 
     public interface OnStudentClickListener {
-        void onViewClick(StudentModel student);
-        void onEditClick(StudentModel student);
-        void onDeleteClick(StudentModel student);
+        void onViewClick(StudentDetails student);
+        void onEditClick(StudentDetails student);
+        void onDeleteClick(StudentDetails student);
     }
 }
 

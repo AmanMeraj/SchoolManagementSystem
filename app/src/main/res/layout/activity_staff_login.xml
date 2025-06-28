@@ -355,7 +355,7 @@
                         android:layout_below="@+id/search_relative"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scrollbars="horizontal">
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:orientation="vertical"
