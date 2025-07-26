@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <TextView android:id="@+id/tvName" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_roll" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_p" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_l" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_a" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_h" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_f" style="@style/AttendanceCell" />
+    <TextView android:id="@+id/tv_percent" style="@style/AttendanceCell" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_day_attendance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:nestedScrollingEnabled="false" />
+</LinearLayout>

@@ -553,7 +553,7 @@
                                         android:fontFamily="@font/plus_jakarta_sans"
                                         android:textSize="14sp"
                                         android:hint="Father/Husband Name"
-                                        android:inputType="date"/>
+                                        android:inputType="text"/>
                                 </RelativeLayout>
 
                                 <TextView
@@ -592,7 +592,7 @@
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:textSize="14sp"
                                     android:hint="National ID"
-                                    android:inputType="number"/>
+                                    android:inputType="text"/>
 
                                 <TextView
                                     android:elevation="5dp"
@@ -788,7 +788,7 @@
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:textSize="14sp"
                                     android:hint="Email Address"
-                                    android:inputType="number"/>
+                                    android:inputType="textEmailAddress"/>
 
                                 <TextView
                                     android:elevation="5dp"
@@ -858,7 +858,7 @@
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:textSize="14sp"
                                     android:hint="Home Address"
-                                    android:inputType="number"/>
+                                    android:inputType="textMultiLine"/>
 
                                 <TextView
                                     android:elevation="5dp"

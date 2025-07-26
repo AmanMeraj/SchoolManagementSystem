@@ -32,8 +32,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/general_settings"
@@ -303,19 +302,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:id="@+id/tv_column_visibility"
-                            android:layout_marginHorizontal="5dp"
-                            android:background="@drawable/text_view_bg"
-                            android:layout_marginVertical="5dp"
-                            android:textSize="14sp"
-                            android:textColor="@color/black"
-                            android:paddingVertical="5dp"
-                            android:paddingHorizontal="10dp"
-                            android:text="Column Visibility"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"/>
-
                     </com.google.android.flexbox.FlexboxLayout>
                     <RelativeLayout
                         android:id="@+id/search_relative"
@@ -373,7 +359,7 @@
                                 android:background="@drawable/button_bg_sm">
 
                                 <TextView
-                                    android:layout_width="100dp"
+                                    android:layout_width="60dp"
                                     android:layout_height="wrap_content"
                                     android:paddingVertical="5dp"
                                     android:gravity="center"
@@ -403,7 +389,7 @@
                                     android:text="Role" />
 
                                 <TextView
-                                    android:layout_width="130dp"
+                                    android:layout_width="160dp"
                                     android:layout_height="wrap_content"
                                     android:paddingVertical="5dp"
                                     android:gravity="center"
@@ -413,7 +399,7 @@
                                     android:text="User ID" />
 
                                 <TextView
-                                    android:layout_width="130dp"
+                                    android:layout_width="160dp"
                                     android:layout_height="wrap_content"
                                     android:paddingVertical="5dp"
                                     android:gravity="center"

@@ -33,13 +33,7 @@ public class ActivityAccountantFeesReport extends AppCompatActivity {
         });
 
         feesReportList = new ArrayList<>();
-        loadData();
         adapter = new AdapterFeesReport(this, feesReportList);
         binding.rcFeesReport.setAdapter(adapter);
-    }
-    private void loadData() {
-        feesReportList.add(new FeesReportModel("1", "Aman Meraj", "2025-04-10", "$50", "Paid"));
-        feesReportList.add(new FeesReportModel("2", "John Doe", "2025-04-12", "$100", "Unpaid"));
-        feesReportList.add(new FeesReportModel("3", "Jane Smith", "2025-04-15", "$75", "Paid"));
     }
 }

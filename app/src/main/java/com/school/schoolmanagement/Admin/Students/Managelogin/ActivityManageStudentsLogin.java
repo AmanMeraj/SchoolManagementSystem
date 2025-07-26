@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.school.schoolmanagement.Adapters.AdapterStudentManageLogin;
 import com.school.schoolmanagement.Admin.Model.ClassModel;
 import com.school.schoolmanagement.GlobalViewModel.ViewModel;
+import com.school.schoolmanagement.HelperClasses.DataExportHelper;
 import com.school.schoolmanagement.Model.StudentDetails;
 import com.school.schoolmanagement.Model.StudentFields;
 import com.school.schoolmanagement.R;
@@ -112,6 +113,7 @@ public class ActivityManageStudentsLogin extends Utility {
         // Initialize with class data and set default to "All Classes"
         initializeClassData();
         setupSearchFilter();
+        setupExportButtons();
 
         // Back button listener
         binding.toolbar.backBtn.setOnClickListener(view -> finish());
@@ -498,4 +500,116 @@ public class ActivityManageStudentsLogin extends Utility {
             Log.e(TAG, "Error showing toast: " + e.getMessage(), e);
         }
     }
+
+    private void setupExportButtons() {
+        // Copy button
+        binding.tvCopy.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "copy");
+        });
+
+        // CSV button
+        binding.tvCsv.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "csv");
+        });
+
+        // Excel button
+        binding.tvExcel.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "excel");
+        });
+
+        // PDF button
+        binding.tvPdf.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "pdf");
+        });
+
+        // Print button
+        binding.tvPrint.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "print");
+        });
+    }
+    private void handleExport(ArrayList<ArrayList<String>> tableData, String action) {
+        if (tableData.size() <= 1) { // Only headers, no data
+            Toast.makeText(this, "No data to export", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            // Create DataExportHelper instance with context
+            DataExportHelper exportHelper = new DataExportHelper(this);
+
+            // Generate dynamic filename based on selected class
+            String fileName = generateDynamicFileName();
+
+            // Use the exportData method with dynamic filename
+            exportHelper.exportData(tableData, action, fileName);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Export error: " + e.getMessage());
+            Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+    private String generateDynamicFileName() {
+        String fileName = "students_basic_list";
+
+        // Get the selected class name from the EditText
+        String selectedClassName = binding.edtSelectClass.getText().toString();
+
+        if (selectedClassName != null && !selectedClassName.isEmpty() && !selectedClassName.equals("All Classes")) {
+            // If a specific class is selected, include it in the filename
+            fileName = "students_basic_list_" + selectedClassName.replace(" ", "_");
+        } else if (selectedClassName != null && selectedClassName.equals("All Classes")) {
+            // If "All Classes" is selected, use a general filename
+            fileName = "students_basic_list_all_classes";
+        }
+
+        return fileName;
+    }
+
+    private ArrayList<ArrayList<String>> prepareTableData() {
+        ArrayList<ArrayList<String>> tableData = new ArrayList<>();
+
+        // Add header row
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("Sr");
+        headers.add("ID");
+        headers.add("S Name");
+        headers.add("Class");
+        headers.add("User Id");
+        headers.add("Password");
+        tableData.add(headers);
+
+        // Add data rows from your filteredStudentList (to export only what's currently displayed)
+        for (int i = 0; i < filteredStudentList.size(); i++) {
+            StudentDetails student = filteredStudentList.get(i);
+            ArrayList<String> row = new ArrayList<>();
+
+            // Sr (Serial Number)
+            row.add(String.valueOf(i + 1));
+
+            // ID - adjust this based on your StudentDetails model
+            row.add(student.getStudentId() != -1 ? String.valueOf(student.getStudentId()) : "");
+
+            // S Name
+            row.add(student.getStudentName() != null ? student.getStudentName() : "");
+
+            // Class - adjust this based on your StudentDetails model
+            row.add(student.getClassName() != null ? student.getClassName() : "");
+
+            // Remaining Fees - adjust this based on your StudentDetails model
+            row.add(student.getUsername() != null ? student.getUsername() : "");
+
+            // Phone - adjust this based on your StudentDetails model
+            row.add(student.getPassword()!= null ? student.getPassword() : "");
+
+            tableData.add(row);
+        }
+
+        return tableData;
+    }
+
 }

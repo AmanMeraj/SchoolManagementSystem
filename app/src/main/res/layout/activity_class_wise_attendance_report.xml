@@ -12,12 +12,8 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:id="@+id/toolbar"/>
-        <androidx.core.widget.NestedScrollView
-            android:layout_below="@+id/toolbar"
-            android:scrollbars="none"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
             <RelativeLayout
+                android:layout_below="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <com.google.android.material.card.MaterialCardView
@@ -96,7 +92,7 @@
                             android:drawableEnd="@drawable/calendar2"
                             android:editable="false"
                             android:fontFamily="@font/plus_jakarta_sans"
-                            android:hint=" DD/MM/YY"
+                            android:hint="YYYY-MM-DD"
                             android:maxLength="11"
                             android:maxLines="1"
                             android:paddingStart="10dp"
@@ -153,7 +149,11 @@
                     </RelativeLayout>
                 </com.google.android.material.card.MaterialCardView>
             </RelativeLayout>
-        </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

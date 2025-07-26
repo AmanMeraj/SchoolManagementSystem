@@ -1,8 +1,11 @@
 package com.school.schoolmanagement.Admin.ClassTest;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,17 +25,22 @@ import com.school.schoolmanagement.Admin.Model.SubjectModel;
 import com.school.schoolmanagement.GlobalViewModel.ViewModel;
 import com.school.schoolmanagement.HelperClasses.ClassApiHelper;
 import com.school.schoolmanagement.HelperClasses.ClassTestResultApiHelper;
+import com.school.schoolmanagement.HelperClasses.DataExportHelper;
 import com.school.schoolmanagement.HelperClasses.StudentHelper;
 import com.school.schoolmanagement.HelperClasses.SubjectApiHelper;
 import com.school.schoolmanagement.Model.ClassTestResult;
 import com.school.schoolmanagement.Model.StudentDetails;
+import com.school.schoolmanagement.Model.StudentsAttendanceReport;
 import com.school.schoolmanagement.R;
 import com.school.schoolmanagement.Utils.Utility;
 import com.school.schoolmanagement.databinding.ActivityClassTestResultBinding;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ActivityClassTestResult extends Utility implements
         ClassApiHelper.ClassListCallback,
@@ -41,6 +49,9 @@ public class ActivityClassTestResult extends Utility implements
 
     private ActivityClassTestResultBinding binding;
     private ClassTestResultApiHelper classTestResultApiHelper;
+    private String currentStartDate = "";
+    private String currentEndDate = "";
+    private final ArrayList<ClassTestResult.Datum> attendanceList = new ArrayList<>();
 
 
 
@@ -91,6 +102,7 @@ public class ActivityClassTestResult extends Utility implements
         initializeComponents();
         setupUI();
         loadInitialData();
+
     }
 
     private void setupWindowInsets() {
@@ -375,6 +387,7 @@ public class ActivityClassTestResult extends Utility implements
         hideResultCard();
         selectMethod("class_subject");
         showFieldsForMethod(selectedMethod);
+        setupExportButtons();
         setupAutoCompleteTextViews();
         setupClickListeners();
     }
@@ -1140,5 +1153,174 @@ public class ActivityClassTestResult extends Utility implements
     protected void onDestroy() {
         super.onDestroy();
         binding = null;
+    }
+    private void setupExportButtons() {
+        // Copy button
+        binding.tvCopy.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "copy");
+        });
+
+        // CSV button
+        binding.tvCsv.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "csv");
+        });
+
+        // Excel button
+        binding.tvExcel.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "excel");
+        });
+
+        // PDF button
+        binding.tvPdf.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "pdf");
+        });
+
+        // Print button
+        binding.tvPrint.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "print");
+        });
+    }
+
+    // Method 2: Handle export functionality
+    private void handleExport(ArrayList<ArrayList<String>> tableData, String action) {
+        if (tableData.size() <= 1) { // Only headers, no data
+            Toast.makeText(this, "No data to export", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            // Create DataExportHelper instance with context
+            DataExportHelper exportHelper = new DataExportHelper(this);
+
+            // Generate dynamic filename based on selected method and parameters
+            String fileName = generateDynamicFileName();
+
+            // Use the exportData method with dynamic filename
+            exportHelper.exportData(tableData, action, fileName);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Export error: " + e.getMessage());
+            Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    // Method 3: Generate dynamic filename based on search method
+    private String generateDynamicFileName() {
+        String fileName = "class_test_results";
+
+        switch (selectedMethod) {
+            case "class_subject":
+                ClassModel.Data selectedClass = findClassById(selectedClassId);
+                SubjectModel selectedSubject = findSubjectById(selectedSubjectId);
+
+                String className = selectedClass != null ? selectedClass.getClassName().replaceAll("\\s+", "_") : "unknown";
+                String subjectName = selectedSubject != null ? selectedSubject.getName().replaceAll("\\s+", "_") : "unknown";
+
+                fileName = "class_test_results_" + className + "_" + subjectName;
+                break;
+
+            case "student_subject":
+                StudentDetails selectedStudent = findStudentById(selectedStudentId);
+                SubjectModel selectedSubjectForStudent = findSubjectById(selectedSubjectId);
+
+                String studentName = selectedStudent != null ?
+                        selectedStudent.getStudentName().replaceAll("\\s+", "_") : "unknown";
+                String subjectNameForStudent = selectedSubjectForStudent != null ?
+                        selectedSubjectForStudent.getName().replaceAll("\\s+", "_") : "unknown";
+
+                fileName = "class_test_results_" + studentName + "_" + subjectNameForStudent;
+                break;
+
+            case "date_range":
+                if (!TextUtils.isEmpty(startDate) && !TextUtils.isEmpty(endDate)) {
+                    try {
+                        // Convert dates to a more readable format for filename
+                        SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                        SimpleDateFormat fileFormat = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault());
+
+                        Date start = inputFormat.parse(startDate);
+                        Date end = inputFormat.parse(endDate);
+
+                        if (start != null && end != null) {
+                            fileName = "class_test_results_" + fileFormat.format(start) + "_to_" + fileFormat.format(end);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error formatting filename dates: " + e.getMessage());
+                        fileName = "class_test_results_date_range";
+                    }
+                }
+                break;
+        }
+
+        return fileName;
+    }
+
+    // Method 4: Prepare table data for export
+    private ArrayList<ArrayList<String>> prepareTableData() {
+        ArrayList<ArrayList<String>> tableData = new ArrayList<>();
+
+        // Add header row for class test results
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("Sr");
+        headers.add("Test Date");
+        headers.add("Student ID");
+        headers.add("Student Name");
+        headers.add("Class");
+        headers.add("Subject");
+        headers.add("Total Marks");
+        headers.add("Obtained Marks");
+        headers.add("Percentage");
+        tableData.add(headers);
+        ClassModel.Data className=findClassById(selectedClassId);
+
+        // Add data rows from your testResultsList
+        for (int i = 0; i < testResultsList.size(); i++) {
+            ClassTestResult.Datum testResult = testResultsList.get(i);
+            ArrayList<String> row = new ArrayList<>();
+
+            // Sr No
+            row.add(String.valueOf(i + 1));
+
+            // Test Date
+            row.add(testResult.getDate() != null ? testResult.getDate() : "");
+
+            // Student ID
+            row.add(testResult.getStudentId() != -1 ? String.valueOf(testResult.getStudentId()) : "");
+
+            // Student Name
+            row.add(testResult.getStudentName() != null ? testResult.getStudentName() : "");
+            assert className != null;
+            row.add(className.className);
+
+            // Subject
+            row.add(testResult.getSubject() != null ? testResult.getSubject() : "");
+
+            // Total Marks
+            row.add(testResult.getTotalMarks() != -1 ? String.valueOf(testResult.getTotalMarks()) : "");
+
+            // Obtained Marks
+            row.add(testResult.getObtainedMarks() != -1 ? String.valueOf(testResult.getObtainedMarks()) : "");
+
+            // Percentage
+            row.add(testResult.getPercentage() != -1 ? String.valueOf(testResult.getPercentage()) + "%" : "");
+
+
+            tableData.add(row);
+        }
+
+        return tableData;
+    }
+
+    // Additional helper method to update current date range (call this in your display methods)
+    private void updateCurrentDateRange() {
+        if ("date_range".equals(selectedMethod)) {
+            currentStartDate = convertDateFormat(startDate);
+            currentEndDate = convertDateFormat(endDate);
+        }
     }
 }

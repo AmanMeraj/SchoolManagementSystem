@@ -106,7 +106,51 @@
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"> <!-- Increase padding to make room for floating label -->
 
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_class"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Class"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+
+                            <!-- Floating Hint Label -->
+                            <TextView
+
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Class*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"> <!-- Increase padding to make room for floating label -->
@@ -254,7 +298,7 @@
                                     android:layout_alignBottom="@+id/edit_btn_img"
                                     android:layout_alignTop="@+id/edit_btn_img"
                                     android:paddingHorizontal="5dp"
-                                    android:text="Edit Head"
+                                    android:text="Edit Chapter"
                                     android:layout_toEndOf="@+id/edit_btn_img"
                                     android:id="@+id/edit_txt"
                                     android:textSize="15sp"
@@ -460,7 +504,7 @@
                                     android:textSize="12sp"
                                     android:textColor="@color/white"
                                     android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                                    android:text="Type"/>
+                                    android:text="Chapter"/>
 
                                 <TextView
                                     android:layout_width="100dp"

@@ -12,4 +12,6 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="term_s_conditions"><![CDATA[Term\'s & Conditions]]></string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 </resources>

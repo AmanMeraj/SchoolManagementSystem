@@ -169,7 +169,6 @@
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:hint=" Mar 1, 2025 - Mar 17, 2025"
-                                    android:maxLength="11"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
                                     android:paddingTop="12dp"
@@ -399,77 +398,111 @@
                             android:layout_width="220dp"
                             android:layout_height="35dp"/>
                     </RelativeLayout>
-
-                    <LinearLayout
+                    <HorizontalScrollView
                         android:layout_below="@+id/search_relative"
-                        android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/button_bg_sm"
-                        android:weightSum="5"
-                        android:id="@+id/linear_heading"
-                        android:orientation="horizontal"
+                        android:id="@+id/horizontal_scroll_view"
+                        android:scrollbars="none"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="ID"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Name"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Due Date"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Amount"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:paddingVertical="5dp"
-                            android:gravity="center"
-                            android:textSize="12sp"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/plus_jakarta_sans_extrabold"
-                            android:text="Paid"
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"/>
 
-                    </LinearLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginVertical="10dp"
-                        android:layout_width="match_parent"
-                        android:id="@+id/rc_fees_report"
-                        android:orientation="vertical"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:layout_below="@+id/linear_heading"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_height="150dp"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+
+                                android:layout_marginHorizontal="10dp"
+                                android:background="@drawable/button_bg_sm"
+                                android:id="@+id/linear_heading"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="ID"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Name"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Date"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Amount"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Deposited"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Due Balance"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                                <TextView
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Paid"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content"/>
+
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_marginVertical="10dp"
+                                android:layout_width="match_parent"
+                                android:id="@+id/rc_fees_report"
+                                android:orientation="vertical"
+                                android:layout_below="@+id/linear_heading"
+                                android:layout_marginHorizontal="10dp"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                android:layout_height="150dp"/>
+
+                        </RelativeLayout>
+
+                    </HorizontalScrollView>
 
                     <TextView
                         android:layout_alignTop="@+id/linear_btn"
@@ -479,24 +512,27 @@
                         android:textColor="@color/grey"
                         android:fontFamily="@font/plus_jakarta_sans_bold"
                         android:textSize="11sp"
-                        android:layout_below="@id/rc_fees_report"
+                        android:layout_below="@id/horizontal_scroll_view"
                         android:layout_marginHorizontal="10dp"
                         android:layout_width="wrap_content"
                         android:text="Showing page 1 of 4"
                         android:layout_height="wrap_content"/>
+
                     <LinearLayout
                         android:id="@+id/linear_btn"
                         android:layout_marginBottom="20dp"
-                        android:layout_below="@+id/rc_fees_report"
+                        android:layout_below="@+id/horizontal_scroll_view"
                         android:layout_alignParentEnd="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
+
                         <ImageView
                             android:padding="5dp"
                             android:id="@+id/prev_button"
                             android:src="@drawable/prev_btn"
                             android:layout_width="40dp"
                             android:layout_height="40dp"/>
+
                         <ImageView
                             android:layout_marginHorizontal="10dp"
                             android:rotation="180"
@@ -505,8 +541,8 @@
                             android:src="@drawable/prev_btn"
                             android:layout_width="40dp"
                             android:layout_height="40dp"/>
-                    </LinearLayout>
 
+                    </LinearLayout>
 
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>

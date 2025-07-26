@@ -6,19 +6,23 @@
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".Students.Profile.ActivityStudentsProfile">
+    tools:context=".Accountant.Profile.ActivityAccountantProfile">
+
     <include layout="@layout/back_toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/toolbar"/>
+
     <androidx.core.widget.NestedScrollView
         android:layout_below="@+id/toolbar"
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_intro"
                 android:layout_width="match_parent"
@@ -28,9 +32,11 @@
                 android:layout_marginVertical="10dp"
                 app:cardElevation="5dp"
                 android:layout_height="wrap_content">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_centerVertical="true"
                         android:id="@+id/general_settings"
@@ -41,6 +47,7 @@
                         android:textSize="15sp"
                         android:paddingHorizontal="10dp"
                         android:layout_height="wrap_content"/>
+
                     <View
                         android:id="@+id/view"
                         android:background="@drawable/button_bg_sm"
@@ -48,8 +55,8 @@
                         android:layout_toEndOf="@+id/general_settings"
                         android:layout_width="1dp"
                         android:layout_height="30dp">
-
                     </View>
+
                     <ImageView
                         android:id="@+id/institute_profile_img"
                         android:padding="5dp"
@@ -59,8 +66,8 @@
                         android:src="@drawable/institute_profile"
                         android:layout_width="40dp"
                         android:layout_height="40dp">
-
                     </ImageView>
+
                     <TextView
                         android:layout_centerVertical="true"
                         android:layout_toEndOf="@+id/institute_profile_img"
@@ -71,9 +78,9 @@
                         android:fontFamily="@font/plus_jakarta_sans"
                         android:layout_height="wrap_content"/>
 
-
                 </RelativeLayout>
             </com.google.android.material.card.MaterialCardView>
+
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_below="@+id/card_intro"
@@ -84,9 +91,11 @@
                 android:layout_marginVertical="10dp"
                 app:cardElevation="5dp"
                 android:layout_height="wrap_content">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <LinearLayout
                         android:layout_marginHorizontal="10dp"
                         android:orientation="vertical"
@@ -96,6 +105,7 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
+
                             <RelativeLayout
                                 android:layout_marginTop="30dp"
                                 android:layout_centerHorizontal="true"
@@ -103,23 +113,28 @@
                                 android:background="@drawable/orange_avatar_bg_2"
                                 android:layout_width="120dp"
                                 android:layout_height="120dp">
+
                                 <RelativeLayout
                                     android:layout_centerInParent="true"
                                     android:background="@drawable/orange_avatar_bg"
                                     android:layout_width="110dp"
                                     android:layout_height="110dp">
-                                    <ImageView
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/img_profile"
                                         android:layout_centerInParent="true"
                                         android:src="@drawable/avatar2"
                                         android:layout_width="100dp"
                                         android:layout_height="100dp"/>
+
                                 </RelativeLayout>
                             </RelativeLayout>
+
                             <TextView
                                 android:id="@+id/tv_teachers_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="John Doe"
+                                android:text="Loading..."
                                 android:textSize="20sp"
                                 android:layout_marginVertical="10dp"
                                 android:layout_below="@+id/avatar_rel"
@@ -127,7 +142,6 @@
                                 android:textColor="@color/black"
                                 android:fontFamily="@font/plus_jakarta_sans_extrabold"
                                 android:layout_marginHorizontal="10dp">
-
                             </TextView>
 
                             <RelativeLayout
@@ -138,6 +152,7 @@
                                 android:background="@drawable/edit_text_bg"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -157,7 +172,7 @@
                                         android:id="@+id/tvRegistrationNo"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="23234456"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -181,7 +196,7 @@
                                         android:id="@+id/tvEmployeeRole"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Accountant"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -205,69 +220,22 @@
                                         android:id="@+id/tvMonthlySalary"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="$234,555"
-                                        android:textSize="12sp"
-                                        android:textColor="#00a2b8"
-                                        android:paddingBottom="16dp" />
-
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="1dp"
-                                        android:background="#e0e0e0" />
-
-                                    <!-- Username -->
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="Username"
-                                        android:textSize="13sp"
-                                        android:textColor="#7f7f7f"
-                                        android:paddingTop="16dp"
-                                        android:paddingBottom="4dp" />
-
-                                    <TextView
-                                        android:id="@+id/tvUsername"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="108316ickOR1"
-                                        android:textSize="12sp"
-                                        android:textColor="#00a2b8"
-                                        android:paddingBottom="16dp" />
-
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="1dp"
-                                        android:background="#e0e0e0" />
-
-                                    <!-- Password -->
-                                    <TextView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="Password"
-                                        android:textSize="13sp"
-                                        android:textColor="#7f7f7f"
-                                        android:paddingTop="16dp"
-                                        android:paddingBottom="4dp" />
-
-                                    <TextView
-                                        android:id="@+id/tvPassword"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:text="108316ickOR1"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
 
                                 </LinearLayout>
                             </RelativeLayout>
+
                             <RelativeLayout
                                 android:layout_below="@+id/rel_employee_info"
                                 android:id="@+id/rel_profile_info"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginHorizontal="10dp"
-                                android:layout_marginVertical="20dp"
-                                >
+                                android:layout_marginVertical="20dp">
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -287,7 +255,7 @@
                                         android:id="@+id/tvFatherName"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Doe"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -311,7 +279,7 @@
                                         android:id="@+id/tvMobileNo"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="+2348127458790"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -335,7 +303,7 @@
                                         android:id="@+id/tvEmailAddress"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Johndoe@gmail.com"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -359,7 +327,7 @@
                                         android:id="@+id/tvHomeAddress"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Lucknow, Uttar"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -400,7 +368,7 @@
                                                 android:id="@+id/tvNationalId"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="2523622"
+                                                android:text="Loading..."
                                                 android:textSize="12sp"
                                                 android:textColor="#00a2b8"
                                                 android:paddingBottom="16dp" />
@@ -424,7 +392,7 @@
                                                 android:id="@+id/tvEducation"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:text="BSc Computer Science"
+                                                android:text="Loading..."
                                                 android:textSize="12sp"
                                                 android:textColor="#00a2b8" />
                                         </LinearLayout>
@@ -449,7 +417,7 @@
                                         android:id="@+id/tvGender"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Female"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -473,7 +441,7 @@
                                         android:id="@+id/tvReligion"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="Muslim"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -497,7 +465,7 @@
                                         android:id="@+id/tvBloodGroup"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="O+"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -521,7 +489,7 @@
                                         android:id="@+id/tvDateOfBirth"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="24/12/1993"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -545,7 +513,7 @@
                                         android:id="@+id/tvDateOfJoining"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="24/03/2025"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -569,7 +537,7 @@
                                         android:id="@+id/tvExperience"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:text="1"
+                                        android:text="Loading..."
                                         android:textSize="12sp"
                                         android:textColor="#00a2b8"
                                         android:paddingBottom="16dp" />
@@ -577,15 +545,9 @@
                                 </LinearLayout>
                             </RelativeLayout>
                         </RelativeLayout>
-
-
-
                     </LinearLayout>
-
                 </RelativeLayout>
-
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
-
 </RelativeLayout>

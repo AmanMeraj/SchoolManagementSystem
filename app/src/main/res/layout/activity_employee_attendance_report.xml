@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Admin.Report.ActivityStudentsAttendanceReport">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Report"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="12sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Students Monthly Attendance Report "
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_below="@+id/card_intro"
+                android:layout_margin="8dp"
+                android:id="@+id/card_create_question_paper"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Monthly Attendance Report"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flexbox_buttons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="20dp"
+                        android:layout_marginHorizontal="10dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="center">
+
+                        <TextView
+                            android:id="@+id/tv_copy"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_csv"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="CSV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_excel"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Excel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_pdf"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="PDF"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:id="@+id/tv_print"
+                            android:layout_marginHorizontal="5dp"
+                            android:background="@drawable/text_view_bg"
+                            android:layout_marginVertical="5dp"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:paddingVertical="5dp"
+                            android:paddingHorizontal="10dp"
+                            android:text="Print"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:id="@+id/flexbox_legends"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        app:flexWrap="wrap"
+                        app:alignItems="center">
+                        <!-- Inside your FlexboxLayout -->
+                        <!-- Inside your FlexboxLayout -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Present:"
+                                android:textColor="#FF666666" />
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="P"
+                                android:textColor="#4CAF50" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Late:"
+                                android:textColor="#FF666666" />
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="L"
+                                android:textColor="#FFEB3B" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Absent:"
+                                android:textColor="#FF666666" />
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="A"
+                                android:textColor="#F44336" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginEnd="16dp"
+                            android:gravity="center">
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Holiday:"
+                                android:textColor="#FF666666" />
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="H"
+                                android:textColor="#333333" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Half Day:"
+                                android:textColor="#FF666666" />
+
+                            <TextView
+                                android:textSize="12sp"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="F"
+                                android:textColor="#2196F3" />
+                        </LinearLayout>
+
+
+
+                    </com.google.android.flexbox.FlexboxLayout>
+                    <HorizontalScrollView
+                        android:background="#11787878"
+                        android:layout_marginVertical="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <!-- Header Row -->
+                            <include layout="@layout/row_employee_header"
+                                android:id="@+id/header_row"/>
+
+                            <!-- RecyclerView for Students -->
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvAttendance"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

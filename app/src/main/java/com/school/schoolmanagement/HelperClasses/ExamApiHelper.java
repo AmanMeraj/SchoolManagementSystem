@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 import com.school.schoolmanagement.Admin.Model.ExamModel;
 import com.school.schoolmanagement.GlobalViewModel.ViewModel;
+import com.school.schoolmanagement.Model.StudentExamListResponse;
 import com.school.schoolmanagement.Utils.Utility;
 import java.util.ArrayList;
 
@@ -23,9 +24,14 @@ public class ExamApiHelper extends Utility {
 
     // Interface for callback
     public interface ExamListCallback {
-        void onSuccess(ArrayList<ExamModel.Datum> examList);
+        void onExamSuccess(ArrayList<ExamModel.Datum> examList);
         void onError(String errorMessage);
         void onLoading(boolean isLoading);
+    }
+    public interface StudentExamListCallback {
+        void onStudentExamSuccess(ArrayList<StudentExamListResponse.Datum> examList);
+        void onStudentError(String errorMessage);
+        void onStudentLoading(boolean isLoading);
     }
 
     // Interface for single exam callback
@@ -58,7 +64,7 @@ public class ExamApiHelper extends Utility {
                 if (response != null && response.code == 200) { // Check status code
                     if (response.data != null && !response.data.data.isEmpty()) {
                         // Return the actual ArrayList<Datum> from response
-                        callback.onSuccess(response.data.data);
+                        callback.onExamSuccess(response.data.data);
                     } else {
                         callback.onError("No exams found");
                     }
@@ -74,12 +80,43 @@ public class ExamApiHelper extends Utility {
             callback.onError("Context is not a LifecycleOwner");
         }
     }
+    public void fetchStudentExams(StudentExamListCallback callback) {
+        if (!isInternetConnected(context)) {
+            callback.onStudentError("No Internet Connection!");
+            return;
+        }
+
+        callback.onStudentLoading(true);
+        String auth = "Bearer " + pref.getPrefString(context, pref.user_token);
+
+        if (context instanceof LifecycleOwner) {
+            viewModel.getStudentExamList(auth).observe((LifecycleOwner) context, response -> {
+                callback.onStudentLoading(false);
+                if (response != null && response.code == 200) { // Check status code
+                    if (response.data != null && !response.data.data.isEmpty()) {
+                        // Return the actual ArrayList<Datum> from response
+                        callback.onStudentExamSuccess(response.data.data);
+                    } else {
+                        callback.onStudentError("No exams found");
+                    }
+                } else {
+                    String errorMessage = response != null && response.message != null
+                            ? response.message
+                            : "Failed to fetch exams";
+                    callback.onStudentError(errorMessage);
+                }
+            });
+        } else {
+            callback.onStudentLoading(false);
+            callback.onStudentError("Context is not a LifecycleOwner");
+        }
+    }
 
     // Method to fetch only valid exams (with complete data)
     public void fetchValidExams(ExamListCallback callback) {
         fetchAllExams(new ExamListCallback() {
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> examList) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examList) {
                 ArrayList<ExamModel.Datum> validExams = new ArrayList<>();
                 if (examList != null) {
                     for (ExamModel.Datum exam : examList) {
@@ -88,7 +125,7 @@ public class ExamApiHelper extends Utility {
                         }
                     }
                 }
-                callback.onSuccess(validExams);
+                callback.onExamSuccess(validExams);
             }
 
             @Override
@@ -107,7 +144,7 @@ public class ExamApiHelper extends Utility {
     public void fetchExamById(int examId, SingleExamCallback callback) {
         fetchAllExams(new ExamListCallback() {
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> examList) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examList) {
                 if (examList != null) {
                     for (ExamModel.Datum exam : examList) {
                         if (exam != null && exam.getExamId() == examId) {
@@ -161,6 +198,19 @@ public class ExamApiHelper extends Utility {
         }
 
         return examNames;
+    }  public ArrayList<String> getValidStudentsExamNames(ArrayList<StudentExamListResponse.Datum> examList) {
+        ArrayList<String> examNames = new ArrayList<>();
+        examNames.add("Select Exam"); // Default option
+
+        if (examList != null) {
+            for (StudentExamListResponse.Datum exam : examList) {
+                if (exam != null ) {
+                    examNames.add(exam.getExaminationName());
+                }
+            }
+        }
+
+        return examNames;
     }
 
     // Method to get exam ID by position (considering first item is "Select Exam")
@@ -188,11 +238,36 @@ public class ExamApiHelper extends Utility {
         }
         return -1; // Invalid selection
     }
+    public int getValidStudentExamIdByPosition(ArrayList<StudentExamListResponse.Datum> examList, int position) {
+        if (examList != null && position > 0) {
+            ArrayList<StudentExamListResponse.Datum> validExams = new ArrayList<>();
+            for (StudentExamListResponse.Datum exam : examList) {
+                if (exam != null) {
+                    validExams.add(exam);
+                }
+            }
+            if (position <= validExams.size()) {
+                StudentExamListResponse.Datum exam = validExams.get(position - 1);
+                return exam != null ? exam.getExamId() : -1;
+            }
+        }
+        return -1; // Invalid selection
+    }
 
     // Method to get exam data by ID
     public ExamModel.Datum getExamById(ArrayList<ExamModel.Datum> examList, int examId) {
         if (examList != null) {
             for (ExamModel.Datum exam : examList) {
+                if (exam != null && exam.getExamId() == examId) {
+                    return exam;
+                }
+            }
+        }
+        return null;
+    }
+    public StudentExamListResponse.Datum getStudentExamById(ArrayList<StudentExamListResponse.Datum> examList, int examId) {
+        if (examList != null) {
+            for (StudentExamListResponse.Datum exam : examList) {
                 if (exam != null && exam.getExamId() == examId) {
                     return exam;
                 }
@@ -234,7 +309,7 @@ public class ExamApiHelper extends Utility {
     public void checkExamsExist(ExamExistsCallback callback) {
         fetchAllExams(new ExamListCallback() {
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> examList) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examList) {
                 boolean hasExams = examList != null && !examList.isEmpty();
                 int examCount = hasExams ? examList.size() : 0;
                 callback.onResult(hasExams, examCount);
@@ -256,7 +331,7 @@ public class ExamApiHelper extends Utility {
     public void checkValidExamsExist(ExamExistsCallback callback) {
         fetchAllExams(new ExamListCallback() {
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> examList) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examList) {
                 int validExamCount = 0;
                 if (examList != null) {
                     for (ExamModel.Datum exam : examList) {

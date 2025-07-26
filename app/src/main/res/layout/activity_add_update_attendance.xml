@@ -101,7 +101,7 @@
                             android:id="@+id/tv_student_wise"
                             android:layout_marginHorizontal="5dp"
                             android:layout_marginVertical="5dp"
-                            android:background="@drawable/tab_bg"
+                            android:background="@drawable/ornage_blue_btn"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -146,6 +146,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
                         <RelativeLayout
+                            android:id="@+id/rel_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
@@ -163,7 +164,7 @@
                                     android:drawableEnd="@drawable/calendar2"
                                     android:editable="false"
                                     android:fontFamily="@font/plus_jakarta_sans"
-                                    android:hint=" DD/MM/YY"
+                                    android:hint="YYYY-MM-DD"
                                     android:maxLength="11"
                                     android:maxLines="1"
                                     android:paddingStart="10dp"
@@ -191,6 +192,7 @@
                         </RelativeLayout>
                         <!-- Select Class -->
                         <RelativeLayout
+                            android:id="@+id/rel_class"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="10dp"> <!-- Increase padding to make room for floating label -->
@@ -329,5 +331,10 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/view_loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"/>
 
 </RelativeLayout>

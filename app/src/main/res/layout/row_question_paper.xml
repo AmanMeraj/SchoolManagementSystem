@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="10dp"
+    android:gravity="center_vertical">
+
+    <!-- Sr -->
+    <TextView
+        android:id="@+id/tv_sr"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="Mid Term"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Class -->
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="10th"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Subject -->
+    <TextView
+        android:id="@+id/tv_subject"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="Science"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Exam Date -->
+    <TextView
+        android:id="@+id/tv_exam_date"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="15/07/2025"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Duration -->
+    <TextView
+        android:id="@+id/tv_duration"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:gravity="center"
+        android:text="2 hrs"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:paddingVertical="5dp" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/layout_action"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="5dp">
+
+        <ImageView
+            android:id="@+id/btn_edit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:padding="2dp"
+            android:src="@drawable/edit_sm"
+            android:contentDescription="Edit"
+            android:background="?selectableItemBackgroundBorderless" />
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="2dp"
+            android:src="@drawable/delete_sm"
+            android:contentDescription="Delete"
+            android:background="?selectableItemBackgroundBorderless"
+            app:tint="@color/dark_red" />
+    </LinearLayout>
+
+</LinearLayout>

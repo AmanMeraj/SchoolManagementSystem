@@ -117,10 +117,11 @@ public class ActivityEditOrDeleteExam extends AppCompatActivity {
 
     private void loadExams() {
         examApiHelper.fetchAllExams(new ExamApiHelper.ExamListCallback() {
+
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> examListResponse) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examListFromApi) {
                 examList.clear();
-                examList.addAll(examListResponse);
+                examList.addAll(examListFromApi);
 
                 // Update exam names for dropdown
                 examNames.clear();
@@ -130,6 +131,7 @@ public class ActivityEditOrDeleteExam extends AppCompatActivity {
                 Toast.makeText(ActivityEditOrDeleteExam.this,
                         "Loaded " + examList.size() + " exams", Toast.LENGTH_SHORT).show();
             }
+
 
             @Override
             public void onError(String errorMessage) {

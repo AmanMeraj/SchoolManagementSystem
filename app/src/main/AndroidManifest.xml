@@ -10,7 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Storage permissions with proper handling for different Android versions -->
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="29" /> <!-- For Android 13+ -->
+        android:maxSdkVersion="29"
+        tools:replace="android:maxSdkVersion" /> <!-- For Android 13+ -->
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
@@ -28,6 +29,51 @@
         android:theme="@style/Theme.SchoolManagement"
         tools:targetApi="31">
         <activity
+            android:name=".Admin.GeneralSettings.ActivityExamGrading"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityEmployeeAttendanceReport"
+            android:exported="false" />
+        <activity
+            android:name=".Teachers.Attendance.ActivityMarkEmployeesAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Certificate.ActivityCharacterOrLeaveCertificate"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Certificate.ActivityCertificateDataSelection"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityReportCardDisplay"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityStudentsReportCard"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityStudentsInfoReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityFeesCollectionReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityFeesCollectionReport1"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityEmployeeAttendanceReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityEmployeeMonthlyAttendance1"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityStudentMonthlyAttendance1"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityStudentsAttendanceReport"
+            android:exported="false" />
+        <activity
+            android:name=".Admin.Report.ActivityAccountReport"
+            android:exported="false" />
+        <activity
             android:name=".Admin.QuestionPaper.ActivityCreateQuestionPaper"
             android:exported="false" />
         <activity
@@ -37,7 +83,7 @@
             android:name=".Admin.QuestionPaper.ActivityAddSubjectChapter"
             android:exported="false" />
         <activity
-            android:name=".Admin.Exams.AddUpdateMarks.ActivityStudentsMarks"
+            android:name=".Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks"
             android:exported="false" />
         <activity
             android:name=".Admin.Salary.PaidReceipt.ActivityPaidReceiptDetails"
@@ -211,7 +257,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Students.Assingments.ActivityStudentsAssingments"
+            android:name=".Students.Assingments.ActivityStudentsAssignments"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -272,10 +318,6 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Admin.Exams.AddUpdateMarks.ActivitySelectClassorStudent"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".Admin.Exams.AddUpdateMarks.ActivityAddUpdateMarks"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -415,7 +457,7 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice"
+            android:name=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesInvoice"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -438,8 +480,9 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Login.ActivityLogin"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="true" />
         <activity
             android:name=".IntroScreen.ActivityIntroduction"
             android:exported="false"

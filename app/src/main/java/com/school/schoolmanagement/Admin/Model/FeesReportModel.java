@@ -7,11 +7,32 @@ public class FeesReportModel {
     private String amount;
     private String status;
 
-    public FeesReportModel(String id, String name, String dueDate, String amount, String status) {
+    public String getDepositedAmount() {
+        return depositedAmount;
+    }
+
+    public void setDepositedAmount(String depositedAmount) {
+        this.depositedAmount = depositedAmount;
+    }
+
+    public String getDueAmount() {
+        return dueAmount;
+    }
+
+    public void setDueAmount(String dueAmount) {
+        this.dueAmount = dueAmount;
+    }
+
+    private String depositedAmount;
+    private String dueAmount;
+
+    public FeesReportModel(String id, String name, String dueDate, String amount,String depositedAmount,String dueAmount, String status) {
         this.id = id;
         this.name = name;
         this.dueDate = dueDate;
         this.amount = amount;
+        this.depositedAmount=depositedAmount;
+        this.dueAmount=dueAmount;
         this.status = status;
     }
 

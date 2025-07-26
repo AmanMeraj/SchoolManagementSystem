@@ -1,41 +1,95 @@
 package com.school.schoolmanagement.retrofit;
 
 import com.school.schoolmanagement.Admin.Model.AccountGet;
+import com.school.schoolmanagement.Admin.Model.AccountReport;
+import com.school.schoolmanagement.Admin.Model.AccountSettings;
+import com.school.schoolmanagement.Admin.Model.AccountSettingsResponse;
 import com.school.schoolmanagement.Admin.Model.AddIncome;
+import com.school.schoolmanagement.Admin.Model.AddQuestionBank;
 import com.school.schoolmanagement.Admin.Model.AddStudentMark;
+import com.school.schoolmanagement.Admin.Model.AdminDashBoardClassGraph;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardAbsentStudents;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardAccountsOverview;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardClassInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardEmployeeInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardExpenseInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardFeesInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardNewAdmission;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardPresentEmployee;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardPresentPercent;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardSchoolInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardStudentInfo;
+import com.school.schoolmanagement.Admin.Model.AdminDashboardSubjectInfo;
 import com.school.schoolmanagement.Admin.Model.AllEmployees;
 import com.school.schoolmanagement.Admin.Model.AllEmployeesResponse;
 import com.school.schoolmanagement.Admin.Model.ClassListResponse;
 import com.school.schoolmanagement.Admin.Model.ClassModel;
+import com.school.schoolmanagement.Admin.Model.ClassModel2;
+import com.school.schoolmanagement.Admin.Model.ClassWiseAttendanceReport;
 import com.school.schoolmanagement.Admin.Model.ClassesWithSubjectsResponse;
 import com.school.schoolmanagement.Admin.Model.CreateChart;
 import com.school.schoolmanagement.Admin.Model.CreateClass;
 import com.school.schoolmanagement.Admin.Model.CreateExam;
 import com.school.schoolmanagement.Admin.Model.CreateHomework;
+import com.school.schoolmanagement.Admin.Model.CreateQuestionPaper;
+import com.school.schoolmanagement.Admin.Model.DashboardApiEstimatedFees;
 import com.school.schoolmanagement.Admin.Model.Employee2;
 import com.school.schoolmanagement.Admin.Model.EmployeeList;
 import com.school.schoolmanagement.Admin.Model.ExamModel;
+import com.school.schoolmanagement.Admin.Model.FeesRecordResponse;
+import com.school.schoolmanagement.Admin.Model.FeesReportResponse;
 import com.school.schoolmanagement.Admin.Model.FeesStructure;
 import com.school.schoolmanagement.Admin.Model.GetStudentTest;
+import com.school.schoolmanagement.Admin.Model.QuestionBankModel;
+import com.school.schoolmanagement.Admin.Model.QuestionPaperResponse;
+import com.school.schoolmanagement.Admin.Model.StudentId;
+import com.school.schoolmanagement.Admin.Model.StudentInfoReport;
 import com.school.schoolmanagement.Admin.Model.StudentMarksRequest;
 import com.school.schoolmanagement.Admin.Model.SubjectCreationResponse;
 import com.school.schoolmanagement.Admin.Model.SubjectRequestBody;
 import com.school.schoolmanagement.Admin.Model.SubjectUpdateRequest;
+import com.school.schoolmanagement.Admin.Model.SubmitFees;
 import com.school.schoolmanagement.GlobalRepository.GlobalRepository;
 import com.school.schoolmanagement.GlobalResponse.LoginResponse;
 import com.school.schoolmanagement.Model.AccountStatement;
+import com.school.schoolmanagement.Model.AddChapter;
 import com.school.schoolmanagement.Model.AllStudentResponse;
+import com.school.schoolmanagement.Model.AttendanceReport;
+import com.school.schoolmanagement.Model.CertificateResponse;
+import com.school.schoolmanagement.Model.ChapterResponse;
 import com.school.schoolmanagement.Model.ClassTestResult;
 import com.school.schoolmanagement.Model.CreateTest;
 import com.school.schoolmanagement.Model.Employee;
+import com.school.schoolmanagement.Model.EmployeeAttendanceReport;
+import com.school.schoolmanagement.Model.EmployeeDashboardResponse;
+import com.school.schoolmanagement.Model.EmployeeProfile;
 import com.school.schoolmanagement.Model.EmployeeResponse;
+import com.school.schoolmanagement.Model.FeesCollectionReport;
+import com.school.schoolmanagement.Model.FeesDefaulterModel;
+import com.school.schoolmanagement.Model.GetAttendanceResponse;
+import com.school.schoolmanagement.Model.GetEmployeeAttendance;
 import com.school.schoolmanagement.Model.HomeworkDetails;
 import com.school.schoolmanagement.Model.Login;
+import com.school.schoolmanagement.Model.ManageLoginEmployee;
 import com.school.schoolmanagement.Model.ModelResponse;
+import com.school.schoolmanagement.Model.PostEmployeeAttendance;
+import com.school.schoolmanagement.Model.PostStudentAttendance;
 import com.school.schoolmanagement.Model.PromotionBody;
+import com.school.schoolmanagement.Model.ResultPdfResponse;
 import com.school.schoolmanagement.Model.SalaryPaidResponse;
+import com.school.schoolmanagement.Model.StudentExamListResponse;
 import com.school.schoolmanagement.Model.StudentFields;
+import com.school.schoolmanagement.Model.StudentsAdmissionConfirmationResponse;
+import com.school.schoolmanagement.Model.StudentsAttendanceReport;
 import com.school.schoolmanagement.Model.UpdateStudentsResponse;
+import com.school.schoolmanagement.Students.Model.LastSubmittedFeesResponse;
+import com.school.schoolmanagement.Students.Model.StudentDashboardApiResponse1;
+import com.school.schoolmanagement.Students.Model.StudentDashboardApiResponse2;
+import com.school.schoolmanagement.Students.Model.StudentDashboardApiResponse3;
+import com.school.schoolmanagement.Students.Model.StudentHomeworkResponse;
+import com.school.schoolmanagement.Students.Model.StudentsExamResultResponse;
+import com.school.schoolmanagement.Students.Model.StudentsProfileResponse;
+import com.school.schoolmanagement.Students.Model.StudentsTestResultResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,6 +187,11 @@ public interface ApiRequest {
     Call<Employee2> getEmployee(
             @Header("Authorization") String auth,
             @Query("id") int employeeId
+    );
+    @Headers({"Accept: application/json"})
+    @GET("employee/get-employee")
+    Call<ManageLoginEmployee> getEmployee2(
+            @Header("Authorization") String auth
     );
 
     @Headers({"Accept: application/json"})
@@ -283,18 +342,297 @@ public interface ApiRequest {
     @POST("class/create-class")
     Call<EmployeeResponse> postClass(
             @Header("Authorization") String auth,
-            @Body CreateClass createClass);
+            @Body CreateClass createClass
+    );
+    @Headers({"Accept: application/json"})
+    @POST("subject/add-chapter")
+    Call<EmployeeResponse> addChapter(
+            @Header("Authorization") String auth,
+            @Body AddChapter addChapter
+    );
 
     @Headers({"Accept: application/json"})
-    @GET("class/get-all-classes")
+    @GET("subject/chapters")
+    Call<ChapterResponse> getChapters(
+            @Header("Authorization") String auth,
+            @Query("subjectId") int subjectId
+    );
+    @DELETE("subject/delete-chapter")
+    Call<EmployeeResponse> deleteChapter(
+            @Header("Authorization") String auth,
+            @Query("chapterId") int chapterId
+    );
+
+    @PATCH("subject/update-chapter")
+    Call<EmployeeResponse> updateChapter(
+            @Header("Authorization") String auth,
+            @Query("chapterId") int chapterId,
+            @Body AddChapter addChapter
+    );
+
+    @Headers({"Accept: application/json"})
+    @POST("question-bank/add")
+    Call<EmployeeResponse> addQuestionBank(
+            @Header("Authorization") String auth,
+            @Body AddQuestionBank addQuestionBank
+    );
+    @Headers({"Accept: application/json"})
+    @POST("question-papers/create")
+    Call<EmployeeResponse> addQuestionPaper(
+            @Header("Authorization") String auth,
+            @Body CreateQuestionPaper createQuestionPaper
+    );
+    @Headers({"Accept: application/json"})
+    @GET("question-papers/get")
+    Call<QuestionPaperResponse> getQuestionPaper(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/student/monthly-attendance-report")
+    Call<AttendanceReport> getStudentsMonthlyAttendance(
+            @Header("Authorization") String auth,
+            @Query("month") String month,
+            @Query("year") String year,
+            @Query("page") int page,
+            @Query("limit") int limit,
+            @Query("classId") int classId
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("report-card/account-report")
+    Call<AccountReport> getAccountReport(
+            @Header("Authorization") String auth,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("page") int page,
+            @Query("limit") int limit
+    );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/fees-collection")
+    Call<FeesCollectionReport> getStudentFeesCollectionReport(
+            @Header("Authorization") String auth,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("page") int page,
+            @Query("limit") int limit,
+            @Query("studentId") int studentId
+    );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/fees-collection")
+    Call<FeesCollectionReport> getClassFeesCollectionReport(
+            @Header("Authorization") String auth,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("page") int page,
+            @Query("limit") int limit,
+            @Query("classId") int classId
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("attendance/get")
+    Call<GetAttendanceResponse> getStudentsAttendance(
+            @Header("Authorization") String auth,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("classId") int classId
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("attendance/employee/status")
+    Call<GetEmployeeAttendance> getEmployeeAttendance(
+            @Header("Authorization") String auth,
+            @Query("date") String startDate
+    );
+    @Headers({"Accept: application/json"})
+    @POST("attendance/student/mark") // Replace with your actual endpoint
+    Call<EmployeeResponse> saveStudentAttendance(
+            @Header("Authorization") String auth,
+            @Body PostStudentAttendance attendanceRequest
+    );
+    @Headers({"Accept: application/json"})
+    @POST("attendance/employee/save") // Replace with your actual endpoint
+    Call<EmployeeResponse> saveEmployeeAttendance(
+            @Header("Authorization") String auth,
+            @Body PostEmployeeAttendance attendanceRequest
+    );
+
+    @Headers({"Accept: application/json"})
+    @PATCH("attendance/student/update") // Replace with your actual endpoint
+    Call<EmployeeResponse> updateStudentAttendance(
+            @Header("Authorization") String auth,
+            @Body PostStudentAttendance attendanceRequest
+    );
+    @Headers({"Accept: application/json"})
+    @PATCH("attendance/employee/update") // Replace with your actual endpoint
+    Call<EmployeeResponse> updateEmployeeAttendance(
+            @Header("Authorization") String auth,
+            @Body PostEmployeeAttendance attendanceRequest
+    );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/student-info")
+    Call<StudentInfoReport> getStudentReportClassWise(
+            @Header("Authorization") String auth,
+            @Query("classId") int classId
+    );
+    @Headers({"Accept: application/json"})
+    @GET("attendance/report/class-wise")
+    Call<ClassWiseAttendanceReport> getStudentAttendanceClassWise(
+            @Header("Authorization") String auth,
+            @Query("date") String date
+    );
+    @Headers({"Accept: application/json"})
+    @GET("attendance/report/student-wise")
+    Call<StudentsAttendanceReport> getStudentAttendanceReport(
+            @Header("Authorization") String auth,
+            @Query("classId") int classId,
+            @Query("startDate") String starDate,
+            @Query("endDate") String endDate
+    );
+    @Headers({"Accept: application/json"})
+    @GET("attendance/report/employee-wise")
+    Call<EmployeeAttendanceReport> getEmployeeAttendanceReport(
+            @Header("Authorization") String auth,
+            @Query("startDate") String starDate,
+            @Query("endDate") String endDate
+    );
+    @Headers({"Accept: application/json"})
+    @POST("report-card/student-info")
+    Call<EmployeeResponse> generatePdfResult(
+            @Header("Authorization") String auth,
+            @Body StudentId studentId
+            );
+    @Headers({"Accept: application/json"})
+    @Multipart
+    @POST("admin/add-account")
+    Call<EmployeeResponse> addBankAccount(
+            @Header("Authorization") String auth,
+            @Part("name") RequestBody name,
+            @Part("address") RequestBody address,
+            @Part("accNumber") RequestBody accNumber,
+            @Part("instruction") RequestBody instruction,
+            @Part MultipartBody.Part image
+    );
+    @Headers({"Accept: application/json"})
+    @PATCH("account-setting/update/{id}")
+    Call<EmployeeResponse> updateAccountSettings(
+            @Header("Authorization") String auth,
+            @Path("id") int id,
+            @Body AccountSettings accountSettings
+            );
+    @DELETE("account-setting/delete/{Id}")
+    Call<EmployeeResponse> deleteAccountSettings(
+            @Header("Authorization") String auth,
+            @Path("Id") int id
+    );
+    @Headers({"Accept: application/json"})
+    @GET("account-setting/get")
+    Call<AccountSettingsResponse> getAccountSettings(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @POST("account-setting/create")
+    Call<EmployeeResponse> postAccountSettings(
+            @Header("Authorization") String auth,
+            @Body AccountSettings accountSettings
+    );
+    @Headers({"Accept: application/json"})
+    @GET("certificates/leave")
+    Call<CertificateResponse> getLeaveCertificate(
+            @Header("Authorization") String auth,
+            @Query("date") String date,
+            @Query("classId") int classId,
+            @Query("studentId") int studentId
+    );
+    @Headers({"Accept: application/json"})
+    @GET("certificates/character")
+    Call<CertificateResponse> getCharacterCertificate(
+            @Header("Authorization") String auth,
+            @Query("date") String date,
+            @Query("classId") int classId,
+            @Query("studentId") int studentId
+    );
+
+    @Headers({"Accept: application/json"})
+    @POST("admin/add-rules")
+    Call<EmployeeResponse> postRulesAndRegulations(
+            @Header("Authorization") String auth,
+            @Body StudentId studentId
+            );
+
+    @Headers({"Accept: application/json"})
+    @GET("report-card/download/{studentId}")
+    Call<ResultPdfResponse> getPdfResult(
+            @Header("Authorization") String auth,
+            @Path("studentId")int studentId
+            );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/student-info")
+    Call<StudentInfoReport> getStudentReport(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("report-card/employee/monthly-attendance-report")
+    Call<AttendanceReport> getEmployeeMonthlyAttendance(
+            @Header("Authorization") String auth,
+            @Query("month") String month,
+            @Query("year") String year,
+            @Query("page") int page,
+            @Query("limit") int limit,
+            @Query("role") String role
+    );
+    @DELETE("question-papers/delete/{questionPaperId}")
+    Call<EmployeeResponse> deleteQuestionPaper(
+            @Header("Authorization") String auth,
+            @Path("questionPaperId") int questionPaperId
+    );
+
+    @PATCH("question-papers/update/{questionPaperId}")
+    Call<EmployeeResponse> updateQuestionPaper(
+            @Header("Authorization") String auth,
+            @Path("questionPaperId") int questionPaperId,
+            @Body CreateQuestionPaper createQuestionPaper
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("question-bank/get")
+    Call<QuestionBankModel> getQuestionBank(
+            @Header("Authorization") String auth
+    );
+
+    @DELETE("question-bank/delete/{questionBankId}")
+    Call<EmployeeResponse> deleteQuestionBank(
+            @Header("Authorization") String auth,
+            @Path("questionBankId") int questionBankId
+    );
+
+    @PATCH("question-bank/update/{questionBankId}")
+    Call<EmployeeResponse> updateQuestionBank(
+            @Header("Authorization") String auth,
+            @Path("questionBankId") int questionBankId,
+            @Body AddQuestionBank addQuestionBank
+    );
+    @Headers({"Accept: application/json"})
+    @GET("class/get-classes")
     Call<ClassModel> getAllClasses(
             @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("class/get-classes")
+    Call<ClassModel2> getAllClassesWithId(
+            @Header("Authorization") String auth,
+            @Query("classId") int classId
     );
 
     @Headers({"Accept: application/json"})
     @GET("student/fetch-student")
     Call<AllStudentResponse> getAllStudents(
             @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/fetch-student")
+    Call<AllStudentResponse> getStudent(
+            @Header("Authorization") String auth,
+            @Query("studentId") int studentId
     );
 
     @Headers({"Accept: application/json"})
@@ -317,6 +655,7 @@ public interface ApiRequest {
             @Query("studentId") int studentId,
             @Query("subjectId") int subjectId
     );
+
     @Headers({"Accept: application/json"})
     @GET("class/test-result/date-range")
     Call<ClassTestResult> getDateRangeWise(
@@ -398,6 +737,31 @@ public interface ApiRequest {
             @Header("Authorization") String authorization,
             @Path("classId") Integer classId,
             @Body List<SubjectRequestBody> subjects);
+    @GET("fees/report")
+    Call<FeesReportResponse> getFeesReport(
+            @Header("Authorization") String authorization,
+            @Query("classId") Integer classId,
+            @Query("studentId") Integer studentId,
+            @Query("startDate") String startDate,
+            @Query("endDate") String endDate,
+            @Query("page") Integer page,
+            @Query("size") Integer size
+    );
+    @GET("fees/fees-record")
+    Call<FeesRecordResponse> getFeesRecord(
+            @Header("Authorization") String authorization,
+            @Query("studentId") Integer studentId,
+            @Query("feesMonth") String feesMonth
+    );
+    @GET("fees/fees-defaulters")
+    Call<FeesDefaulterModel> getDefaulter(
+            @Header("Authorization") String authorization,
+            @Query("feesMonth") String feesMonth
+    );
+    @POST("fees/save")
+    Call<EmployeeResponse> postFees(
+            @Header("Authorization") String authorization,
+            @Body SubmitFees submitFees);
 
     @POST("employee/employee-salary/{employeeId}")
     Call<EmployeeResponse> paySalary(
@@ -417,99 +781,162 @@ public interface ApiRequest {
             @Body List<SubjectUpdateRequest> subjects
     );
 
+    // DASHBOARD API ENDPOINTS HERE
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/class-info")
+    Call<AdminDashboardClassInfo> getClassInfo(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/employee-info")
+    Call<AdminDashboardEmployeeInfo> getEmployeeInfo(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/estimated-fees")
+    Call<DashboardApiEstimatedFees> getEstimatedFees(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/expense-info")
+    Call<AdminDashboardExpenseInfo> getExpenseInfo(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/absent-students")
+    Call<AdminDashboardAbsentStudents> getAbsentStudents(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/present-staff")
+    Call<AdminDashboardPresentEmployee> getPresentEmployee(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/account-overview")
+    Call<AdminDashboardAccountsOverview> getAccountsOverview(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/percent-details")
+    Call<AdminDashboardPresentPercent> getPresentPercent(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/class-graph")
+    Call<List<AdminDashBoardClassGraph>> getClassGraph(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/new-admissions")
+    Call<AdminDashboardNewAdmission> getNewAdmission(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/fees-info")
+    Call<AdminDashboardFeesInfo> getFeesInfo(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/school-info")
+    Call<AdminDashboardSchoolInfo> getSchoolInfo(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/student-info")
+    Call<AdminDashboardStudentInfo> getStudentInfo(
+            @Header("Authorization") String auth
+    );
+
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/subject-info")
+    Call<AdminDashboardSubjectInfo> getSubjectInfo(
+            @Header("Authorization") String auth
+    );
+
+    // Employee API
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/employee-dashboard")
+    Call<EmployeeDashboardResponse> getEmployeeDashboard(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("employee/profile")
+    Call<EmployeeProfile> getEmployeeProfile(
+            @Header("Authorization") String auth,
+            @Query("employeeId") int employeeId
+    );
 
 
-
-
-
-
-//
-//    @Headers({"Accept: application/json"})
-//    @POST("custom/v1/verify-otp")
-//    Call<OtpResponse> postOtp(
-//            @Body Otp otp
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @POST("jwt-auth/v1/token")
-//    Call<SigninResponse> postLogin(
-//            @Body Login login
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @POST("custom/v1/wishlist/add")
-//    Call<WishlistAddResponse> addWishlist(
-//            @Header("Authorization") String authorization,
-//            @Body Wishlist wishlist
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @HTTP(method = "DELETE", path = "custom/v1/wishlist/delete", hasBody = true)
-//    Call<WishlistDeleteResponse> deleteWishlist(
-//            @Header("Authorization") String authorization,
-//            @Body Wishlist wishlist
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("wc/store/v1/products")
-//    Call<ArrayList<HomeResponse>> getHome(
-//            @Query("type") String type,
-//            @Query("category") int category
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("custom/v1/wishlist")
-//    Call<ArrayList<WishlistResponse>> getWishlist(
-//            @Header("Authorization") String authorization
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("custom/v1/customer-orders")
-//    Call<ArrayList<MyOrdersResponse>> getOrders(
-//            @Header("Authorization") String authorization
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("wc/store/v1/products/categories")
-//    Call<ArrayList<Category>> getCategory(
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("custom/v1/draws")
-//    Call<ArrayList<DrawResponse>> getDraw();
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("custom/v1/winners")
-//    Call<ArrayList<WinnerResponse>> getWinner();
-//
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("wc/store/v1/products")
-//    Call<List<ShopResponse>> getShop(
-//            @QueryMap Map<String, String> filters,
-//            @Query("category") int id,
-//            @Query("page") int page,
-//            @Query("per_page") int perPage
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("wc/store/v1/products/{id}")  // Add {id} as a placeholder in the URL
-//    Call<ShopResponse> getShopWishList(@Path("id") int id); // Pass the ID dynamically
-//
-//
-//
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("wc/store/v1/cart")
-//    Call<CartResponse> getCart(
-//            @Header("Authorization") String authorization
-//    );
-//
-//    @Headers({"Accept: application/json"})
-//    @GET("custom/v1/app-version")
-//    Call<AppVersion> getAppVersion(
-//    );
-
-
+    //STUDENT API
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/student-dashboard")
+    Call<StudentDashboardApiResponse1> GetStudentDashboard1(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/student/class-test-report")
+    Call<StudentDashboardApiResponse2> GetStudentDashboard2(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("dashboard/student-fees")
+    Call<StudentDashboardApiResponse3> GetStudentDashboard3(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/profile")
+    Call<StudentsProfileResponse> getStudentProfile(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/tests-result")
+    Call<StudentsTestResultResponse> getStudentTestResult(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/last-submitted")
+    Call<LastSubmittedFeesResponse> getLastSubmittedFees(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/homework")
+    Call<StudentHomeworkResponse> getStudentHomework(
+            @Header("Authorization") String auth,
+            @Query("date")String date
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/exam-result")
+    Call<StudentsExamResultResponse> getStudentExamResult(
+            @Header("Authorization") String auth,
+            @Query("examId")int examId
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/admission-confirmation")
+    Call<StudentsAdmissionConfirmationResponse> getStudentAdmissionConfirmation(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @GET("student/student/get-exams-details")
+    Call<StudentExamListResponse> getStudentExamList(
+            @Header("Authorization") String auth
+    );
+    @Headers({"Accept: application/json"})
+    @PATCH("student/update-password")
+    Call<EmployeeResponse> updateStudentPassword(
+            @Header("Authorization") String auth,
+            @Query("newPassword") String newPassword
+    );
+    @Headers({"Accept: application/json"})
+    @PATCH("employee/update-password")
+    Call<EmployeeResponse> updateEmployeePassword(
+            @Header("Authorization") String auth,
+            @Query("newPassword") String newPassword
+    );
 
 }

@@ -125,11 +125,22 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
+                    <com.school.schoolmanagement.GradientTextView
+                        android:layout_width="wrap_content"
+                        android:text="Class"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:layout_marginVertical="10dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/class_name"
+                        android:layout_height="wrap_content"/>
                     <com.google.android.flexbox.FlexboxLayout
+                        android:layout_below="@+id/class_name"
                         android:id="@+id/flexbox_buttons"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="20dp"
+                        android:layout_marginVertical="10dp"
                         android:layout_marginHorizontal="10dp"
                         app:flexWrap="wrap"
                         app:alignItems="center">
@@ -208,6 +219,7 @@
                         android:layout_below="@+id/flexbox_buttons"
                         android:layout_width="wrap_content"
                         android:layout_marginBottom="20dp"
+                        android:layout_marginTop="10dp"
                         android:layout_height="wrap_content">
                         <ImageView
                             android:layout_marginHorizontal="10dp"
@@ -400,6 +412,11 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.school.schoolmanagement"
-        minSdk 25
+        minSdk 26
         targetSdk 35
         versionCode 1
         versionName "1.0"
@@ -70,4 +70,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-mlkit-barcode-scanning:18.2.0'
     implementation 'org.jsoup:jsoup:1.15.4'
     implementation 'com.airbnb.android:lottie:6.1.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
+    implementation 'io.github.afreakyelf:Pdf-Viewer:2.1.1'
+    implementation 'org.apache.poi:poi:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
 }

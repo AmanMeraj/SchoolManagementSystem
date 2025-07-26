@@ -37,5 +37,26 @@
         <item name="android:paddingTop">2dp</item>
         <item name="android:paddingBottom">2dp</item>
     </style>
+    <style name="AttendanceHeader">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <style name="AttendanceHeaderSmall">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#888888</item>
+    </style>
+
+    <style name="AttendanceCell">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
 
 </resources>

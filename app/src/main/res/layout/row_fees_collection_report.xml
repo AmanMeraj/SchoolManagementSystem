@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="5dp"
+    android:layout_marginStart="10dp"> <!-- Optional background -->
+
+    <TextView
+        android:id="@+id/tv_sr"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="STU001"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="John Doe"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="01 Jul"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <TextView
+        android:id="@+id/tv_paid"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="$50"
+        android:textSize="11sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+</LinearLayout>

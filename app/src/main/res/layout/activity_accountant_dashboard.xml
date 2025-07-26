@@ -119,6 +119,7 @@
 
                                 </ImageView>
                                 <TextView
+                                    android:layout_marginEnd="20dp"
                                     android:id="@+id/tv_school_name"
                                     android:text="School Name"
                                     android:textColor="@color/black"
@@ -131,6 +132,7 @@
 
                                 </TextView>
                                 <TextView
+                                    android:layout_marginEnd="20dp"
                                     android:layout_marginVertical="5dp"
                                     android:id="@+id/tv_school_slogan"
                                     android:text="School Slogan"
@@ -143,17 +145,6 @@
                                     android:layout_height="wrap_content">
 
                                 </TextView>
-
-                                <ImageView
-                                    android:padding="5dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/down_arrow_2"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp">
-
-                                </ImageView>
 
                             </RelativeLayout>
 
@@ -187,8 +178,9 @@
                                 android:background="@drawable/orange_avatar_bg"
                                 android:layout_width="110dp"
                                 android:layout_height="110dp">
-                                <ImageView
+                                <de.hdodenhof.circleimageview.CircleImageView
                                     android:layout_centerInParent="true"
+                                    android:id="@+id/imgProfile"
                                     android:src="@drawable/avatar2"
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"/>
@@ -364,7 +356,6 @@
                                         android:id="@+id/tv_percentage_1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="75%"
                                         android:textSize="14sp"
                                         android:textColor="#FFFFFF"
                                         android:textStyle="bold"
@@ -439,8 +430,8 @@
                                         android:id="@+id/tv_overall_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Overall"
-                                        android:textSize="12sp"
+                                        android:text="  This \nMonth"
+                                        android:textSize="9sp"
                                         android:textColor="#FFFFFF"
                                         android:layout_centerHorizontal="true"
                                         android:layout_below="@id/tv_percentage_2" />

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="1dp">
+
+    <!-- Serial Number -->
+    <TextView
+        android:id="@+id/tv_serial_number"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="1" />
+
+    <!-- Student ID -->
+    <TextView
+        android:id="@+id/tv_student_id"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="STU001" />
+
+    <!-- Student Name -->
+    <TextView
+        android:id="@+id/tv_student_name"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="4dp"
+        android:text="John Doe"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Father Name -->
+    <TextView
+        android:id="@+id/tv_father_name"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="4dp"
+        android:text="Michael Doe"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Class -->
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="Class 10" />
+
+    <!-- Discount in Fees -->
+    <TextView
+        android:id="@+id/tv_discount_fees"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="₹500" />
+
+    <!-- Admission Date -->
+    <TextView
+        android:id="@+id/tv_admission_date"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="01/04/2024" />
+
+    <!-- Date of Birth -->
+    <TextView
+        android:id="@+id/tv_dob"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="15/03/2008" />
+
+    <!-- Age -->
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="16" />
+
+    <!-- Gender -->
+    <TextView
+        android:id="@+id/tv_gender"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="Male" />
+
+    <!-- Student Birth ID -->
+    <TextView
+        android:id="@+id/tv_birth_id"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="4dp"
+        android:text="BIRTH123456"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Religion -->
+    <TextView
+        android:id="@+id/tv_religion"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="Hindu" />
+
+    <!-- Cast -->
+    <TextView
+        android:id="@+id/tv_cast"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="General" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:text="Active" />
+
+</LinearLayout>

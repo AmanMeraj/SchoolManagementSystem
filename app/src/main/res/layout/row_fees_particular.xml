@@ -29,7 +29,7 @@
                 android:textColor="@color/black"
                 android:fontFamily="@font/plus_jakarta_sans"
                 android:textSize="14sp"
-                android:hint="Name of Institute"
+                android:hint="Name of Fees"
                 android:inputType="text"/>
         </RelativeLayout>
 

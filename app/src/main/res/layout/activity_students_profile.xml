@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Students.Profile.ActivityStudentsProfile">
     <include layout="@layout/back_toolbar"
         android:layout_height="wrap_content"
@@ -108,6 +109,7 @@
                                 android:layout_width="110dp"
                                 android:layout_height="110dp">
                                 <ImageView
+                                    android:id="@+id/img_profile"
                                     android:layout_centerInParent="true"
                                     android:src="@drawable/avatar2"
                                     android:layout_width="100dp"
@@ -287,6 +289,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content" />
                                 <TextView
+                                    android:id="@+id/tv_date_of_birth_value"
                                     android:text="11 March, 2025"
                                     android:textSize="12sp"
                                     android:textColor="@android:color/holo_blue_dark"
@@ -297,77 +300,99 @@
                                 <!-- Gender -->
                                 <TextView android:text="Gender" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="Male" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_gender_value"
+                                    android:text="Male" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Any Identification Mark -->
                                 <TextView android:text="Any Identification Mark?" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="Yes" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_identification_mark_value"
+                                    android:text="Yes" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Disease If Any -->
                                 <TextView android:text="Disease If Any?" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_disease_value"
+                                    android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Student Birth Form ID / NIC -->
                                 <TextView android:text="Student Birth Form ID / NIC" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="fghjfgi" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_birth_form_id_value"
+                                    android:text="fghjfgi" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Previous School -->
                                 <TextView android:text="Previous School" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="Al quenda" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_previous_school_value"
+                                    android:text="Al quenda" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Previous ID / Board Roll No -->
                                 <TextView android:text="Previous ID / Board Roll No" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="25233622" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_previous_id_value"
+                                    android:text="25233622" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Any Additional Note -->
                                 <TextView android:text="Any Additional Note" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_additional_note_value"
+                                    android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Orphan Student -->
                                 <TextView android:text="Orphan Student" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="No" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_orphan_student_value"
+                                    android:text="No" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- OSC -->
                                 <TextView android:text="OSC" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_osc_value"
+                                    android:text="None" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Religion -->
                                 <TextView android:text="Religion" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="Muslim" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_religion_value"
+                                    android:text="Muslim" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginVertical="8dp" android:background="#e0e0e0" />
 
                                 <!-- Total Siblings -->
                                 <TextView android:text="Total Siblings" android:textSize="13sp" android:textColor="#000000"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
-                                <TextView android:text="1" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
+                                <TextView
+                                    android:id="@+id/tv_total_siblings_value"
+                                    android:text="1" android:textSize="12sp" android:textColor="@android:color/holo_blue_dark"
                                     android:layout_width="wrap_content" android:layout_height="wrap_content"/>
                                 <!-- No divider at the end -->
 

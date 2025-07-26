@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,9 +15,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.school.schoolmanagement.Admin.Model.ClassModel;
+import com.school.schoolmanagement.GlobalViewModel.ViewModel;
+import com.school.schoolmanagement.HelperClasses.ClassApiHelper;
+import com.school.schoolmanagement.HelperClasses.StudentHelper;
 import com.school.schoolmanagement.R;
 import com.school.schoolmanagement.ScannerActivity;
+import com.school.schoolmanagement.Teachers.Exams.ActivityTeachersInsertMarks;
+import com.school.schoolmanagement.Utils.Utility;
 import com.school.schoolmanagement.databinding.ActivityAddUpdateAttendanceBinding;
 
 import java.text.SimpleDateFormat;
@@ -25,11 +33,17 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class ActivityAddUpdateAttendance extends AppCompatActivity {
+public class ActivityAddUpdateAttendance extends Utility implements ClassApiHelper.ClassListCallback {
 
     private ActivityAddUpdateAttendanceBinding binding;
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
+    ClassApiHelper classApiHelper;
+    String from="";
+    private final ArrayList<ClassModel.Data> classList = new ArrayList<>();
+    private final ArrayList<String> classNames = new ArrayList<>();
+    private ArrayAdapter<String> classAdapter;
+    private int selectedClassId = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +56,83 @@ public class ActivityAddUpdateAttendance extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Initialize calendar
-        calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-
+        from= getIntent().getStringExtra("from");
+        if(from!=null&& from.matches("EMPLOYEE")){
+            binding.relDate.setVisibility(View.VISIBLE);
+            binding.relClass.setVisibility(View.GONE);
+        }else {
+            binding.relDate.setVisibility(View.VISIBLE);
+            binding.relClass.setVisibility(View.VISIBLE);
+        }
+        initializeComponents();
         setupToolbar();
         setupTabSwitching();
         setupDatePicker();
-        setupClassDropdown();
+        setupClassAutoComplete(); // Only call this method
         setupButtons();
+        if(from.matches("STUDENT")){
+            loadClassList();
+        }
+
+    }
+
+    private void initializeComponents() {
+        // Initialize calendar
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        classApiHelper = new ClassApiHelper(this);
+    }
+
+    private void setupAutoCompleteTextViews() {
+        setupClassAutoComplete();
+    }
+
+    private void handleClassSelection(int position) {
+        if (position > 0 && position <= classList.size()) {
+            // Adjust position since we have "Select Class" at index 0
+            int actualPosition = position - 1;
+            if (actualPosition < classList.size()) {
+                selectedClassId = classList.get(actualPosition).getClassId();
+            }
+        } else {
+            selectedClassId = -1;
+        }
+    }
+
+    private void setupClassAutoComplete() {
+        // Initialize with empty list first
+        classNames.clear();
+        classNames.add("Select Class");
+
+        classAdapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, classNames);
+        classAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.edtSelectClass.setAdapter(classAdapter);
+
+        // Set threshold to show dropdown on click
+        binding.edtSelectClass.setThreshold(1);
+        binding.edtSelectClass.setHint("Select Class");
+
+        binding.edtSelectClass.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                handleClassSelection(position);
+            }
+        });
+
+        // Handle focus change to show dropdown
+        binding.edtSelectClass.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                binding.edtSelectClass.showDropDown();
+            }
+        });
+
+        // Handle click to show dropdown
+        binding.edtSelectClass.setOnClickListener(v -> {
+            binding.edtSelectClass.showDropDown();
+        });
     }
 
     private void setupToolbar() {
-
         View backButton = binding.toolbar.backBtn.findViewById(R.id.back_btn);
         if (backButton != null) {
             backButton.setOnClickListener(v -> onBackPressed());
@@ -118,33 +195,28 @@ public class ActivityAddUpdateAttendance extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    private void setupClassDropdown() {
-        // Sample class list - replace with your actual data source
-        List<String> classList = new ArrayList<>();
-        classList.add("Class 1");
-        classList.add("Class 2");
-        classList.add("Class 3");
-        classList.add("Class 4");
-        classList.add("Class 5");
+    // REMOVED: setupClassDropdown() method - this was overriding the API data
 
-        ArrayAdapter<String> classAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_dropdown_item_1line,
-                classList
-        );
-
-        binding.edtSelectClass.setAdapter(classAdapter);
-        binding.edtSelectClass.setOnClickListener(v -> {
-            binding.edtSelectClass.showDropDown();
-        });
+    private void loadClassList() {
+        // This method calls the API to fetch class list
+        if (classApiHelper != null) {
+            classApiHelper.fetchAllClasses(this); // Make sure this method exists in ClassApiHelper
+        }
     }
 
     private void setupButtons() {
+        setupAutoCompleteTextViews();
         // Submit button for manual attendance
         binding.submitBtn.setOnClickListener(v -> {
-            if (validateForm()) {
-                // Process the attendance data
+
+            if(from.matches("EMPLOYEE")){
+                if(validateForm2()){
+                    submitEmployeeAttendance();
+                }
+            }else{
+                if (validateForm()&&validateForm2()) {
                 submitAttendance();
+                 }
             }
         });
 
@@ -158,13 +230,19 @@ public class ActivityAddUpdateAttendance extends AppCompatActivity {
     private boolean validateForm() {
         boolean isValid = true;
 
-        if (binding.edtSelectDate.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show();
+        if (binding.edtSelectClass.getText().toString().isEmpty() ||
+                binding.edtSelectClass.getText().toString().equals("Select Class")) {
+            Toast.makeText(this, "Please select a class", Toast.LENGTH_SHORT).show();
             isValid = false;
         }
 
-        if (binding.edtSelectClass.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Please select a class", Toast.LENGTH_SHORT).show();
+        return isValid;
+    }
+    private boolean validateForm2() {
+        boolean isValid = true;
+
+        if (binding.edtSelectDate.getText().toString().isEmpty()) {
+            Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show();
             isValid = false;
         }
 
@@ -175,14 +253,22 @@ public class ActivityAddUpdateAttendance extends AppCompatActivity {
         String date = binding.edtSelectDate.getText().toString();
         String className = binding.edtSelectClass.getText().toString();
 
-        // Show a confirmation message
-        Toast.makeText(this, "Redirecting to attendance list for " + className + " on " + date, Toast.LENGTH_SHORT).show();
+        // Navigate to attendance list screen with selected parameters
+        Intent intent = new Intent(this, ActivityMarkAttendance.class);
+        intent.putExtra("selected_date", date);
+        intent.putExtra("selected_class", className);
+        intent.putExtra("selected_class_id", selectedClassId);
+        intent.putExtra("from", from);
+        startActivity(intent);
+    }
+    private void submitEmployeeAttendance() {
+        String date = binding.edtSelectDate.getText().toString();
 
         // Navigate to attendance list screen with selected parameters
-//        Intent intent = new Intent(this, AttendanceListActivity.class);
-//        intent.putExtra("selected_date", date);
-//        intent.putExtra("selected_class", className);
-//        startActivity(intent);
+        Intent intent = new Intent(this, ActivityMarkEmployeesAttendance.class);
+        intent.putExtra("selected_date", date);
+        intent.putExtra("from", from);
+        startActivity(intent);
     }
 
     private void launchScannerActivity() {
@@ -220,5 +306,55 @@ public class ActivityAddUpdateAttendance extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         binding = null;
+    }
+
+    private void showLoading(String message) {
+        binding.loader.rlLoader.setVisibility(View.VISIBLE);
+        runOnUiThread(() -> Toast.makeText(this, message, Toast.LENGTH_SHORT).show());
+    }
+
+    private void hideLoading() {
+        // Implement loading indicator hiding if you have one
+        // You can add a progress bar or loading overlay here
+        binding.loader.rlLoader.setVisibility(View.GONE);
+    }
+
+    // ClassApiHelper.ClassListCallback implementation
+    @Override
+    public void onSuccess(ArrayList<ClassModel.Data> classList) {
+        this.classList.clear();
+        this.classList.addAll(classList);
+        updateClassArrayAdapter();
+        hideLoading();
+    }
+
+    @Override
+    public void onError(String errorMessage) {
+        hideLoading();
+        runOnUiThread(() -> {
+            Toast.makeText(this, "Class Loading Error: " + errorMessage, Toast.LENGTH_LONG).show();
+        });
+    }
+
+    @Override
+    public void onLoading(boolean isLoading) {
+        if (isLoading) {
+            showLoading("Loading classes...");
+        } else {
+            hideLoading();
+        }
+    }
+
+    private void updateClassArrayAdapter() {
+        runOnUiThread(() -> {
+            classNames.clear();
+            classNames.add("Select Class");
+
+            for (ClassModel.Data classData : classList) {
+                classNames.add(classData.getClassName());
+            }
+
+            classAdapter.notifyDataSetChanged();
+        });
     }
 }

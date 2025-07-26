@@ -134,26 +134,17 @@
                                     android:layout_marginVertical="5dp"
                                     android:id="@+id/tv_school_slogan"
                                     android:text="School Slogan"
+                                    android:layout_marginEnd="20dp"
                                     android:textColor="@color/black"
                                     android:fontFamily="@font/plus_jakarta_sans"
                                     android:layout_toEndOf="@+id/image_logo"
                                     android:layout_below="@+id/tv_school_name"
                                     android:textSize="12sp"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 
                                 </TextView>
 
-                                <ImageView
-                                    android:padding="5dp"
-                                    android:layout_alignParentEnd="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:src="@drawable/down_arrow_2"
-                                    android:layout_width="40dp"
-                                    android:layout_height="40dp">
-
-                                </ImageView>
 
                             </RelativeLayout>
 
@@ -188,6 +179,7 @@
                                 android:layout_width="110dp"
                                 android:layout_height="110dp">
                                 <ImageView
+                                    android:id="@+id/profile_img"
                                     android:layout_centerInParent="true"
                                     android:src="@drawable/avatar2"
                                     android:layout_width="100dp"
@@ -368,7 +360,6 @@
                                         android:layout_centerHorizontal="true"
                                         android:indeterminateOnly="false"
                                         android:progressDrawable="@drawable/circular_progress"
-                                        android:progress="75"
                                         style="?android:attr/progressBarStyleHorizontal" />
 
                                     <!-- Percentage Text -->
@@ -376,7 +367,6 @@
                                         android:id="@+id/tv_percentage_1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="75%"
                                         android:textSize="14sp"
                                         android:textColor="#FFFFFF"
                                         android:textStyle="bold"
@@ -397,9 +387,9 @@
 
                                     <!-- Month Text -->
                                     <TextView
+                                        android:id="@+id/year_tv"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Jan 2025"
                                         android:textSize="16sp"
                                         android:textColor="#FFFFFF"
                                         android:layout_alignParentBottom="true"
@@ -430,7 +420,6 @@
                                         android:layout_centerHorizontal="true"
                                         android:indeterminateOnly="false"
                                         android:progressDrawable="@drawable/circular_progress_coral"
-                                        android:progress="75"
                                         style="?android:attr/progressBarStyleHorizontal" />
 
                                     <!-- Percentage Text -->
@@ -438,7 +427,6 @@
                                         android:id="@+id/tv_percentage_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="75%"
                                         android:textSize="14sp"
                                         android:textColor="#FFFFFF"
                                         android:textStyle="bold"
@@ -451,7 +439,7 @@
                                         android:id="@+id/tv_overall_2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Overall"
+                                        android:text="Monthly"
                                         android:textSize="12sp"
                                         android:textColor="#FFFFFF"
                                         android:layout_centerHorizontal="true"
@@ -459,9 +447,9 @@
 
                                     <!-- Month Text -->
                                     <TextView
+                                        android:id="@+id/month_tv"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="Jan 2025"
                                         android:textSize="16sp"
                                         android:textColor="#FFFFFF"
                                         android:layout_alignParentBottom="true"
@@ -884,7 +872,8 @@
                                         android:orientation="vertical"
                                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                                         android:id="@+id/rc_exam_progress"
-                                        android:layout_height="300dp">
+                                        android:layout_height="wrap_content"
+                                        >
 
                                     </androidx.recyclerview.widget.RecyclerView>
 

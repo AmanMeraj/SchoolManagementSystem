@@ -155,7 +155,7 @@ public class ActivityCreateNewClassTest2 extends Utility implements
     @Override
     public void onTestMarksSubmitted(EmployeeResponse response) {
         if(response.getMessage()!=null){
-            showToast(response.getMessage());
+            showToast("");
         }
         // You might want to finish the activity or navigate back
         finish();

@@ -55,6 +55,9 @@ public class AdapterAccountStatement extends RecyclerView.Adapter<AdapterAccount
         }
         notifyDataSetChanged();
     }
+    public List<AccountStatementModel> getCurrentFilteredData() {
+        return statementListFiltered; // or whatever your filtered data list is called
+    }
 
     @NonNull
     @Override

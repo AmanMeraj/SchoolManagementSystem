@@ -113,48 +113,7 @@
                         android:layout_height="wrap_content">
 
                         <!-- Subject Dropdown -->
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp">
 
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-
-                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                                    android:id="@+id/edt_subject"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="50dp"
-                                    android:layout_marginTop="10dp"
-                                    android:background="@drawable/edit_text_bg"
-                                    android:drawableEnd="@drawable/down_arrow"
-                                    android:inputType="none"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:cursorVisible="false"
-                                    android:hint="Select Subject"
-                                    android:paddingHorizontal="12dp"
-                                    android:paddingVertical="8dp"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:completionThreshold="0"
-                                    android:dropDownHeight="200dp" />
-                            </RelativeLayout>
-
-                            <TextView
-                                android:elevation="5dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Subject*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
-                                android:background="@drawable/edittext_bg"
-                                android:paddingHorizontal="10dp"
-                                android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp" />
-                        </RelativeLayout>
 
                         <!-- Class Dropdown -->
                         <RelativeLayout
@@ -199,8 +158,6 @@
                                 android:paddingVertical="2dp"
                                 android:layout_marginStart="15dp" />
                         </RelativeLayout>
-
-                        <!-- Chapter Dropdown -->
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -211,7 +168,7 @@
                                 android:layout_height="wrap_content">
 
                                 <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                                    android:id="@+id/edt_chapter"
+                                    android:id="@+id/edt_exam"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:layout_marginTop="10dp"
@@ -221,7 +178,7 @@
                                     android:focusable="false"
                                     android:focusableInTouchMode="false"
                                     android:cursorVisible="false"
-                                    android:hint="Select Chapter"
+                                    android:hint="Select Exam"
                                     android:paddingHorizontal="12dp"
                                     android:paddingVertical="8dp"
                                     android:textColor="@color/black"
@@ -235,7 +192,7 @@
                                 android:elevation="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Chapter*"
+                                android:text="Select Exam*"
                                 android:textSize="10sp"
                                 android:textColor="@color/white"
                                 android:background="@drawable/edittext_bg"
@@ -243,6 +200,92 @@
                                 android:paddingVertical="2dp"
                                 android:layout_marginStart="15dp" />
                         </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                    android:id="@+id/edt_subject"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:drawableEnd="@drawable/down_arrow"
+                                    android:inputType="none"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:cursorVisible="false"
+                                    android:hint="Select Subject"
+                                    android:paddingHorizontal="12dp"
+                                    android:paddingVertical="8dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:completionThreshold="0"
+                                    android:dropDownHeight="200dp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Subject*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Chapter Dropdown -->
+<!--                        <RelativeLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginBottom="10dp">-->
+
+<!--                            <RelativeLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content">-->
+
+<!--                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView-->
+<!--                                    android:id="@+id/edt_chapter"-->
+<!--                                    android:layout_width="match_parent"-->
+<!--                                    android:layout_height="50dp"-->
+<!--                                    android:layout_marginTop="10dp"-->
+<!--                                    android:background="@drawable/edit_text_bg"-->
+<!--                                    android:drawableEnd="@drawable/down_arrow"-->
+<!--                                    android:inputType="none"-->
+<!--                                    android:focusable="false"-->
+<!--                                    android:focusableInTouchMode="false"-->
+<!--                                    android:cursorVisible="false"-->
+<!--                                    android:hint="Select Chapter"-->
+<!--                                    android:paddingHorizontal="12dp"-->
+<!--                                    android:paddingVertical="8dp"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="14sp"-->
+<!--                                    android:fontFamily="@font/plus_jakarta_sans"-->
+<!--                                    android:completionThreshold="0"-->
+<!--                                    android:dropDownHeight="200dp" />-->
+<!--                            </RelativeLayout>-->
+
+<!--                            <TextView-->
+<!--                                android:elevation="5dp"-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:text="Chapter*"-->
+<!--                                android:textSize="10sp"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:background="@drawable/edittext_bg"-->
+<!--                                android:paddingHorizontal="10dp"-->
+<!--                                android:paddingVertical="2dp"-->
+<!--                                android:layout_marginStart="15dp" />-->
+<!--                        </RelativeLayout>-->
 
                         <!-- Difficulty Dropdown -->
                         <RelativeLayout
@@ -254,38 +297,75 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                                    android:id="@+id/edt_difficulty"
+                                <EditText
+                                    android:id="@+id/edt_question_type"
                                     android:layout_width="match_parent"
                                     android:layout_height="50dp"
                                     android:layout_marginTop="10dp"
                                     android:background="@drawable/edit_text_bg"
-                                    android:drawableEnd="@drawable/down_arrow"
-                                    android:inputType="none"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:cursorVisible="false"
-                                    android:hint="Select Difficulty"
+                                    android:inputType="text"
+                                    android:hint="Question Type"
                                     android:paddingHorizontal="12dp"
                                     android:paddingVertical="8dp"
                                     android:textColor="@color/black"
                                     android:textSize="14sp"
                                     android:fontFamily="@font/plus_jakarta_sans"
-                                    android:completionThreshold="0"
-                                    android:dropDownHeight="200dp" />
+                                    />
                             </RelativeLayout>
 
                             <TextView
                                 android:elevation="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Difficulty*"
+                                android:text="Question Type*"
                                 android:textSize="10sp"
                                 android:textColor="@color/white"
                                 android:background="@drawable/edittext_bg"
                                 android:paddingHorizontal="10dp"
                                 android:paddingVertical="2dp"
                                 android:layout_marginStart="15dp" />
+                        </RelativeLayout>
+
+                        <!-- Title Field -->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp">
+
+                            <RelativeLayout
+                                android:layout_marginTop="10dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/edt_marks"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/edit_text_bg"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:hint="Marks"
+                                    android:maxLines="1"
+                                    android:paddingStart="10dp"
+                                    android:inputType="number"
+                                    android:maxLength="4"
+                                    android:paddingTop="12dp"
+                                    android:paddingEnd="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:elevation="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Marks*"
+                                android:textSize="10sp"
+                                android:textColor="@color/white"
+                                android:background="@drawable/edittext_bg"
+                                android:paddingHorizontal="10dp"
+                                android:paddingVertical="2dp"
+                                android:layout_marginStart="15dp"/>
                         </RelativeLayout>
 
                         <!-- Question Text Area -->
@@ -330,45 +410,7 @@
                                 android:layout_marginStart="15dp"/>
                         </RelativeLayout>
 
-                        <!-- Title Field -->
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp">
 
-                            <RelativeLayout
-                                android:layout_marginTop="10dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-
-                                <EditText
-                                    android:id="@+id/edt_title"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="50dp"
-                                    android:background="@drawable/edit_text_bg"
-                                    android:fontFamily="@font/plus_jakarta_sans"
-                                    android:hint="Enter Title"
-                                    android:maxLines="1"
-                                    android:paddingStart="10dp"
-                                    android:paddingTop="12dp"
-                                    android:paddingEnd="10dp"
-                                    android:paddingBottom="10dp"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp" />
-                            </RelativeLayout>
-
-                            <TextView
-                                android:elevation="5dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Title*"
-                                android:textSize="10sp"
-                                android:textColor="@color/white"
-                                android:background="@drawable/edittext_bg"
-                                android:paddingHorizontal="10dp"
-                                android:paddingVertical="2dp"
-                                android:layout_marginStart="15dp"/>
-                        </RelativeLayout>
 
                         <!-- Create Button -->
                         <RelativeLayout
@@ -401,6 +443,70 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
                         </RelativeLayout>
+                        <LinearLayout
+                            android:layout_marginVertical="30dp"
+                            android:baselineAligned="false"
+                            android:visibility="gone"
+                            android:weightSum="2"
+                            android:id="@+id/edit_btn_linear"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+                            <RelativeLayout
+                                android:layout_marginStart="5dp"
+                                android:gravity="center"
+                                android:background="@drawable/blue_bg"
+                                android:id="@+id/btn_edit"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp">
+                                <ImageView
+                                    android:padding="3dp"
+                                    android:id="@+id/edit_btn_img"
+                                    android:src="@drawable/add_sm"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp">
+
+                                </ImageView>
+                                <TextView
+                                    android:gravity="center"
+                                    android:layout_alignBottom="@+id/edit_btn_img"
+                                    android:layout_alignTop="@+id/edit_btn_img"
+                                    android:paddingHorizontal="5dp"
+                                    android:text="Edit Chapter"
+                                    android:layout_toEndOf="@+id/edit_btn_img"
+                                    android:id="@+id/edit_txt"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:layout_marginStart="5dp"
+                                android:gravity="center"
+                                android:background="@drawable/orange_bg"
+                                android:id="@+id/btn_cancel"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="45dp">
+                                <TextView
+                                    android:gravity="center"
+                                    android:paddingHorizontal="5dp"
+                                    android:text="Cancel"
+                                    android:id="@+id/cancel_txt"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+
+                            </RelativeLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -580,6 +686,33 @@
                                     android:textColor="@color/white"
                                     android:fontFamily="@font/plus_jakarta_sans_extrabold"
                                     android:text="Class"/>
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Subject"/>
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Q Type"/>
+                                <TextView
+                                    android:layout_width="100dp"
+                                    android:layout_height="wrap_content"
+                                    android:paddingVertical="5dp"
+                                    android:gravity="center"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:text="Marks"/>
 
                                 <TextView
                                     android:layout_width="150dp"
@@ -618,4 +751,9 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+    <include
+        layout="@layout/view_loader"
+        android:id="@+id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

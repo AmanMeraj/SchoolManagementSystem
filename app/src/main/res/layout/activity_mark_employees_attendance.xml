@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teachers.Attendance.ActivityAddUpdateAttendance">
+    <include layout="@layout/back_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"/>
+    <androidx.core.widget.NestedScrollView
+        android:layout_below="@+id/toolbar"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_intro"
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:id="@+id/general_settings"
+                        android:layout_width="wrap_content"
+                        android:text="Attendance"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                        android:textSize="15sp"
+                        android:paddingHorizontal="10dp"
+                        android:layout_height="wrap_content"/>
+                    <View
+                        android:id="@+id/view"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_marginVertical="10dp"
+                        android:layout_toEndOf="@+id/general_settings"
+                        android:layout_width="1dp"
+                        android:layout_height="30dp">
+
+                    </View>
+                    <ImageView
+                        android:id="@+id/institute_profile_img"
+                        android:padding="5dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_toEndOf="@+id/view"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/institute_profile"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </ImageView>
+                    <TextView
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/institute_profile_img"
+                        android:layout_width="wrap_content"
+                        android:text="- Mark Attendance"
+                        android:textSize="11sp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/plus_jakarta_sans"
+                        android:layout_height="wrap_content"/>
+
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_below="@+id/card_intro"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                app:cardElevation="5dp"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/relative_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="16dp"
+                    tools:context=".YourActivity">
+
+                    <!-- Year and Date -->
+                    <com.school.schoolmanagement.GradientTextView
+                        android:id="@+id/yearDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Year1  22 Mar, 2025"
+                        android:textSize="13sp"
+                        android:background="#E6F0F3"
+                        android:padding="8dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp" />
+
+                    <!-- Mark Attendance Heading -->
+                    <com.school.schoolmanagement.GradientTextView
+                        android:id="@+id/markAttendanceHeading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mark Attendance"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                        android:layout_below="@id/yearDate"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp" />
+
+                    <!-- Status Legends -->
+                    <LinearLayout
+                        android:id="@+id/statusLegends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@id/markAttendanceHeading"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp">
+
+                        <!-- Present -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <View
+                                android:layout_width="16dp"
+                                android:layout_height="4dp"
+                                android:background="@color/light_blue"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Present"
+                                android:textSize="11sp"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <!-- On-leave -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="16dp">
+
+                            <View
+                                android:layout_width="16dp"
+                                android:layout_height="4dp"
+                                android:background="#00B5C6"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="On-leave"
+                                android:textSize="11sp"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                        <!-- Absent -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginStart="16dp">
+
+                            <View
+                                android:layout_width="16dp"
+                                android:layout_height="4dp"
+                                android:background="#FF0000"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Absent"
+                                android:textSize="11sp"
+                                android:textColor="#000000" />
+                            <View
+                                android:layout_marginStart="10dp"
+                                android:layout_width="16dp"
+                                android:layout_height="4dp"
+                                android:background="#FF0000"
+                                android:layout_marginEnd="4dp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Not Marked"
+                                android:textSize="11sp"
+                                android:textColor="#000000" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <HorizontalScrollView
+                        android:layout_below="@+id/statusLegends"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fillViewport="true"
+                        android:scrollbars="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Header Row -->
+                            <LinearLayout
+                                android:id="@+id/linear_top_heading"
+                                android:layout_marginTop="30dp"
+                                android:orientation="horizontal"
+                                android:paddingVertical="5dp"
+                                android:background="@drawable/button_bg_sm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:text="ID"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content" />
+
+                                <TextView
+                                    android:text="Employee Name"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:layout_width="120dp"
+                                    android:layout_height="wrap_content" />
+
+                                <TextView
+                                    android:text="Action"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:layout_width="140dp"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+
+                            <!-- RecyclerView -->
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rc_mark_attendance"
+                                android:layout_marginVertical="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="300dp"
+                                android:orientation="vertical"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                            <!-- Submit Button -->
+                            <RelativeLayout
+                                android:gravity="center"
+                                android:id="@+id/submit_btn"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:background="@drawable/blue_bg"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="16dp">
+
+                                <ImageView
+                                    android:id="@+id/submit_btn_img"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:padding="3dp"
+                                    android:src="@drawable/tick_circle"
+                                    android:layout_alignParentStart="true" />
+
+                                <TextView
+                                    android:id="@+id/submit_txt"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toEndOf="@id/submit_btn_img"
+                                    android:layout_marginStart="8dp"
+                                    android:text="SUBMIT"
+                                    android:textSize="15sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+
+
+
+                </RelativeLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <include layout="@layout/view_loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"/>
+
+</RelativeLayout>

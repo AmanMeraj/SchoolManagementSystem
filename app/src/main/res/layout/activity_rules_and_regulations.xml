@@ -18,6 +18,7 @@
             android:layout_marginHorizontal="10dp"
             android:padding="5dp"
             android:rotation="180"
+            android:id="@+id/img_back"
             android:src="@drawable/right"
             android:layout_width="40dp"
             android:layout_height="40dp"/>
@@ -185,5 +186,9 @@
 
         </RelativeLayout>
     </ScrollView>
+    <include layout="@layout/view_loader"
+        android:id="@id/loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

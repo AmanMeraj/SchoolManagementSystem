@@ -26,6 +26,7 @@ import com.school.schoolmanagement.Adapters.AdapterEmployeeSelection;
 import com.school.schoolmanagement.Admin.Adapter.AdapterSalaryReport;
 import com.school.schoolmanagement.Admin.Model.AllEmployees;
 import com.school.schoolmanagement.GlobalViewModel.ViewModel;
+import com.school.schoolmanagement.HelperClasses.DataExportHelper;
 import com.school.schoolmanagement.Model.SalaryPaidResponse;
 import com.school.schoolmanagement.R;
 import com.school.schoolmanagement.Utils.Utility;
@@ -84,6 +85,7 @@ public class ActivitySalaryReport extends Utility {
         setupRecyclerView();
         setupClickListeners();
         setupProgressDialog();
+        setupExportButtons();
 
         // Load employees data if internet is available
         if (isInternetConnected(this)) {
@@ -500,6 +502,115 @@ public class ActivitySalaryReport extends Utility {
     public String getSelectedFeesMonth() {
         return selectedFeesMonth;
     }
+    // Add these methods to your ActivitySalaryReport class
+
+    private void setupExportButtons() {
+        // Copy button
+        binding.tvCopy.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "copy");
+        });
+
+        // CSV button
+        binding.tvCsv.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "csv");
+        });
+
+        // Excel button
+        binding.tvExcel.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "excel");
+        });
+
+        // PDF button
+        binding.tvPdf.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "pdf");
+        });
+
+        // Print button
+        binding.tvPrint.setOnClickListener(view -> {
+            ArrayList<ArrayList<String>> tableData = prepareTableData();
+            handleExport(tableData, "print");
+        });
+    }
+
+    private void handleExport(ArrayList<ArrayList<String>> tableData, String action) {
+        if (tableData.size() <= 1) { // Only headers, no data
+            Toast.makeText(this, "No data to export", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        try {
+            // Create DataExportHelper instance with context
+            DataExportHelper exportHelper = new DataExportHelper(this);
+
+            // Generate dynamic filename based on selected criteria
+            String fileName = generateDynamicFileName();
+
+            // Use the exportData method with dynamic filename
+            exportHelper.exportData(tableData, action, fileName);
+
+        } catch (Exception e) {
+            Log.e(TAG, "Export error: " + e.getMessage());
+            Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private String generateDynamicFileName() {
+        String fileName = "salary_report";
+
+        // Include salary month if selected
+        if (!selectedFeesMonth.isEmpty()) {
+            fileName += "_" + selectedFeesMonth.replace("-", "_");
+        }
+
+        // Include employee name if selected
+        if (!selectedEmployeeName.isEmpty()) {
+            fileName += "_" + selectedEmployeeName.replace(" ", "_");
+        }
+
+        // Include date range if selected
+        if (!selectedStartDate.isEmpty() && !selectedEndDate.isEmpty()) {
+            fileName += "_" + selectedStartDate.replace("-", "_") + "_to_" + selectedEndDate.replace("-", "_");
+        }
+
+        return fileName;
+    }
+
+    private ArrayList<ArrayList<String>> prepareTableData() {
+        ArrayList<ArrayList<String>> tableData = new ArrayList<>();
+
+        // Add header row
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("Sr");
+        headers.add("ID");
+        headers.add("Name");
+        headers.add("Date");
+        headers.add("Amount");
+        headers.add("Paid");
+        tableData.add(headers);
+
+        int count = 1;
+        // Add data rows from your salaryDataList
+        for (SalaryPaidResponse.Datum salaryData : salaryDataList) {
+            ArrayList<String> row = new ArrayList<>();
+            row.add(String.valueOf(count));
+            row.add(salaryData.getEmployeeId() != -1 ? String.valueOf(salaryData.getEmployeeId()) : "");
+            row.add(salaryData.getEmployeeName() != null ? salaryData.getEmployeeName() : "");
+            row.add(salaryData.getDateOfReceiving() != null ? salaryData.getDateOfReceiving() : "");
+            row.add(salaryData.getTotalAmount() != 0 ? String.valueOf(salaryData.getTotalAmount()) : "");
+            row.add(salaryData.getNetPaid() != 0 ? String.valueOf(salaryData.getNetPaid()) : "");
+            tableData.add(row);
+            count++;
+        }
+
+        return tableData;
+    }
+
+// Add this method call in your onCreate() method after setupClickListeners():
+// setupExportButtons();
 
     @Override
     protected void onDestroy() {

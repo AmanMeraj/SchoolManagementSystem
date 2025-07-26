@@ -16,9 +16,8 @@
             android:id="@+id/tvDate"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="12/04/2025"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:fontFamily="@font/plus_jakarta_sans" />
 
@@ -26,9 +25,8 @@
             android:id="@+id/tvClass"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Year 1"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:fontFamily="@font/plus_jakarta_sans" />
 
@@ -36,9 +34,8 @@
             android:id="@+id/tvSubject"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="Maths"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:fontFamily="@font/plus_jakarta_sans" />
 
@@ -46,9 +43,8 @@
             android:id="@+id/tvTotalMark"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="100"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:fontFamily="@font/plus_jakarta_sans" />
 
@@ -56,9 +52,8 @@
             android:id="@+id/tvObtained"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:text="89"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:gravity="center"
             android:fontFamily="@font/plus_jakarta_sans" />
 

@@ -106,10 +106,11 @@ public class ActivityAddUpdateMarks extends AppCompatActivity {
         showLoading(true);
 
         examApiHelper.fetchAllExams(new ExamApiHelper.ExamListCallback() {
+
             @Override
-            public void onSuccess(ArrayList<ExamModel.Datum> exams) {
+            public void onExamSuccess(ArrayList<ExamModel.Datum> examList) {
                 runOnUiThread(() -> {
-                    handleExamsFetchSuccess(exams);
+                    handleExamsFetchSuccess(examList);
                 });
             }
 

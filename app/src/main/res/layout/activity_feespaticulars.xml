@@ -17,6 +17,7 @@
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="10dp"
             android:padding="5dp"
+            android:id="@+id/back_btn"
             android:rotation="180"
             android:src="@drawable/right"
             android:layout_width="40dp"

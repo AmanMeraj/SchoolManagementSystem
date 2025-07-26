@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.school.schoolmanagement.R;
+import com.school.schoolmanagement.Students.Model.StudentDashboardApiResponse3;
 import com.school.schoolmanagement.Students.Model.StudentsFeesPaidModel;
 import com.school.schoolmanagement.databinding.RowStudentsFeesReportBinding;
 import java.text.NumberFormat;
@@ -20,10 +21,10 @@ import java.util.List;
 
     public class AdapterStudentsFesPaid extends RecyclerView.Adapter<AdapterStudentsFesPaid.PaymentViewHolder> {
 
-        private final List<StudentsFeesPaidModel> paymentList;
+        private final List<StudentDashboardApiResponse3.Datum> paymentList;
         private final Context context;
 
-        public AdapterStudentsFesPaid(Context context, List<StudentsFeesPaidModel> paymentList) {
+        public AdapterStudentsFesPaid(Context context, List<StudentDashboardApiResponse3.Datum> paymentList) {
             this.context = context;
             this.paymentList = paymentList;
         }
@@ -38,7 +39,7 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(@NonNull PaymentViewHolder holder, int position) {
-            StudentsFeesPaidModel payment = paymentList.get(position);
+            StudentDashboardApiResponse3.Datum payment = paymentList.get(position);
 
             // Set basic information
             holder.binding.textViewMonthTitle.setText(payment.getMonth());

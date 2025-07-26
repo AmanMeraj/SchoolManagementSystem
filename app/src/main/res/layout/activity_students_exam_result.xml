@@ -148,7 +148,7 @@
                             android:layout_marginTop="20dp"
                             android:textSize="20sp"
                             android:layout_width="wrap_content"
-                            android:text="Admission Confirmation"
+                            android:text="Exam Result"
                             android:gravity="center"
                             android:layout_gravity="center"
                             android:layout_height="wrap_content"/>
@@ -263,7 +263,7 @@
                                     android:gravity="center"
                                     android:layout_toEndOf="@+id/refresh_img"
                                     android:layout_width="wrap_content"
-                                    android:text="PRINT ADMISSION LETTER"
+                                    android:text="PRINT EXAM RESULT"
                                     android:textColor="@color/white"
                                     android:fontFamily="@font/plus_jakarta_sans_bold"
                                     android:layout_height="wrap_content"/>

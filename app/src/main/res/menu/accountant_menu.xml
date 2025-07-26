@@ -25,6 +25,10 @@
         android:icon="@drawable/layout"
         android:title="Fees Record"/>
     <item
+        android:id="@+id/nav_accountant_fees_report"
+        android:icon="@drawable/layout"
+        android:title="Fees Report"/>
+    <item
         android:id="@+id/nav_accountant_account_statement"
         android:icon="@drawable/layout"
         android:title="Account Statement"/>
@@ -37,4 +41,8 @@
         android:id="@+id/nav_accountant_account_settings"
         android:icon="@drawable/layout"
         android:title="Account Settings"/>
+    <item
+        android:id="@+id/nav_accountant_logout"
+        android:icon="@drawable/layout"
+        android:title="Logout"/>
 </menu>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="10dp"
+    android:gravity="center_vertical"> <!-- optional -->
+
+    <!-- Sr -->
+    <TextView
+        android:id="@+id/tv_sr"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Title"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Class -->
+    <TextView
+        android:id="@+id/tv_class"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="10th"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Subject -->
+    <TextView
+        android:id="@+id/tv_subject"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Science"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Q Type -->
+    <TextView
+        android:id="@+id/tv_q_type"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="MCQ"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Marks -->
+    <TextView
+        android:id="@+id/tv_marks"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Question -->
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="What is Photosynthesis?"
+        android:textSize="12sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/plus_jakarta_sans_medium" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+        android:id="@+id/layout_action"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="3dp">
+
+        <ImageView
+            android:id="@+id/btn_edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="3dp"
+            android:src="@drawable/edit_sm"
+            android:contentDescription="Edit"
+            android:background="?selectableItemBackgroundBorderless" />
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="3dp"
+            android:src="@drawable/delete_sm"
+            android:contentDescription="Delete"
+            android:background="?selectableItemBackgroundBorderless"
+            app:tint="@color/dark_red" />
+    </LinearLayout>
+
+</LinearLayout>

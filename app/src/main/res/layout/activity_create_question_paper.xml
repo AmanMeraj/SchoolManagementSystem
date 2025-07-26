@@ -212,17 +212,10 @@
                             android:fontFamily="@font/plus_jakarta_sans"/>
                     </RelativeLayout>
 
-                    <!-- Date Row -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="16dp">
-
                         <!-- Start Date Field -->
                         <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp">
 
@@ -255,44 +248,6 @@
                                 android:textSize="14sp"
                                 android:fontFamily="@font/plus_jakarta_sans"/>
                         </RelativeLayout>
-
-                        <!-- End Date Field -->
-                        <RelativeLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="End Date*"
-                                android:textColor="@color/white"
-                                android:textSize="10sp"
-                                android:background="@drawable/edittext_bg"
-                                android:paddingHorizontal="10dp"
-                                android:paddingVertical="2dp"
-                                android:elevation="5dp"
-                                android:layout_marginStart="15dp"/>
-
-                            <EditText
-                                android:id="@+id/edt_end_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="50dp"
-                                android:layout_marginTop="10dp"
-                                android:background="@drawable/edit_text_bg"
-                                android:drawableEnd="@drawable/calendar2"
-                                android:editable="false"
-                                android:hint="dd/mm/yyyy"
-                                android:paddingStart="10dp"
-                                android:paddingEnd="10dp"
-                                android:paddingTop="12dp"
-                                android:paddingBottom="10dp"
-                                android:textColor="@color/black"
-                                android:textSize="14sp"
-                                android:fontFamily="@font/plus_jakarta_sans"/>
-                        </RelativeLayout>
-                    </LinearLayout>
 
                     <!-- Time Row -->
                     <LinearLayout
@@ -449,6 +404,7 @@
 
                     <!-- Auto Mark Register Toggle -->
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -487,6 +443,7 @@
                             app:tint="@color/white"/>
 
                         <TextView
+                            android:id="@+id/btn_create"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_toEndOf="@+id/create_icon"
@@ -716,6 +673,19 @@
                                     android:gravity="center"
                                     android:paddingVertical="5dp"
                                     android:text="Duration"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content">
+
+                                </TextView>
+                                <TextView
+                                    android:layout_marginHorizontal="5dp"
+                                    android:textSize="11sp"
+                                    android:id="@+id/tv_action"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_extrabold"
+                                    android:gravity="center"
+                                    android:paddingVertical="5dp"
+                                    android:text="Action"
                                     android:layout_width="80dp"
                                     android:layout_height="wrap_content">
 

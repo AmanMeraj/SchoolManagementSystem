@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.school.schoolmanagement.Students.Model.StudentTestModel;
+import com.school.schoolmanagement.Students.Model.StudentsTestResultResponse;
 import com.school.schoolmanagement.databinding.RowStudentTestDataBinding;
 
 import java.util.List;
@@ -13,9 +14,9 @@ import java.util.List;
 public class AdapterStudentTest extends RecyclerView.Adapter<AdapterStudentTest.ViewHolder> {
 
     private Context context;
-    private List<StudentTestModel> list;
+    private List<StudentsTestResultResponse.Datum> list;
 
-    public AdapterStudentTest(Context context, List<StudentTestModel> list) {
+    public AdapterStudentTest(Context context, List<StudentsTestResultResponse.Datum> list) {
         this.context = context;
         this.list = list;
     }
@@ -30,12 +31,12 @@ public class AdapterStudentTest extends RecyclerView.Adapter<AdapterStudentTest.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        StudentTestModel model = list.get(position);
-        holder.binding.tvDate.setText(model.getDate());
+        StudentsTestResultResponse.Datum model = list.get(position);
+        holder.binding.tvDate.setText(model.getTestDate());
         holder.binding.tvClass.setText(model.getClassName());
-        holder.binding.tvSubject.setText(model.getSubject());
-        holder.binding.tvTotalMark.setText(model.getTotalMark());
-        holder.binding.tvObtained.setText(model.getObtainedMark());
+        holder.binding.tvSubject.setText(model.getSubjectName());
+        holder.binding.tvTotalMark.setText(String.valueOf(model.getTotalMarks()));
+        holder.binding.tvObtained.setText(String.valueOf(model.getObtainedMarks()));
     }
 
     @Override

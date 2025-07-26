@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesIinvoice">
+    tools:context=".Admin.GeneralSettings.AccountFeesInvoice.ActivityAccountFeesInvoice">
     <RelativeLayout
         android:elevation="5dp"
         android:background="@drawable/tool_bar_bg"
@@ -125,7 +125,7 @@
                     android:background="@drawable/bg_gradient_border">
 
                     <!-- Circular Logo -->
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_marginVertical="10dp"
                         android:id="@+id/img_logo"
                         android:layout_width="80dp"
@@ -133,7 +133,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:src="@drawable/placeholder"
-                        android:scaleType="centerCrop" />
+                         />
 
                     <!-- Change Logo Button -->
                     <RelativeLayout
@@ -286,7 +286,7 @@
                             android:textColor="@color/black"
                             android:fontFamily="@font/plus_jakarta_sans"
                             android:textSize="14sp"
-                            android:maxLength="11"
+                            android:maxLength="25"
                             android:hint="Account Number"
                             android:inputType="text"/>
                     </RelativeLayout>
@@ -368,6 +368,7 @@
                             android:src="@drawable/add_sm"
                             android:layout_height="30dp"/>
                         <TextView
+                            android:id="@+id/btn_txt"
                             android:layout_alignTop="@+id/refresh_img"
                             android:layout_alignBottom="@+id/refresh_img"
                             android:paddingHorizontal="10dp"
@@ -425,75 +426,79 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"/>
                         </RelativeLayout>
-                        <LinearLayout
-                            android:id="@+id/linear_table_bank"
-                            android:weightSum="4"
-                            android:layout_marginHorizontal="10dp"
-                            android:orientation="horizontal"
-                            android:background="@drawable/button_bg_sm"
+                        <HorizontalScrollView
                             android:layout_below="@+id/rel_search"
+                            android:id="@+id/horizontal_scroll_view"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <TextView
-                                android:paddingVertical="8dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:text="Bank"
-                                android:textSize="13sp"
-                                android:textColor="@color/white"
-                                android:layout_width="0dp"
-                                android:fontFamily="@font/plus_jakarta_sans_bold"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:paddingVertical="8dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:text="Logo"
-                                android:textSize="13sp"
-                                android:textColor="@color/white"
-                                android:layout_width="0dp"
-                                android:fontFamily="@font/plus_jakarta_sans_bold"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:paddingVertical="8dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:text="Account No."
-                                android:textSize="13sp"
-                                android:textColor="@color/white"
-                                android:layout_width="0dp"
-                                android:fontFamily="@font/plus_jakarta_sans_bold"
-                                android:layout_height="wrap_content"/>
-                            <TextView
-                                android:paddingVertical="8dp"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:text="Actions"
-                                android:textSize="13sp"
-                                android:textColor="@color/white"
-                                android:layout_width="0dp"
-                                android:fontFamily="@font/plus_jakarta_sans_bold"
-                                android:layout_height="wrap_content"/>
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <LinearLayout
+                                    android:id="@+id/linear_table_bank"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:orientation="horizontal"
+                                    android:background="@drawable/button_bg_sm"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+                                    <TextView
+                                        android:paddingVertical="8dp"
+                                        android:gravity="center"
+                                        android:layout_width="120dp"
+                                        android:text="Bank"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_height="wrap_content"/>
+                                    <TextView
+                                        android:paddingVertical="8dp"
+                                        android:gravity="center"
+                                        android:layout_width="120dp"
+                                        android:text="Logo"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_height="wrap_content"/>
+                                    <TextView
+                                        android:paddingVertical="8dp"
+                                        android:gravity="center"
+                                        android:layout_width="120dp"
+                                        android:text="Account No."
+                                        android:textSize="13sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_height="wrap_content"/>
+                                    <TextView
+                                        android:paddingVertical="8dp"
+                                        android:gravity="center"
+                                        android:layout_width="120dp"
+                                        android:text="Actions"
+                                        android:textSize="13sp"
+                                        android:textColor="@color/white"
+                                        android:fontFamily="@font/plus_jakarta_sans_bold"
+                                        android:layout_height="wrap_content"/>
+                                </LinearLayout>
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:visibility="gone"
+                                    android:layout_width="match_parent"
+                                    android:layout_marginHorizontal="10dp"
+                                    android:orientation="vertical"
+                                    android:layout_below="@+id/linear_table_bank"
+                                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                    android:id="@+id/rc_bank_acc"
+                                    android:layout_height="wrap_content"/>
+                                <TextView
+                                    android:textColor="@color/black"
+                                    android:layout_below="@+id/linear_table_bank"
+                                    android:layout_marginVertical="40dp"
+                                    android:fontFamily="@font/plus_jakarta_sans"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_width="wrap_content"
+                                    android:text="No Data Available in table "
+                                    android:layout_height="wrap_content"/>
+                            </RelativeLayout>
+                        </HorizontalScrollView>
 
-                        </LinearLayout>
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:visibility="gone"
-                            android:layout_width="match_parent"
-                            android:layout_marginHorizontal="10dp"
-                            android:orientation="vertical"
-                            android:layout_below="@+id/linear_table_bank"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            android:id="@+id/rc_bank_acc"
-                            android:layout_height="wrap_content"/>
-                        <TextView
-                            android:textColor="@color/black"
-                           android:layout_below="@+id/linear_table_bank"
-                            android:layout_marginVertical="40dp"
-                            android:fontFamily="@font/plus_jakarta_sans"
-                            android:layout_centerHorizontal="true"
-                            android:layout_width="wrap_content"
-                            android:text="No Data Available in table "
-                            android:layout_height="wrap_content"/>
                     </RelativeLayout>
 
                 </com.google.android.material.card.MaterialCardView>

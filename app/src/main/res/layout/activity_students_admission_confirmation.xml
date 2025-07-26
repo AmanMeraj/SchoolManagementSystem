@@ -154,13 +154,15 @@
 
                                     <!-- Registration/ID -->
                                     <TextView
+                                        android:fontFamily="@font/plus_jakarta_sans"
                                         android:text="Registration/ID"
                                         android:textSize="13sp"
                                         android:textColor="#000000"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content" />
                                     <TextView
-                                        android:text="23234456"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:id="@+id/reg_no"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/holo_blue_dark"
                                         android:layout_width="wrap_content"
@@ -173,13 +175,15 @@
 
                                     <!-- Admission Date -->
                                     <TextView
+                                        android:fontFamily="@font/plus_jakarta_sans"
                                         android:text="Admission Date"
                                         android:textSize="13sp"
                                         android:textColor="#000000"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content" />
                                     <TextView
-                                        android:text="11 March, 2025"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:id="@+id/tv_admission_date"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/holo_blue_dark"
                                         android:layout_width="wrap_content"
@@ -192,13 +196,15 @@
 
                                     <!-- Account Status -->
                                     <TextView
+                                        android:fontFamily="@font/plus_jakarta_sans"
                                         android:text="Account Status"
                                         android:textSize="13sp"
                                         android:textColor="#000000"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content" />
                                     <TextView
-                                        android:text="Active"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:id="@+id/status"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/holo_green_dark"
                                         android:layout_width="wrap_content"
@@ -211,13 +217,15 @@
 
                                     <!-- Username -->
                                     <TextView
+                                        android:fontFamily="@font/plus_jakarta_sans"
                                         android:text="Username"
                                         android:textSize="13sp"
                                         android:textColor="#000000"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content" />
                                     <TextView
-                                        android:text="1083164kQu23234456"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:id="@+id/username"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/holo_blue_dark"
                                         android:layout_width="wrap_content"
@@ -230,13 +238,16 @@
 
                                     <!-- Password -->
                                     <TextView
+                                        android:fontFamily="@font/plus_jakarta_sans"
+
                                         android:text="Password"
                                         android:textSize="13sp"
                                         android:textColor="#000000"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content" />
                                     <TextView
-                                        android:text="1083164kQu23234456"
+                                        android:fontFamily="@font/plus_jakarta_sans"
+                                        android:id="@+id/password"
                                         android:textSize="12sp"
                                         android:textColor="@android:color/holo_blue_dark"
                                         android:layout_width="wrap_content"
@@ -289,4 +300,8 @@
             </com.google.android.material.card.MaterialCardView>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+    <include layout="@layout/view_loader"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/loader"/>
 </RelativeLayout>

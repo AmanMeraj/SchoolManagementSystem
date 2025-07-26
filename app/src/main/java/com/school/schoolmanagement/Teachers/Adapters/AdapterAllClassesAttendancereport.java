@@ -1,21 +1,21 @@
 package com.school.schoolmanagement.Teachers.Adapters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-import com.school.schoolmanagement.Teachers.Model.AllClassesAttendancereport;
+import com.school.schoolmanagement.Admin.Model.ClassWiseAttendanceReport;
 import com.school.schoolmanagement.databinding.RowAllClassAttendanceReportBinding;
 
 import java.util.List;
 
 public class AdapterAllClassesAttendancereport extends RecyclerView.Adapter<AdapterAllClassesAttendancereport.AttendanceViewHolder> {
 
-    private List<AllClassesAttendancereport> attendanceReports;
+    private List<ClassWiseAttendanceReport.Datum> attendanceReports;
 
-    public AdapterAllClassesAttendancereport(List<AllClassesAttendancereport> attendanceReports) {
+    public AdapterAllClassesAttendancereport(List<ClassWiseAttendanceReport.Datum> attendanceReports) {
         this.attendanceReports = attendanceReports;
     }
 
@@ -37,7 +37,7 @@ public class AdapterAllClassesAttendancereport extends RecyclerView.Adapter<Adap
 
     @Override
     public int getItemCount() {
-        return attendanceReports.size();
+        return attendanceReports != null ? attendanceReports.size() : 0;
     }
 
     public class AttendanceViewHolder extends RecyclerView.ViewHolder {
@@ -48,29 +48,36 @@ public class AdapterAllClassesAttendancereport extends RecyclerView.Adapter<Adap
             this.binding = binding;
         }
 
-        public void bind(AllClassesAttendancereport report) {
+        public void bind(ClassWiseAttendanceReport.Datum report) {
             // Set header text
             binding.tvAttendanceHeader.setText("Attendance report " + report.getDate() + " for");
-            binding.tvYear.setText(report.getYearName());
+            binding.tvYear.setText(report.myclass);
+            Log.d("AdapterDebug", "Class: " + report.getMyclass());
+
+            // Calculate percentages
+            int total = report.getTotal();
+            int presentPercentage = total > 0 ? (report.getPresent() * 100) / total : 0;
+            int leavePercentage = total > 0 ? (report.getLeave() * 100) / total : 0;
+            int absentPercentage = total > 0 ? (report.getAbsent() * 100) / total : 0;
 
             // Set present data
-            binding.tvPercentPresent.setText(report.getPresentPercentage() + "%");
-            binding.tvCountPresent.setText(String.valueOf(report.getPresentCount()));
-            binding.progressPresent.setProgress(report.getPresentPercentage());
+            binding.tvPercentPresent.setText(presentPercentage + "%");
+            binding.tvCountPresent.setText(String.valueOf(report.getPresent()));
+            binding.progressPresent.setProgress(presentPercentage);
 
             // Set on-leave data
-            binding.tvPercentLeave.setText(report.getOnLeavePercentage() + "%");
-            binding.tvCountLeave.setText(String.valueOf(report.getOnLeaveCount()));
-            binding.progressLeave.setProgress(report.getOnLeavePercentage());
+            binding.tvPercentLeave.setText(leavePercentage + "%");
+            binding.tvCountLeave.setText(String.valueOf(report.getLeave()));
+            binding.progressLeave.setProgress(leavePercentage);
 
             // Set absent data
-            binding.tvPercentAbsent.setText(report.getAbsentPercentage() + "%");
-            binding.tvCountAbsent.setText(String.valueOf(report.getAbsentCount()));
-            binding.progressAbsent.setProgress(report.getAbsentPercentage());
+            binding.tvPercentAbsent.setText(absentPercentage + "%");
+            binding.tvCountAbsent.setText(String.valueOf(report.getAbsent()));
+            binding.progressAbsent.setProgress(absentPercentage);
         }
     }
 
-    public void updateData(List<AllClassesAttendancereport> newData) {
+    public void updateData(List<ClassWiseAttendanceReport.Datum> newData) {
         this.attendanceReports = newData;
         notifyDataSetChanged();
     }

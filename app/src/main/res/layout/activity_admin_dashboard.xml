@@ -24,6 +24,7 @@
             android:elevation="4dp">
 
             <ImageView
+                android:id="@+id/logo_img"
                 android:padding="5dp"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
@@ -70,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="8dp">
+                android:padding="2dp">
                 <RelativeLayout
                     android:background="@drawable/grid_bg_1"
                     android:layout_width="match_parent"
@@ -118,7 +119,6 @@
                                     <TextView
                                         android:id="@+id/classes_number_tv"
                                         android:layout_width="wrap_content"
-                                        android:text="23"
                                         android:textSize="18sp"
                                         android:padding="5dp"
                                         android:textColor="@color/white"
@@ -149,7 +149,7 @@
                                         android:id="@+id/this_month_classes"
                                         android:gravity="bottom"
                                         android:layout_width="wrap_content"
-                                        android:text="6"
+                                        android:text=""
                                         android:textColor="@color/white"
                                         android:fontFamily="@font/plus_jakarta_sans"
                                         android:padding="5dp"
@@ -160,82 +160,6 @@
                         </androidx.cardview.widget.CardView>
 
                         <!-- Total Employees Card -->
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/card_total_sections"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_margin="8dp"
-                            app:cardCornerRadius="8dp"
-                            app:cardElevation="4dp"
-                            >
-                            <RelativeLayout
-                                android:background="@drawable/orange_frame"
-                                android:layout_width="match_parent"
-                                android:layout_height="115dp">
-                                <TextView
-                                    android:text="Total Sections"
-                                    android:textColor="@color/white"
-                                    android:id="@+id/sections_tv"
-                                    android:fontFamily="@font/plus_jakarta_sans_bold"
-                                    android:textSize="15sp"
-                                    android:layout_margin="10dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                                <RelativeLayout
-                                    android:id="@+id/rel_number_sections"
-                                    android:layout_below="@+id/sections_tv"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp">
-                                    <ImageView
-                                        android:padding="5dp"
-                                        android:layout_width="40dp"
-                                        android:src="@drawable/book_sm"
-                                        android:layout_height="40dp"/>
-                                    <TextView
-                                        android:id="@+id/section_numbers_tv"
-                                        android:layout_width="wrap_content"
-                                        android:text="23"
-                                        android:textSize="18sp"
-                                        android:padding="5dp"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans_bold"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_height="wrap_content"/>
-                                </RelativeLayout>
-                                <RelativeLayout
-                                    android:gravity="bottom"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_below="@+id/rel_number_sections"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp">
-                                    <TextView
-                                        android:textSize="12sp"
-                                        android:gravity="bottom"
-                                        android:layout_width="wrap_content"
-                                        android:text="This Month"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans"
-                                        android:padding="5dp"
-                                        android:layout_height="wrap_content"/>
-                                    <TextView
-                                        android:textSize="12sp"
-                                        android:layout_marginHorizontal="5dp"
-                                        android:layout_alignParentEnd="true"
-                                        android:id="@+id/this_month_sections"
-                                        android:gravity="bottom"
-                                        android:layout_width="wrap_content"
-                                        android:text="6"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans"
-                                        android:padding="5dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </RelativeLayout>
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-
                         <!-- Revenue Card -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_total_students"
@@ -327,7 +251,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="115dp">
                                 <TextView
-                                    android:text="Transferred Students"
+                                    android:text="Total Subjects"
                                     android:textColor="@color/black"
                                     android:id="@+id/transferred_students_tv"
                                     android:fontFamily="@font/plus_jakarta_sans_bold"
@@ -343,10 +267,11 @@
                                     <ImageView
                                         android:padding="5dp"
                                         android:layout_width="40dp"
-                                        android:src="@drawable/transfered_sm"
-                                        android:layout_height="40dp"/>
+                                        android:src="@drawable/book_sm"
+                                        android:layout_height="40dp"
+                                        app:tint="@color/black" />
                                     <TextView
-                                        android:id="@+id/transferred_students_numbers_tv"
+                                        android:id="@+id/subjects_numbers_tv"
                                         android:layout_width="wrap_content"
                                         android:text="23"
                                         android:textSize="18sp"
@@ -376,7 +301,7 @@
                                         android:textSize="12sp"
                                         android:layout_marginHorizontal="5dp"
                                         android:layout_alignParentEnd="true"
-                                        android:id="@+id/this_month_transferred_students"
+                                        android:id="@+id/this_month_subjects"
                                         android:gravity="bottom"
                                         android:layout_width="wrap_content"
                                         android:text="6"
@@ -540,82 +465,6 @@
                                 </RelativeLayout>
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/card_total_enquiries"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
-                            android:layout_margin="8dp"
-                            app:cardCornerRadius="8dp"
-                            app:cardElevation="4dp"
-                            >
-                            <RelativeLayout
-                                android:background="@drawable/yellow_frame"
-                                android:layout_width="match_parent"
-                                android:layout_height="115dp">
-                                <TextView
-                                    android:text="Total Enquiries"
-                                    android:textColor="@color/white"
-                                    android:id="@+id/enquiries_tv"
-                                    android:fontFamily="@font/plus_jakarta_sans_bold"
-                                    android:textSize="15sp"
-                                    android:layout_margin="10dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"/>
-                                <RelativeLayout
-                                    android:id="@+id/rel_number_enquiries"
-                                    android:layout_below="@+id/enquiries_tv"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp">
-                                    <ImageView
-                                        android:padding="5dp"
-                                        android:layout_width="40dp"
-                                        android:src="@drawable/enquiries_sm"
-                                        android:layout_height="40dp"/>
-                                    <TextView
-                                        android:id="@+id/enquiries_numbers_tv"
-                                        android:layout_width="wrap_content"
-                                        android:text="23"
-                                        android:textSize="18sp"
-                                        android:padding="5dp"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans_bold"
-                                        android:layout_alignParentEnd="true"
-                                        android:layout_centerVertical="true"
-                                        android:layout_height="wrap_content"/>
-                                </RelativeLayout>
-                                <RelativeLayout
-                                    android:gravity="bottom"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_below="@+id/rel_number_enquiries"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="40dp">
-                                    <TextView
-                                        android:textSize="12sp"
-                                        android:gravity="bottom"
-                                        android:layout_width="wrap_content"
-                                        android:text="This Month"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans"
-                                        android:padding="5dp"
-                                        android:layout_height="wrap_content"/>
-                                    <TextView
-                                        android:textSize="12sp"
-                                        android:layout_marginHorizontal="5dp"
-                                        android:layout_alignParentEnd="true"
-                                        android:id="@+id/this_month_enquiries"
-                                        android:gravity="bottom"
-                                        android:layout_width="wrap_content"
-                                        android:text="6"
-                                        android:textColor="@color/white"
-                                        android:fontFamily="@font/plus_jakarta_sans"
-                                        android:padding="5dp"
-                                        android:layout_height="wrap_content"/>
-
-                                </RelativeLayout>
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
                         <!-- Total Profit Card -->
                         <androidx.cardview.widget.CardView
                             android:id="@+id/card_total_staffs"
@@ -699,7 +548,7 @@
                         android:layout_below="@+id/grid_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                       android:layout_marginHorizontal="8dp"
+                        android:layout_marginHorizontal="8dp"
                         app:cardCornerRadius="8dp"
                         app:cardElevation="4dp"
                         android:backgroundTint="#40FF7459">
@@ -787,7 +636,7 @@
                             android:layout_alignTop="@+id/img_acc_overview"
                             android:layout_alignBottom="@+id/img_acc_overview"
                             android:layout_width="wrap_content"
-                            android:text="Last 6 month's"
+                            android:text="Last 12 month's"
                             android:textColor="@color/light_blue"
                             android:layout_height="wrap_content"/>
 
@@ -888,12 +737,12 @@
                             android:textSize="18sp"
                             android:textStyle="bold"/>
                         <RelativeLayout
+                            android:id="@+id/rel_recycler"
                             android:gravity="center"
                             android:layout_below="@+id/txt_absent_students"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <androidx.recyclerview.widget.RecyclerView
-                                android:visibility="gone"
                                 android:layout_toStartOf="@+id/send_message_absnt_students_btn"
                                 android:id="@+id/rc_absent_students"
                                 android:layout_marginVertical="10dp"
@@ -921,6 +770,37 @@
                             </androidx.appcompat.widget.AppCompatButton>
 
                         </RelativeLayout>
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/add_attendance_student_btn2"
+                            android:elevation="5dp"
+                            android:layout_marginVertical="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:paddingHorizontal="20dp"
+                            android:layout_below="@+id/rel_recycler"
+                            android:layout_width="wrap_content"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/add_img2"
+                                android:padding="5dp"
+                                android:src="@drawable/add_sm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+                            <TextView
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_toEndOf="@+id/add_img2"
+                                android:layout_alignTop="@id/add_img2"
+                                android:layout_alignBottom="@id/add_img2"
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:text="Add Attendance"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
                         <ImageView
                             android:layout_marginVertical="20dp"
                             android:layout_centerHorizontal="true"
@@ -930,6 +810,8 @@
                             android:src="@drawable/no_item_sm"
                             android:layout_height="wrap_content"/>
                         <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/add_attendance_student_btn"
                             android:elevation="5dp"
                             android:layout_marginVertical="20dp"
                             android:layout_centerHorizontal="true"
@@ -997,13 +879,11 @@
                             android:textSize="18sp"
                             android:textStyle="bold"/>
                         <RelativeLayout
-                            android:visibility="gone"
                             android:gravity="center"
                             android:layout_below="@+id/txt_present_staff"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <androidx.recyclerview.widget.RecyclerView
-                                android:layout_toStartOf="@+id/send_message_absnt_teachers_btn"
                                 android:id="@+id/rc_absent_teachers"
                                 android:layout_marginVertical="10dp"
                                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -1012,21 +892,36 @@
                                 android:layout_height="wrap_content">
 
                             </androidx.recyclerview.widget.RecyclerView>
-                            <androidx.appcompat.widget.AppCompatButton
-                                android:layout_centerVertical="true"
-                                android:gravity="center"
-                                android:layout_alignParentEnd="true"
+                            <RelativeLayout
+                                android:id="@+id/add_employee_attendance_rel2"
                                 android:elevation="5dp"
-                                android:layout_marginStart="10dp"
+                                android:layout_marginVertical="20dp"
+                                android:layout_centerHorizontal="true"
+                                android:paddingHorizontal="20dp"
+                                android:layout_below="@+id/rc_absent_teachers"
                                 android:layout_width="wrap_content"
-                                android:id="@+id/send_message_absnt_teachers_btn"
-                                android:textSize="10sp"
-                                android:text="Send Message"
-                                android:textColor="@color/white"
-                                android:background="@drawable/button_bg"
-                                android:layout_height="40dp">
+                                android:background="@drawable/button_bg_sm"
+                                android:layout_height="wrap_content">
+                                <ImageView
+                                    android:id="@+id/add_img_present_staff2"
+                                    android:padding="5dp"
+                                    android:src="@drawable/add_sm"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"/>
+                                <TextView
+                                    android:textSize="12sp"
+                                    android:textColor="@color/white"
+                                    android:fontFamily="@font/plus_jakarta_sans_bold"
+                                    android:paddingHorizontal="5dp"
+                                    android:layout_toEndOf="@+id/add_img_present_staff2"
+                                    android:layout_alignTop="@id/add_img_present_staff2"
+                                    android:layout_alignBottom="@id/add_img_present_staff2"
+                                    android:gravity="center"
+                                    android:layout_width="wrap_content"
+                                    android:text="Add Attendance"
+                                    android:layout_height="wrap_content"/>
 
-                            </androidx.appcompat.widget.AppCompatButton>
+                            </RelativeLayout>
                         </RelativeLayout>
                         <ImageView
                             android:layout_marginVertical="20dp"
@@ -1037,34 +932,35 @@
                             android:src="@drawable/no_item_sm"
                             android:layout_height="wrap_content"/>
                         <RelativeLayout
-                            android:elevation="5dp"
-                            android:layout_marginVertical="20dp"
-                            android:layout_centerHorizontal="true"
-                            android:paddingHorizontal="20dp"
-                            android:layout_below="@+id/no_item_present_staff"
+                        android:id="@+id/add_employee_attendance_rel"
+                        android:elevation="5dp"
+                        android:layout_marginVertical="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:paddingHorizontal="20dp"
+                        android:layout_below="@+id/no_item_present_staff"
+                        android:layout_width="wrap_content"
+                        android:background="@drawable/button_bg_sm"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/add_img_present_staff"
+                            android:padding="5dp"
+                            android:src="@drawable/add_sm"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"/>
+                        <TextView
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:fontFamily="@font/plus_jakarta_sans_bold"
+                            android:paddingHorizontal="5dp"
+                            android:layout_toEndOf="@+id/add_img_present_staff"
+                            android:layout_alignTop="@id/add_img_present_staff"
+                            android:layout_alignBottom="@id/add_img_present_staff"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:background="@drawable/button_bg_sm"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:id="@+id/add_img_present_staff"
-                                android:padding="5dp"
-                                android:src="@drawable/add_sm"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"/>
-                            <TextView
-                                android:textSize="12sp"
-                                android:textColor="@color/white"
-                                android:fontFamily="@font/plus_jakarta_sans_bold"
-                                android:paddingHorizontal="5dp"
-                                android:layout_toEndOf="@+id/add_img_present_staff"
-                                android:layout_alignTop="@id/add_img_present_staff"
-                                android:layout_alignBottom="@id/add_img_present_staff"
-                                android:gravity="center"
-                                android:layout_width="wrap_content"
-                                android:text="Add Attendance"
-                                android:layout_height="wrap_content"/>
+                            android:text="Add Attendance"
+                            android:layout_height="wrap_content"/>
 
-                        </RelativeLayout>
+                    </RelativeLayout>
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
@@ -1103,8 +999,8 @@
                             android:textSize="18sp"
                             android:textStyle="bold"/>
                         <RelativeLayout
-                            android:visibility="gone"
                             android:gravity="center"
+                            android:id="@+id/rc_new_admission_rel"
                             android:layout_below="@+id/txt_new_admission"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
@@ -1118,6 +1014,36 @@
 
                             </androidx.recyclerview.widget.RecyclerView>
                         </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/add_new_admission_btn_2"
+                            android:elevation="5dp"
+                            android:layout_marginVertical="20dp"
+                            android:layout_centerHorizontal="true"
+                            android:paddingHorizontal="20dp"
+                            android:layout_below="@+id/rc_new_admission_rel"
+                            android:layout_width="wrap_content"
+                            android:background="@drawable/button_bg_sm"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/add_img_new_admission_2"
+                                android:padding="5dp"
+                                android:src="@drawable/add_sm"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"/>
+                            <TextView
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/plus_jakarta_sans_bold"
+                                android:paddingHorizontal="5dp"
+                                android:layout_toEndOf="@+id/add_img_new_admission_2"
+                                android:layout_alignTop="@id/add_img_new_admission_2"
+                                android:layout_alignBottom="@id/add_img_new_admission_2"
+                                android:gravity="center"
+                                android:layout_width="wrap_content"
+                                android:text="Add Students"
+                                android:layout_height="wrap_content"/>
+
+                        </RelativeLayout>
 
                         <ImageView
                             android:layout_marginVertical="20dp"
@@ -1128,6 +1054,7 @@
                             android:src="@drawable/no_item_sm"
                             android:layout_height="wrap_content"/>
                         <RelativeLayout
+                            android:id="@+id/add_new_admission_btn"
                             android:elevation="5dp"
                             android:layout_marginVertical="20dp"
                             android:layout_centerHorizontal="true"
@@ -1358,7 +1285,7 @@
                             <TextView
                                 android:layout_below="@+id/tv_present_studentseek"
                                 android:id="@+id/percent_tv_present_students"
-                                android:text="100%"
+
                                 android:textSize="12sp"
                                 android:textColor="@color/light_blue"
                                 android:fontFamily="@font/plus_jakarta_sans_bold"
@@ -1396,7 +1323,7 @@
                             <TextView
                                 android:layout_below="@+id/percent_tv_present_employeeseek"
                                 android:id="@+id/percent_tv_present_employee"
-                                android:text="100%"
+
                                 android:textSize="12sp"
                                 android:textColor="@color/orange"
                                 android:fontFamily="@font/plus_jakarta_sans_bold"
@@ -1434,7 +1361,6 @@
                             <TextView
                                 android:layout_below="@+id/tv_this_month_fee_collection"
                                 android:id="@+id/percent_tv_fee_collection"
-                                android:text="100%"
                                 android:textSize="12sp"
                                 android:textColor="@color/green"
                                 android:fontFamily="@font/plus_jakarta_sans_bold"
@@ -1449,6 +1375,10 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
         </ScrollView>
+        <include layout="@layout/view_loader"
+            android:id="@+id/loader"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <!-- Navigation Drawer -->
@@ -1460,7 +1390,8 @@
         android:orientation="vertical">
 
         <!-- Keep your existing header -->
-        <include layout="@layout/nav_header"/>
+        <include layout="@layout/nav_header"
+            android:id="@+id/nav_head"/>
 
         <ExpandableListView
             android:id="@+id/expandable_nav_list"

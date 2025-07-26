@@ -9,6 +9,8 @@
     tools:context=".Login.ActivityLogin">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -16,7 +18,7 @@
             <ImageView
                 android:id="@+id/logo"
                 android:src="@drawable/logo_sm"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="80dp"
                 android:layout_marginBottom="10dp"
                 android:layout_centerHorizontal="true"
                 android:layout_width="100dp"
@@ -258,6 +260,7 @@
 
             </com.google.android.material.card.MaterialCardView>
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_marginBottom="30dp"
                 android:id="@+id/rel_forgot_pass"
                 android:layout_marginTop="30dp"

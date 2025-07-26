@@ -383,7 +383,6 @@
                                     android:layout_height="wrap_content"
                                     android:minWidth="80dp"
                                     android:inputType="number"
-                                    android:text="2346"
                                     android:textSize="14sp"
                                     android:fontFamily="@font/plus_jakarta_sans_bold"
                                     android:background="@drawable/edit_text_bg" />
@@ -408,7 +407,6 @@
                                     android:id="@+id/text_due_balance"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="234663"
                                     android:textColor="#FF0000"
                                     android:textSize="14sp"
                                     android:fontFamily="@font/plus_jakarta_sans_bold" />

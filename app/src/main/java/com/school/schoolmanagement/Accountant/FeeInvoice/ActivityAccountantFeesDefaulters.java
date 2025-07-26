@@ -32,11 +32,5 @@ public class ActivityAccountantFeesDefaulters extends AppCompatActivity {
             return insets;
         });
 
-        defaulterList = new ArrayList<>();
-        defaulterList.add(new FeesDefaulterModel("78945632222", "Aman Meraj"));
-        defaulterList.add(new FeesDefaulterModel("98765432100", "John Doe"));
-
-        adapter = new AdapterFeesDefaulter(this, defaulterList);
-        binding.rcDefaulters.setAdapter(adapter);
     }
 }

@@ -38,7 +38,6 @@ mpandroidchart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 

@@ -9,14 +9,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="12dp"
+        android:paddingVertical="8dp"
         android:background="@android:color/white">
 
         <!-- Student ID -->
         <TextView
+            android:gravity="center"
             android:id="@+id/tvStudentId"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="1344333"
             android:textSize="14sp"
@@ -27,23 +27,25 @@
 
         <!-- Student Name -->
         <TextView
+            android:layout_toEndOf="@+id/tvStudentId"
+            android:gravity="center"
             android:id="@+id/tvStudentName"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="John Doe"
             android:textSize="14sp"
             android:textColor="#000000"
             android:fontFamily="@font/plus_jakarta_sans_medium"
-            android:layout_centerHorizontal="true"
             android:layout_centerVertical="true" />
 
         <!-- Attendance Buttons Container -->
         <LinearLayout
+            android:layout_toEndOf="@+id/tvStudentName"
+            android:gravity="center"
             android:id="@+id/attendanceOptions"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true">
 
             <!-- Present -->
@@ -77,6 +79,16 @@
                 android:layout_height="30dp"
                 android:gravity="center"
                 android:text="A"
+                android:textSize="12sp"
+                android:textColor="#FF0000"
+                android:background="@drawable/bg_circle_absent"
+                android:layout_marginHorizontal="4dp" />
+            <TextView
+                android:id="@+id/btn_not_marked"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="NM"
                 android:textSize="12sp"
                 android:textColor="#FF0000"
                 android:background="@drawable/bg_circle_absent"

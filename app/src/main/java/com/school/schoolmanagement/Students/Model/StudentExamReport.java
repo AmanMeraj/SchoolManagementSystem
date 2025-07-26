@@ -2,13 +2,16 @@ package com.school.schoolmanagement.Students.Model;
 
 public class StudentExamReport {
 
-        private String title;
-        private int progress;
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public StudentExamReport(String title, int progress) {
-            this.title = title;
-            this.progress = progress;
-        }
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    private String title;
+    private int progress;
 
         public String getTitle() {
             return title;

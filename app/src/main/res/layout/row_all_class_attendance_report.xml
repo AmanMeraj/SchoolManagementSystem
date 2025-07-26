@@ -44,7 +44,7 @@
         android:id="@+id/llIndicators"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         android:orientation="horizontal"
         android:gravity="center"
         android:weightSum="3">
@@ -79,6 +79,8 @@
                 android:layout_centerInParent="true" />
 
             <TextView
+                android:padding="2dp"
+                android:background="@color/white"
                 android:id="@+id/tv_count_present"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,6 +133,8 @@
                 android:layout_centerInParent="true" />
 
             <TextView
+                android:padding="2dp"
+                android:background="@color/white"
                 android:id="@+id/tv_count_leave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,6 +187,8 @@
                 android:layout_centerInParent="true" />
 
             <TextView
+                android:padding="2dp"
+                android:background="@color/white"
                 android:id="@+id/tv_count_absent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

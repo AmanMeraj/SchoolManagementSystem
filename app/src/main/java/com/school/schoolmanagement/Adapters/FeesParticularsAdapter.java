@@ -34,18 +34,16 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
     public FeesParticularsAdapter(Context context) {
         this.context = context;
         this.feesParticularsList = new ArrayList<>();
-        initializeDefaultItems();
+        // Initialize with one empty editable item
+        feesParticularsList.add(new FeesParticular("", "", false));
+    }
+    public void clearAll() {
+        feesParticularsList.clear(); // assuming your list is called feesList
+        notifyDataSetChanged();
     }
 
     public void setOnDataChangeListener(OnDataChangeListener listener) {
         this.onDataChangeListener = listener;
-    }
-
-    private void initializeDefaultItems() {
-        // Pre-fill first 3 positions with default fees
-        feesParticularsList.add(new FeesParticular("Tuition Fees", "", true));
-        feesParticularsList.add(new FeesParticular("Admission Fees", "", true));
-        feesParticularsList.add(new FeesParticular("Examination Fees", "", true));
     }
 
     public void addNewItem() {
@@ -57,7 +55,7 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
     }
 
     public void removeLastItem() {
-        if (feesParticularsList.size() > 3) { // Don't allow removal of first 3 default items
+        if (feesParticularsList.size() > 1) { // Keep at least one item
             int lastPosition = feesParticularsList.size() - 1;
             feesParticularsList.remove(lastPosition);
             notifyItemRemoved(lastPosition);
@@ -111,6 +109,10 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
                 return "admissionFees";
             case "examination fees":
                 return "examinationFees";
+            case "transport fees":
+                return "transportFees";
+            case "library fees":
+                return "libraryFees";
             default:
                 // Convert to camelCase for custom fees
                 // Remove extra spaces and convert to camelCase
@@ -144,12 +146,15 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
         // Handle common default fees
         switch (feeKey) {
             case "tuitionFees":
-            case "tutionfees": // Handle typo as well
                 return "Tuition Fees";
             case "admissionFees":
                 return "Admission Fees";
             case "examinationFees":
                 return "Examination Fees";
+            case "transportFees":
+                return "Transport Fees";
+            case "libraryFees":
+                return "Library Fees";
             default:
                 // Convert camelCase to display name
                 StringBuilder displayName = new StringBuilder();
@@ -167,8 +172,11 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
         }
     }
 
-    public void populateFromFeesStructure(FeesStructure feesStructure) {
-        if (feesStructure == null) return;
+    public void populateFromFeesStructure(FeesStructure feesStructure, Map<String, String> displayNamesMap) {
+        if (feesStructure == null) {
+            // If no structure provided, keep the default single empty item
+            return;
+        }
 
         // Clear existing data
         feesParticularsList.clear();
@@ -176,33 +184,17 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
         // Get all fees from the structure
         Map<String, String> allFees = feesStructure.getFeesStructure();
 
-        // Add default fees first (maintain order)
-        String[] defaultFeeKeys = {"tuitionFees", "admissionFees", "examinationFees"};
-        String[] defaultFeeNames = {"Tuition Fees", "Admission Fees", "Examination Fees"};
-
-        for (int i = 0; i < defaultFeeKeys.length; i++) {
-            String amount = feesStructure.getFee(defaultFeeKeys[i]);
-            // Also check for common typos
-            if ("0".equals(amount) && "tuitionFees".equals(defaultFeeKeys[i])) {
-                amount = feesStructure.getFee("tutionfees");
-            }
-            feesParticularsList.add(new FeesParticular(defaultFeeNames[i], amount, true));
-        }
-
-        // Add additional fees (non-default ones)
+        // Add all fees from the structure
         for (Map.Entry<String, String> entry : allFees.entrySet()) {
             String feeKey = entry.getKey();
             String amount = entry.getValue();
+            String displayName = convertToDisplayName(feeKey);
+            feesParticularsList.add(new FeesParticular(displayName, amount, false));
+        }
 
-            // Skip if this is one of the default fees we already added
-            if (!feeKey.equals("tuitionFees") &&
-                    !feeKey.equals("tutionfees") &&
-                    !feeKey.equals("admissionFees") &&
-                    !feeKey.equals("examinationFees")) {
-
-                String displayName = convertToDisplayName(feeKey);
-                feesParticularsList.add(new FeesParticular(displayName, amount, false));
-            }
+        // If no fees were added, add one empty item
+        if (feesParticularsList.isEmpty()) {
+            feesParticularsList.add(new FeesParticular("", "", false));
         }
 
         notifyDataSetChanged();
@@ -236,30 +228,17 @@ public class FeesParticularsAdapter extends RecyclerView.Adapter<FeesParticulars
         holder.etInstituteName.setText(feesParticular.getFeesName());
         holder.edtAmount.setText(feesParticular.getAmount());
 
-        // For first 3 positions, make the fees name non-editable
-        if (position < 3) {
-            holder.etInstituteName.setEnabled(false);
-            holder.etInstituteName.setFocusable(false);
-            holder.tvHintName.setText(getDefaultFeesName(position));
-        } else {
-            holder.etInstituteName.setEnabled(true);
-            holder.etInstituteName.setFocusable(true);
-            holder.etInstituteName.setFocusableInTouchMode(true);
-            holder.tvHintName.setText("Fees Name");
-        }
+        // All items are now fully editable
+        holder.etInstituteName.setEnabled(true);
+        holder.etInstituteName.setFocusable(true);
+        holder.etInstituteName.setFocusableInTouchMode(true);
+
+        // Set hint text
+        holder.tvHintName.setText("Fees Name");
 
         // Set up TextWatchers
         setupTextWatcher(holder.etInstituteName, position, true);
         setupTextWatcher(holder.edtAmount, position, false);
-    }
-
-    private String getDefaultFeesName(int position) {
-        switch (position) {
-            case 0: return "Tuition Fees";
-            case 1: return "Admission Fees";
-            case 2: return "Examination Fees";
-            default: return "Fees Name";
-        }
     }
 
     private void setupTextWatcher(EditText editText, int position, boolean isFeesName) {
